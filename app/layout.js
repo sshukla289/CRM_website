@@ -61,14 +61,14 @@ export default function RootLayout({ children }) {
         </div>
         
         {/* Sticky Bottom Help Bar */}
-        <div className="fixed bottom-0 left-0 w-full bg-[#0b1220]/80 backdrop-blur-md border-t border-white/5 py-4 z-40 hidden md:block">
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8">
+        <div className="fixed bottom-0 left-0 w-full bg-[#0b1220]/80 backdrop-blur-md border-t border-white/5 py-3 sm:py-4 z-40">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8">
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Need help fast?</span>
-              <a href="tel:+919211941924" className="text-xl font-bold text-white hover:text-[#00b274] transition-all inline-block animate-pulse-slow">+91 9211941924</a>
+              <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap">Need help fast?</span>
+              <a href="tel:+919211941924" className="text-lg sm:text-xl font-bold text-white hover:text-[#00b274] transition-all inline-block animate-pulse-slow">+91 9211941924</a>
             </div>
-            <div className="h-4 w-px bg-white/10" />
-            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Instant consultation | Fast callback | No obligation</p>
+            <div className="hidden sm:block h-4 w-px bg-white/10" />
+            <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-wider text-center">Instant consultation | Fast callback | No obligation</p>
           </div>
         </div>
       </body>

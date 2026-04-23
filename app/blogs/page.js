@@ -9,6 +9,24 @@ import { slugify } from "@/lib/utils";
 
 const categories = ["All", "Sales", "Marketing", "Tech"];
 
+const BlogSkeleton = () => (
+  <div className="animate-pulse rounded-[1.5rem] border border-white/5 bg-white/[0.02] overflow-hidden">
+    <div className="h-48 bg-white/5" />
+    <div className="p-7 space-y-4">
+      <div className="h-2 w-16 bg-white/10 rounded-full" />
+      <div className="space-y-2">
+        <div className="h-4 bg-white/10 rounded-md w-3/4" />
+        <div className="h-4 bg-white/10 rounded-md w-1/2" />
+      </div>
+      <div className="space-y-2 pt-2">
+        <div className="h-2.5 bg-white/5 rounded-md" />
+        <div className="h-2.5 bg-white/5 rounded-md w-5/6" />
+      </div>
+      <div className="h-3 w-20 bg-white/10 rounded-full pt-4" />
+    </div>
+  </div>
+);
+
 export default function BlogsPage() {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
@@ -116,14 +134,15 @@ export default function BlogsPage() {
             </p>
           </div>
 
-          {isLoading ? (
-            <div className="flex justify-center py-20">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#7ef7c4] border-t-transparent"></div>
-            </div>
-          ) : (
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filteredPosts.length > 0 ? (
-                filteredPosts.map((post, index) => (
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {isLoading ? (
+              Array.from({ length: 6 }).map((_, i) => (
+                <BlogSkeleton key={i} />
+              ))
+            ) : (
+              <>
+                {filteredPosts.length > 0 ? (
+                  filteredPosts.map((post, index) => (
                   <article
                     key={post._id}
                     onClick={() => handleReadNow(post.title)}
@@ -183,9 +202,10 @@ export default function BlogsPage() {
                 <div className="col-span-full py-20 text-center">
                   <p className="text-slate-500">No posts found in this category.</p>
                 </div>
-              )}
-            </div>
-          )}
+                )}
+              </>
+            )}
+          </div>
         </div>
       </section>
 
