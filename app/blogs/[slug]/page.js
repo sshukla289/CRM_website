@@ -2,12 +2,13 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import Image from "next/image";
 
 const blogContent = {
   "inventory-solutions-msmes": {
     title: "Inventory Solutions for MSMEs: Boost Cash Flow",
-    category: "Inventory Solutions For Msmes",
+    category: "Growth",
     date: "Feb 14, 2026",
     author: "Triostack Team",
     image: "/blog_post_inventory_1776941433105.png",
@@ -24,28 +25,65 @@ const blogContent = {
       {
         type: "p",
         text: "Most small businesses lose between 15-25% of their potential annual revenue due to inventory-related inefficiencies. This includes storage costs for obsolete items and lost sales due to unavailability of high-demand products."
+      }
+    ]
+  },
+  "five-workflow-automations": {
+    title: "Five workflow automations that save mid-market teams hours every week",
+    category: "Automation",
+    date: "Feb 15, 2026",
+    author: "Triostack Team",
+    image: "/blog_post_inventory_1776941433105.png",
+    subtitle: "The most effective reminders, follow-up triggers, and approval automations are usually the simplest ones to adopt.",
+    content: [
+      {
+        type: "p",
+        text: "Workflow automation is often misunderstood as complex AI. In reality, it's about eliminating the 'copy-paste' tasks that drain your team's energy. Here are five simple triggers that can change your business today."
       },
       {
         type: "h2",
-        text: "3 Steps to Better Cash Flow"
+        text: "1. Automated Lead Assignment"
       },
       {
         type: "p",
-        text: "1. Demand Forecasting: Use historical sales data to predict future needs accurately. \n2. Real-time Visibility: Stop relying on weekly manual counts. \n3. Automated Reordering: Set safety stock levels to trigger orders before it's too late."
+        text: "Stop letting leads sit in an inbox. Round-robin assignment ensures every lead is contacted within minutes, not hours."
       }
-    ],
-    recentPosts: [
-      { title: "MSME CRM: Boost Sales and Cash Flow", date: "Feb 15, 2026", slug: "msme-crm-boost" },
-      { title: "MSME CRM Growth: Boost Sales and Cash Flow", date: "Feb 13, 2026", slug: "msme-crm-growth" },
-      { title: "CRM-Driven Growth for Indian MSMEs: Cash Flow", date: "Feb 13, 2026", slug: "crm-indian-msmes" }
+    ]
+  },
+  "pipeline-visibility-breaks": {
+    title: "Why pipeline visibility breaks as teams scale and how to fix it",
+    category: "Sales Ops",
+    date: "Feb 16, 2026",
+    author: "Triostack Team",
+    image: "/blog_post_inventory_1776941433105.png",
+    subtitle: "The common reporting blind spots that appear between lead intake, qualification, proposals, and closed revenue.",
+    content: [
+      {
+        type: "p",
+        text: "As teams grow from 5 to 50 sales reps, the spreadsheets that once worked begin to shatter. Data becomes fragmented, and managers lose the ability to see where deals are truly getting stuck."
+      },
+      {
+        type: "h2",
+        text: "The 'Middle-of-the-Funnel' Black Hole"
+      },
+      {
+        type: "p",
+        text: "Most companies know how many leads they got and how much they sold. The gap in between—where qualification and negotiation happen—is where most revenue is lost."
+      }
     ]
   }
 };
 
+const recentPosts = [
+  { title: "MSME CRM: Boost Sales and Cash Flow", date: "Feb 15, 2026", slug: "inventory-solutions-msmes" },
+  { title: "Five Workflow Automations", date: "Feb 13, 2026", slug: "five-workflow-automations" },
+  { title: "Pipeline Visibility Guide", date: "Feb 13, 2026", slug: "pipeline-visibility-breaks" }
+];
+
 export default function BlogPost() {
   const { slug } = useParams();
   const router = useRouter();
-  const post = blogContent[slug] || blogContent["inventory-solutions-msmes"]; // Default for demo
+  const post = blogContent[slug] || blogContent["inventory-solutions-msmes"];
 
   return (
     <main className="min-h-screen bg-[#0b1220]">
@@ -128,15 +166,15 @@ export default function BlogPost() {
                   RECENT POSTS
                 </h3>
                 <div className="space-y-8">
-                  {post.recentPosts.map((recent, i) => (
-                    <a key={i} href={`/blogs/${recent.slug}`} className="group block">
+                  {recentPosts.map((recent, i) => (
+                    <Link key={i} href={`/blogs/${recent.slug}`} className="group block">
                       <h4 className="text-white text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
                         {recent.title}
                       </h4>
                       <p className="text-slate-500 text-[10px] font-medium uppercase tracking-wider">
                         {recent.date}
                       </p>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -144,8 +182,6 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
-
-      {/* Contact Section removed as per request */}
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const categories = ["CRM Strategy", "Automation", "Sales Ops", "Compliance", "Growth"];
 
@@ -64,9 +65,9 @@ export default function BlogsPage() {
             <nav className="flex text-[11px] font-medium text-white/70 uppercase tracking-widest">
               <ol className="flex items-center gap-2">
                 <li>
-                  <a href="/" className="transition-colors hover:text-white">
+                  <Link href="/" className="transition-colors hover:text-white">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span>/</span>
@@ -111,26 +112,33 @@ export default function BlogsPage() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post, index) => (
-              <article key={post.slug} className="h-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#8be9ff]/25 hover:bg-white/[0.06] group animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="h-40 bg-[linear-gradient(135deg,#102235_0%,#0b1728_45%,#0b1220_100%)] p-6 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00b274]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="flex items-start justify-between gap-4 relative z-10">
-                    <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff]">
-                      {post.category}
-                    </span>
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{post.readTime}</span>
+              <Link 
+                key={post.slug} 
+                href={`/blogs/${post.slug}`}
+                className="group block h-full animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <article className="h-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 group-hover:border-[#8be9ff]/25 group-hover:bg-white/[0.06] flex flex-col">
+                  <div className="h-40 bg-[linear-gradient(135deg,#102235_0%,#0b1728_45%,#0b1220_100%)] p-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00b274]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex items-start justify-between gap-4 relative z-10">
+                      <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff]">
+                        {post.category}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{post.readTime}</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="p-7">
-                  <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-[#7ef7c4] transition-colors">{post.title}</h3>
-                  <p className="mt-3 text-[13px] leading-6 text-slate-400 line-clamp-2">{post.excerpt}</p>
-                  <a href={`/blogs/${post.slug}`} className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#7ef7c4] transition hover:gap-3">
-                    Read Now
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                </div>
-              </article>
+                  <div className="p-7 flex-grow flex flex-col">
+                    <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-[#7ef7c4] transition-colors">{post.title}</h3>
+                    <p className="mt-3 text-[13px] leading-6 text-slate-400 line-clamp-2">{post.excerpt}</p>
+                    <div className="mt-auto pt-5 flex items-center gap-2 text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3">
+                      Read Now
+                      <span aria-hidden="true">&rarr;</span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
