@@ -1,9 +1,8 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
-import ContactSection from "@/components/ContactSection";
 import Image from "next/image";
 
 const blogContent = {
@@ -46,6 +45,7 @@ const blogContent = {
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const router = useRouter();
   const post = blogContent[slug] || blogContent["inventory-solutions-msmes"]; // Default for demo
 
   return (
@@ -56,7 +56,21 @@ export default function BlogPost() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.05),transparent_40%)]" />
         
         <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* Back Button */}
           <Reveal>
+            <button 
+              onClick={() => router.back()}
+              className="group mb-8 flex items-center gap-2 text-slate-400 hover:text-[#00b274] transition-all text-xs font-bold uppercase tracking-widest"
+            >
+              <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Go Back
+            </button>
+          </Reveal>
+
+          <Reveal delay={50}>
             <div className="mb-8">
               <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
                 BLOG POST
@@ -134,7 +148,7 @@ export default function BlogPost() {
         </div>
       </section>
 
-      <ContactSection />
+      {/* Contact Section removed as per request */}
     </main>
   );
 }
