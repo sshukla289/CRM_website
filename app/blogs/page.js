@@ -30,7 +30,6 @@ const BlogSkeleton = () => (
 export default function BlogsPage() {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,8 +42,7 @@ export default function BlogsPage() {
           }
         });
         const data = await response.json();
-        setPosts(data);
-        setFilteredPosts(data);
+        setPosts(Array.isArray(data) ? data : []);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -55,20 +53,9 @@ export default function BlogsPage() {
     fetchBlogs();
   }, []);
 
-  useEffect(() => {
-    if (!posts || !Array.isArray(posts)) return;
-
-    if (activeCategory === "All") {
-      setFilteredPosts(posts);
-    } else {
-      const filtered = posts.filter((post) => {
-        const postCat = (post.category || "").trim().toLowerCase();
-        const activeCat = activeCategory.trim().toLowerCase();
-        return postCat === activeCat;
-      });
-      setFilteredPosts(filtered);
-    }
-  }, [activeCategory, posts]);
+  const displayPosts = activeCategory === "All" 
+    ? posts 
+    : posts.filter(post => (post.category || "").trim().toLowerCase() === activeCategory.trim().toLowerCase());
 
   const handleReadNow = (title) => {
     const slug = slugify(title);
@@ -146,8 +133,8 @@ export default function BlogsPage() {
               ))
             ) : (
               <>
-                {filteredPosts.length > 0 ? (
-                  filteredPosts.map((post, index) => (
+                {displayPosts.length > 0 ? (
+                  displayPosts.map((post, index) => (
                   <article
                     key={post._id}
                     onClick={() => handleReadNow(post.title)}
