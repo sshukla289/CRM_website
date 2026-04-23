@@ -3,15 +3,26 @@ import BlogClient from "./BlogClient";
 import { slugify } from "@/lib/utils";
 
 async function getBlogData(slug) {
-  const response = await fetch("https://api.blog-manager.triostack.in/api/blogs", {
-    headers: {
-      "Authorization": "Bearer 9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"
-    },
-    next: { revalidate: 3600 } 
-  });
-  const data = await response.json();
-  // Find by slugified title
-  return data.find(p => slugify(p.title) === slug);
+  try {
+    const response = await fetch("https://api.blog-manager.triostack.in/api/blogs", {
+      headers: {
+        "Authorization": `Bearer ${process.env.BLOG_API_TOKEN || "9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"}`
+      },
+      next: { revalidate: 3600 } 
+    });
+    
+    if (!response.ok) {
+      console.error(`API Error: ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    // Find by slugified title
+    return data.find(p => slugify(p.title) === slug);
+  } catch (error) {
+    console.error("Fetch Error:", error);
+    return null;
+  }
 }
 
 export async function generateMetadata({ params }) {

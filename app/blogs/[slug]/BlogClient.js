@@ -17,9 +17,16 @@ export default function BlogClient({ slug }) {
       try {
         const response = await fetch("https://api.blog-manager.triostack.in/api/blogs", {
           headers: {
-            "Authorization": "Bearer 9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"
+            "Authorization": `Bearer ${process.env.BLOG_API_TOKEN || "9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"}`
           }
         });
+
+        if (!response.ok) {
+           console.error(`API Error: ${response.status}`);
+           setIsLoading(false);
+           return;
+        }
+
         const data = await response.json();
         
         const currentPost = data.find(p => slugify(p.title) === slug);
