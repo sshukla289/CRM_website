@@ -6,6 +6,7 @@ import SocialStickyBar from "@/components/SocialStickyBar";
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
+  metadataBase: new URL('https://triostack.in'),
   title: {
     default: "Triostack CRM | Premium Enterprise Software Solution",
     template: "%s | Triostack CRM"

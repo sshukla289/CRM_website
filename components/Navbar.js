@@ -79,13 +79,13 @@ export default function Navbar() {
               <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-[#14c38e]/10">
                 <img 
                   src="/triostack-logo.jpeg" 
-                  alt="Triostack Logo" 
+                  alt="Trio-CRM Logo" 
                   className="w-full h-full object-cover"
                 />
 
 
               </div>
-              <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
+              <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Trio-CRM</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-2">

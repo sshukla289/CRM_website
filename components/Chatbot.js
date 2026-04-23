@@ -95,7 +95,7 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-6 right-6 z-[100] md:bottom-28 md:right-8">
       {/* Chat Window */}
-      <div className={`absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[550px] bg-[#0b1220]/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-500 origin-bottom-right flex flex-col ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-0 opacity-0 translate-y-10 pointer-events-none'}`}>
+      <div className={`absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[480px] bg-[#0b1220]/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-500 origin-bottom-right flex flex-col ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-0 opacity-0 translate-y-10 pointer-events-none'}`}>
         {/* Header */}
         <div className="bg-gradient-to-r from-[#00b274] to-[#008a5a] p-5 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-3">
@@ -121,10 +121,7 @@ export default function Chatbot() {
 
         {!isLeadsCaptured ? (
           /* Initial Lead Form */
-          <div className="flex-1 p-8 flex flex-col justify-center gap-6">
-            <div className="text-center space-y-2 mb-4">
-              <h4 className="text-xl font-bold text-white">Welcome!</h4>
-            </div>
+          <div className="flex-1 p-6 flex flex-col justify-center gap-6">
             <form onSubmit={handleInitialSubmit} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="text-[10px] uppercase tracking-widest font-bold text-[#00b274] ml-1">Full Name</label>
