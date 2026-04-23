@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
 const industries = [
@@ -88,46 +87,26 @@ export default function IndustriesPage() {
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-16 pt-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.14),transparent_28%)]" />
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#0d1523] to-transparent" />
-
+      <section className="relative overflow-hidden px-6 pb-10 pt-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.1),transparent_24%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-            <div className="grid gap-10 px-6 py-10 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-              <div>
-                <div className="inline-flex items-center gap-3 rounded-full border border-[#7ef7c4]/25 bg-[#0d1f25] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8df5d0]">
-                  <span className="h-2 w-2 rounded-full bg-[#34d399]" />
-                  Industry solutions
-                </div>
-                <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
-                  CRM systems shaped around the way each industry actually operates.
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                  Triostack adapts workflows, dashboards, approvals, and automation to the commercial realities of your sector instead of forcing every team into the same template.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-300">
-                  <a href="/" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:text-white">Home</a>
-                  <span className="text-white/20">/</span>
-                  <span className="rounded-full border border-[#7ef7c4]/20 bg-[#7ef7c4]/10 px-4 py-2 text-white">
-                    Industries
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/10 bg-[#091321] p-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">Coverage</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">6 sectors</p>
-                  <p className="mt-2 text-sm leading-7 text-slate-400">Focused solution patterns for high-touch sales and operations teams.</p>
-                </div>
-                <div className="rounded-[1.5rem] border border-white/10 bg-[#091321] p-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">Approach</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">Custom-first</p>
-                  <p className="mt-2 text-sm leading-7 text-slate-400">Workflows, roles, and analytics matched to your operational model.</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-col gap-3">
+            <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Industries
+            </h1>
+            <nav className="flex text-sm font-medium text-white/70">
+              <ol className="flex items-center gap-2">
+                <li>
+                  <a href="/" className="transition-colors hover:text-white">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <span>&gt;</span>
+                </li>
+                <li className="text-white">Industries</li>
+              </ol>
+            </nav>
           </div>
         </div>
       </section>
@@ -221,7 +200,6 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

@@ -1,16 +1,7 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
 const categories = ["CRM Strategy", "Automation", "Sales Ops", "Compliance", "Growth"];
-
-const featuredPost = {
-  category: "CRM Strategy",
-  readTime: "8 min read",
-  title: "How modern CRM design reduces sales friction across distributed teams",
-  excerpt:
-    "A practical look at how clearer handoffs, better dashboard structure, and targeted automation create momentum across marketing, sales, and operations.",
-};
 
 const posts = [
   {
@@ -56,45 +47,26 @@ export default function BlogsPage() {
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-16 pt-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.14),transparent_28%),radial-gradient(circle_at_top_right,rgba(20,195,142,0.18),transparent_32%)]" />
+      <section className="relative overflow-hidden px-6 pb-10 pt-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.1),transparent_24%),radial-gradient(circle_at_top_right,rgba(20,195,142,0.12),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-10 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-xl md:px-10">
-            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-              <div>
-                <div className="inline-flex items-center gap-3 rounded-full border border-[#8be9ff]/20 bg-[#0c1c29] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">
-                  <span className="h-2 w-2 rounded-full bg-[#38bdf8]" />
-                  Insights and updates
-                </div>
-                <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
-                  Articles on CRM, automation, operations, and growth systems.
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                  The Triostack blog shares practical thinking on building cleaner customer journeys, smarter internal workflows, and better reporting across modern teams.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-300">
-                  <a href="/" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:text-white">Home</a>
-                  <span className="text-white/20">/</span>
-                  <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-4 py-2 text-white">Blogs</span>
-                </div>
-              </div>
-
-              <div className="rounded-[1.75rem] border border-white/10 bg-[#091321] p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8be9ff]">{featuredPost.category}</p>
-                <p className="mt-2 text-sm text-slate-500">{featuredPost.readTime}</p>
-                <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white md:text-3xl">
-                  {featuredPost.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{featuredPost.excerpt}</p>
-                <a
-                  href="#"
-                  className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#7ef7c4]/20 bg-[#7ef7c4]/10 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#7ef7c4]/35 hover:bg-[#7ef7c4]/15"
-                >
-                  Read featured article
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </div>
+          <div className="flex flex-col gap-3">
+            <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Blogs
+            </h1>
+            <nav className="flex text-sm font-medium text-white/70">
+              <ol className="flex items-center gap-2">
+                <li>
+                  <a href="/" className="transition-colors hover:text-white">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <span>&gt;</span>
+                </li>
+                <li className="text-white">Blogs</li>
+              </ol>
+            </nav>
           </div>
         </div>
       </section>
@@ -186,7 +158,6 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

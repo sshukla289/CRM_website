@@ -119,12 +119,12 @@
 
   /* Marquee Animation */
   .animate-marquee-right {
-    animation: marqueeRight 40s linear infinite;
+    animation: marqueeRight 24s linear infinite;
   }
 
   @media (max-width: 768px) {
     .animate-marquee-right {
-      animation-duration: 25s;
+      animation-duration: 16s;
     }
   }
 

@@ -9,7 +9,6 @@ import ContactSection from "@/components/ContactSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import BrandSection from "@/components/BrandSection";
 import ConsultationSection from "@/components/ConsultationSection";
-import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -25,8 +24,6 @@ export default function HomePage() {
       <BrandSection />
       <TrustSection />
       <ContactSection />
-      <Footer />
-
       {/* Floating Elements */}
       <div className="fixed bottom-8 left-8 z-50">
         <button className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95">

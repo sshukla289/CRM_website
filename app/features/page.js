@@ -2,11 +2,10 @@
 
 export const dynamic = "force-dynamic";
 
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import ContactLink from "@/components/ContactLink";
+import BookCallModal from "@/components/BookCallModal";
 
 function FeatureIcon({ type }) {
   const iconClassName = "h-7 w-7";
@@ -211,6 +210,16 @@ const allFeatures = [
 ];
 
 export default function FeaturesPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <main className="min-h-screen bg-[#0B1220]">
       <Navbar />
@@ -277,15 +286,20 @@ export default function FeaturesPage() {
               <p className="text-slate-400 mb-10 max-w-2xl mx-auto text-lg">
                 Join hundreds of Indian enterprises that use Triostack to automate their sales and grow 2x faster.
               </p>
-              <ContactLink className="inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105">
+              <button
+                type="button"
+                onClick={handleModalOpen}
+                className="inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
+              >
                 Start Your Free Trial
-              </ContactLink>
+              </button>
             </div>
           </div>
         </div>
+
+        <BookCallModal isOpen={isModalOpen} onClose={handleModalClose} />
       </div>
 
-      <Footer />
     </main>
   );
 }

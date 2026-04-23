@@ -1,49 +1,13 @@
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
-[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+Error: spawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:421:11)
+    at spawn (node:child_process:762:9)
+    at fork (node:child_process:171:10)
+    at C:\Users\ACER\Desktop\CRM_Website\node_modules\next\dist\cli\next-dev.js:253:45
+    at new Promise (<anonymous>)
+    at startServer (C:\Users\ACER\Desktop\CRM_Website\node_modules\next\dist\cli\next-dev.js:221:16)
+    at runDevServer (C:\Users\ACER\Desktop\CRM_Website\node_modules\next\dist\cli\next-dev.js:355:23)
+    at Module.nextDev (C:\Users\ACER\Desktop\CRM_Website\node_modules\next\dist\cli\next-dev.js:363:11) {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawn'
+}

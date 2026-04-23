@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import Reveal from "@/components/Reveal";
 
@@ -175,7 +174,6 @@ export default function PricingPage() {
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }
