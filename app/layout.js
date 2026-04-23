@@ -1,12 +1,6 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 
 export const dynamic = 'force-dynamic';
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata = {
   title: "CRM Solutions | Premium Enterprise Software",
@@ -15,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <body className="antialiased">
         {children}
       </body>
