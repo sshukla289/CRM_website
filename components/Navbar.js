@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BookCallModal from "./BookCallModal";
 
@@ -11,6 +12,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
 
   const handleLoginClick = () => {
     window.location.assign(CRM_LOGIN_URL);
@@ -69,21 +71,26 @@ export default function Navbar() {
             : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="relative z-10 inline-flex items-center gap-2 cursor-pointer" aria-label="Go to home page">
               <div className="w-8 h-8 bg-gradient-to-br from-[#14c38e] via-[#19d3a2] to-[#53e5e2] rounded-lg rotate-12 flex items-center justify-center shadow-[0_8px_24px_rgba(20,195,142,0.35)]">
                 <span className="text-white font-bold -rotate-12">T</span>
               </div>
               <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-2">
               {links.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[13px] font-medium text-slate-200/90 hover:text-[#7ef7c4] transition-colors"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${
+                    pathname === link.href
+                      ? "text-[#7ef7c4]"
+                      : "text-slate-200/90 hover:text-[#7ef7c4]"
+                  }`}
                 >
                   {link.name}
                 </Link>
