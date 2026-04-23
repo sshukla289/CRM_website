@@ -7,7 +7,22 @@ import { useEffect, useState } from "react";
 import SEOComponent from "@/components/SEOComponent";
 import { slugify } from "@/lib/utils";
 
-const categories = ["All", "Sales", "Marketing", "Tech"];
+const ALL_CATEGORY = "All";
+
+const normalizeCategory = (value) => (value || "").trim().toLowerCase();
+
+const formatCategoryLabel = (value) => {
+  const trimmed = (value || "").trim();
+
+  if (!trimmed) {
+    return "General";
+  }
+
+  return trimmed
+    .split(/\s+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
 
 const BlogSkeleton = () => (
   <div className="animate-pulse rounded-[1.5rem] border border-white/5 bg-white/[0.02] overflow-hidden">
@@ -30,7 +45,7 @@ const BlogSkeleton = () => (
 export default function BlogsPage() {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -53,9 +68,25 @@ export default function BlogsPage() {
     fetchBlogs();
   }, []);
 
-  const displayPosts = activeCategory === "All" 
-    ? posts 
-    : posts.filter(post => (post.category || "").trim().toLowerCase() === activeCategory.trim().toLowerCase());
+  const categoryOptions = [
+    ALL_CATEGORY,
+    ...Array.from(
+      new Set(
+        posts
+          .map((post) => formatCategoryLabel(post.category))
+          .filter(Boolean)
+      )
+    ),
+  ];
+
+  const displayPosts =
+    activeCategory === ALL_CATEGORY
+      ? posts
+      : posts.filter(
+          (post) =>
+            normalizeCategory(formatCategoryLabel(post.category)) ===
+            normalizeCategory(activeCategory)
+        );
 
   const handleReadNow = (title) => {
     const slug = slugify(title);
@@ -95,20 +126,24 @@ export default function BlogsPage() {
       </section>
 
       <section className="px-6 py-4">
-        <div className="mx-auto flex max-w-7xl flex-wrap gap-2.5">
-          {categories.map((item) => (
-            <button
-              key={item}
-              onClick={() => setActiveCategory(item)}
-              className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition ${
-                activeCategory === item
-                  ? "border-[#7ef7c4]/25 bg-[#7ef7c4]/10 text-white"
-                  : "border-white/10 bg-white/5 text-slate-300 hover:text-white"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
+        <div className="mx-auto max-w-7xl">
+          <div className="inline-flex max-w-full flex-wrap gap-2 rounded-[1.6rem] border border-white/10 bg-white/[0.03] p-2 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+            {categoryOptions.map((item) => (
+              <button
+                key={item}
+                onClick={() => setActiveCategory(item)}
+                type="button"
+                className={`inline-flex min-w-[96px] items-center justify-center rounded-[1.05rem] border px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] transition-all duration-300 ${
+                  activeCategory === item
+                    ? "border-[#19d3a2]/40 bg-gradient-to-r from-[#00b274] via-[#19d3a2] to-[#4dd2ff] text-white shadow-[0_10px_30px_rgba(0,178,116,0.24)]"
+                    : "border-white/8 bg-[#131c2d] text-slate-300 hover:border-[#00b274]/30 hover:bg-[#102434] hover:text-white"
+                }`}
+                aria-pressed={activeCategory === item}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -163,7 +198,7 @@ export default function BlogsPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent opacity-60" />
                         <div className="absolute left-6 top-6 flex items-start justify-between gap-4">
                           <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff] backdrop-blur-md">
-                            {post.category}
+                            {formatCategoryLabel(post.category)}
                           </span>
                         </div>
                       </div>
