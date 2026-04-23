@@ -32,7 +32,8 @@ export async function generateMetadata({ params }) {
 
   if (!post) {
     return {
-      title: "Post Not Found",
+      title: "Trio-CRM Blog | Insights & Solutions",
+      description: "Explore the latest insights on CRM automation, sales growth, and enterprise solutions from Trio-CRM.",
     };
   }
 
