@@ -11,7 +11,7 @@ const blogContent = {
     category: "Growth",
     date: "Feb 14, 2026",
     author: "Triostack Team",
-    image: "/blog_post_inventory_1776941433105.png",
+    image: "/img.png",
     subtitle: "Inventory optimization delivers measurable ROI by slashing stockouts, reducing excess stock, and freeing working capital for growth.",
     content: [
       {
@@ -33,7 +33,7 @@ const blogContent = {
     category: "Automation",
     date: "Feb 15, 2026",
     author: "Triostack Team",
-    image: "/blog_post_inventory_1776941433105.png",
+    image: "/img.png",
     subtitle: "The most effective reminders, follow-up triggers, and approval automations are usually the simplest ones to adopt.",
     content: [
       {
@@ -50,12 +50,34 @@ const blogContent = {
       }
     ]
   },
+  "gst-ready-crm": {
+    title: "What GST-ready CRM operations should actually include",
+    category: "Compliance",
+    date: "Feb 17, 2026",
+    author: "Triostack Team",
+    image: "/img.png",
+    subtitle: "Invoicing, audit trails, role permissions, and reporting patterns that matter when finance and sales need a shared operating view.",
+    content: [
+      {
+        type: "p",
+        text: "A CRM becomes far more valuable when it reflects how finance and sales actually work together. GST-ready operations are not just about generating invoices. They depend on accurate customer records, clean tax fields, approval steps, and a reliable history of who changed what."
+      },
+      {
+        type: "h2",
+        text: "Shared records reduce compliance friction"
+      },
+      {
+        type: "p",
+        text: "When quotes, orders, tax details, and customer communication live in separate tools, teams lose confidence in the numbers. A GST-ready CRM should keep these records connected so the latest version is visible to both sales and finance."
+      }
+    ]
+  },
   "pipeline-visibility-breaks": {
     title: "Why pipeline visibility breaks as teams scale and how to fix it",
     category: "Sales Ops",
     date: "Feb 16, 2026",
     author: "Triostack Team",
-    image: "/blog_post_inventory_1776941433105.png",
+    image: "/img.png",
     subtitle: "The common reporting blind spots that appear between lead intake, qualification, proposals, and closed revenue.",
     content: [
       {
@@ -69,6 +91,50 @@ const blogContent = {
       {
         type: "p",
         text: "Most companies know how many leads they got and how much they sold. The gap in between—where qualification and negotiation happen—is where most revenue is lost."
+      }
+    ]
+  },
+  "building-crm-stack": {
+    title: "Building a CRM stack that supports growth without increasing operational chaos",
+    category: "Growth",
+    date: "Feb 18, 2026",
+    author: "Triostack Team",
+    image: "/img.png",
+    subtitle: "How to add structure for managers while keeping day-to-day workflows lightweight for the team actually using the system.",
+    content: [
+      {
+        type: "p",
+        text: "Growth usually adds tools faster than it adds clarity. Teams adopt chat, spreadsheets, forms, and reporting dashboards, but the stack becomes difficult to manage when ownership is unclear. A strong CRM setup should reduce noise, not create another layer of it."
+      },
+      {
+        type: "h2",
+        text: "Start with operating rules, not extra tools"
+      },
+      {
+        type: "p",
+        text: "Before adding more software, define which team owns each stage, which fields are mandatory, and what actions should trigger follow-up. The CRM becomes the system of record only when everyone understands the rules behind it."
+      }
+    ]
+  },
+  "generic-vs-business-fit": {
+    title: "The difference between a generic CRM rollout and a business-fit rollout",
+    category: "CRM Strategy",
+    date: "Feb 19, 2026",
+    author: "Triostack Team",
+    image: "/img.png",
+    subtitle: "Templates are easy to launch, but the real gains usually come from tailoring roles, views, and metrics to the business model.",
+    content: [
+      {
+        type: "p",
+        text: "Generic CRM rollouts often look good in demos because they cover common workflows. The problem appears later, when your teams start working around the system instead of inside it. That is usually a sign that the setup was copied rather than designed for your business."
+      },
+      {
+        type: "h2",
+        text: "Business-fit means role-fit"
+      },
+      {
+        type: "p",
+        text: "Sales managers, founders, support teams, and finance leads all need different views from the same data. A business-fit rollout customizes fields, dashboards, approvals, and alerts so each team sees what helps them act faster."
       }
     ]
   }

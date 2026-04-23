@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const categories = ["CRM Strategy", "Automation", "Sales Ops", "Compliance", "Growth"];
 
@@ -51,6 +52,12 @@ const posts = [
 ];
 
 export default function BlogsPage() {
+  const router = useRouter();
+
+  const handleReadNow = (slug) => {
+    router.push(`/blogs/${slug}`);
+  };
+
   return (
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
@@ -112,15 +119,23 @@ export default function BlogsPage() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post, index) => (
-              <Link 
-                key={post.slug} 
-                href={`/blogs/${post.slug}`}
-                className="group block h-full animate-fade-in"
+              <article
+                key={post.slug}
+                onClick={() => handleReadNow(post.slug)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    handleReadNow(post.slug);
+                  }
+                }}
+                role="link"
+                tabIndex={0}
+                className="group flex h-full cursor-pointer animate-fade-in overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#8be9ff]/25 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ef7c4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <article className="h-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 group-hover:border-[#8be9ff]/25 group-hover:bg-white/[0.06] flex flex-col">
+                <div className="flex h-full w-full flex-col">
                   <div className="h-40 bg-[linear-gradient(135deg,#102235_0%,#0b1728_45%,#0b1220_100%)] p-6 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#00b274]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#00b274]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="flex items-start justify-between gap-4 relative z-10">
                       <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff]">
                         {post.category}
@@ -132,13 +147,20 @@ export default function BlogsPage() {
                   <div className="p-7 flex-grow flex flex-col">
                     <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-[#7ef7c4] transition-colors">{post.title}</h3>
                     <p className="mt-3 text-[13px] leading-6 text-slate-400 line-clamp-2">{post.excerpt}</p>
-                    <div className="mt-auto pt-5 flex items-center gap-2 text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3">
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        handleReadNow(post.slug);
+                      }}
+                      className="relative z-10 mt-auto flex w-fit items-center gap-2 pt-5 text-left text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3"
+                    >
                       Read Now
                       <span aria-hidden="true">&rarr;</span>
-                    </div>
+                    </button>
                   </div>
-                </article>
-              </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
