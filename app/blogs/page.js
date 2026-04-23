@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import SEOComponent from "@/components/SEOComponent";
+import { slugify } from "@/lib/utils";
 
 const categories = ["All", "Sales", "Marketing", "Tech"];
 
@@ -46,7 +47,8 @@ export default function BlogsPage() {
     }
   }, [activeCategory, posts]);
 
-  const handleReadNow = (slug) => {
+  const handleReadNow = (title) => {
+    const slug = slugify(title);
     router.push(`/blogs/${slug}`);
   };
 
@@ -124,11 +126,11 @@ export default function BlogsPage() {
                 filteredPosts.map((post, index) => (
                   <article
                     key={post._id}
-                    onClick={() => handleReadNow(post._id)}
+                    onClick={() => handleReadNow(post.title)}
                     onKeyDown={(event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
-                        handleReadNow(post._id);
+                        handleReadNow(post.title);
                       }
                     }}
                     role="link"
@@ -166,7 +168,7 @@ export default function BlogsPage() {
                           type="button"
                           onClick={(event) => {
                             event.stopPropagation();
-                            handleReadNow(post._id);
+                            handleReadNow(post.title);
                           }}
                           className="relative z-10 mt-auto flex w-fit items-center gap-2 pt-5 text-left text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3"
                         >

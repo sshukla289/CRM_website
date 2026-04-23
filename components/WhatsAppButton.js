@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
     email: "",
     phone: "",
   });
-  const [userMsg, setUserMsg] = useState("");
+
   const [submitState, setSubmitState] = useState("idle");
   const [submitError, setSubmitError] = useState("");
 
@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
       `Email: ${contactData.email.trim()}`,
       `Phone: ${contactData.phone.trim()}`,
       "",
-      userMsg.trim() || defaultMessage,
+      defaultMessage,
     ].join("\n");
 
     setSubmitState("submitting");
@@ -37,7 +37,7 @@ export default function WhatsAppButton() {
         name: contactData.name,
         email: contactData.email,
         phone: contactData.phone,
-        message: userMsg.trim() || defaultMessage,
+        message: defaultMessage,
         formId: "whatsapp-widget",
         extra: {
           entrypoint: "whatsapp-widget",
@@ -94,14 +94,7 @@ export default function WhatsAppButton() {
 
         {/* Content */}
         <div className="p-5 space-y-4">
-          <div className="bg-white/5 border border-white/10 p-3 rounded-2xl rounded-tl-none relative group transition-all hover:bg-white/10">
-            <p className="text-white/90 text-sm leading-relaxed">
-              Hi there! 👋 How can we help you today with our CRM solutions?
-            </p>
-            <span className="text-[10px] text-white/40 absolute bottom-1 right-3">
-              {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-            </span>
-          </div>
+
 
           <form onSubmit={handleStartChat} className="space-y-3">
             <div className="space-y-1.5">
@@ -152,19 +145,7 @@ export default function WhatsAppButton() {
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-sm text-white transition-all focus:border-[#25D366] focus:outline-none placeholder:text-white/20"
               />
             </div>
-            <div className="relative">
-              <textarea 
-                value={userMsg}
-                onChange={(e) => {
-                  setUserMsg(e.target.value);
-                  if (submitError) {
-                    setSubmitError("");
-                  }
-                }}
-                placeholder="Type your message..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white text-sm focus:outline-none focus:border-[#25D366] transition-all resize-none h-20 placeholder:text-white/20"
-              />
-            </div>
+
             
             <button 
               type="submit"

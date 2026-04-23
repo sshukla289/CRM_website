@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import SEOComponent from "@/components/SEOComponent";
+import { slugify } from "@/lib/utils";
 
 export default function BlogClient({ slug }) {
   const router = useRouter();
@@ -22,11 +22,11 @@ export default function BlogClient({ slug }) {
         });
         const data = await response.json();
         
-        const currentPost = data.find(p => p._id === slug);
+        const currentPost = data.find(p => slugify(p.title) === slug);
         setPost(currentPost);
         
         // Set recent posts (excluding current)
-        setRecentPosts(data.filter(p => p._id !== slug).slice(0, 3));
+        setRecentPosts(data.filter(p => slugify(p.title) !== slug).slice(0, 3));
         
         setIsLoading(false);
       } catch (error) {
@@ -67,7 +67,7 @@ export default function BlogClient({ slug }) {
         title={post.title}
         description={post.heading || post.content?.substring(0, 160)}
         image={post.image}
-        url={`https://triostack.in/blogs/${post._id}`}
+        url={`https://triostack.in/blogs/${slug}`}
         type="article"
       />
       <Navbar />
@@ -147,7 +147,7 @@ export default function BlogClient({ slug }) {
                 </h3>
                 <div className="space-y-8">
                   {recentPosts.length > 0 ? recentPosts.map((recent, i) => (
-                    <Link key={i} href={`/blogs/${recent._id}`} className="group block">
+                    <Link key={i} href={`/blogs/${slugify(recent.title)}`} className="group block">
                       <h4 className="text-white text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
                         {recent.title}
                       </h4>
