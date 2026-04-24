@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
 
   if (!post) {
     return {
-      title: "Trio-CRM Blog | Insights & Solutions",
-      description: "Explore the latest insights on CRM automation, sales growth, and enterprise solutions from Trio-CRM.",
+      title: "CRM Solutions Blog | Insights & Solutions",
+      description: "Explore the latest insights on CRM automation, sales growth, and enterprise solutions from CRM Solutions.",
     };
   }
 
