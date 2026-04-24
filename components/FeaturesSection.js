@@ -77,7 +77,7 @@ const categoryCards = FEATURE_CATEGORY_CARDS.map((card) => {
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section id="features" className="relative py-8 md:py-10 bg-background overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />

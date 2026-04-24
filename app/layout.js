@@ -3,6 +3,7 @@ import Chatbot from "@/components/Chatbot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SocialStickyBar from "@/components/SocialStickyBar";
 import Script from "next/script";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const dynamic = 'force-dynamic';
 
@@ -68,24 +69,26 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body className="antialiased">
-        <SocialStickyBar />
-        {children}
-        <div className="hidden md:block">
-          <Chatbot />
-          <WhatsAppButton />
-        </div>
-        
-        {/* Sticky Bottom Help Bar */}
-        <div className="fixed bottom-0 left-0 w-full bg-[#0b1220]/80 backdrop-blur-md border-t border-white/5 py-3 sm:py-4 z-40">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8">
-            <div className="flex items-center gap-3">
-              <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap">Need help fast?</span>
-              <a href="tel:+919211941924" className="text-lg sm:text-xl font-bold text-white hover:text-[#00b274] transition-all inline-block animate-pulse-slow">+91 9211941924</a>
-            </div>
-            <div className="hidden sm:block h-4 w-px bg-white/10" />
-            <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-wider text-center">Instant consultation | Fast callback | No obligation</p>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
+          <SocialStickyBar />
+          {children}
+          <div className="hidden md:block">
+            <Chatbot />
+            <WhatsAppButton />
           </div>
-        </div>
+          
+          {/* Sticky Bottom Help Bar */}
+          <div className="fixed bottom-0 left-0 w-full bg-background/80 backdrop-blur-md border-t border-white/5 py-3 sm:py-4 z-40">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8">
+              <div className="flex items-center gap-3">
+                <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap">Need help fast?</span>
+                <a href="tel:+919211941924" className="text-lg sm:text-xl font-bold text-foreground hover:text-[#00b274] transition-all inline-block animate-pulse-slow">+91 9211941924</a>
+              </div>
+              <div className="hidden sm:block h-4 w-px bg-white/10" />
+              <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-wider text-center">Instant consultation | Fast callback | No obligation</p>
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

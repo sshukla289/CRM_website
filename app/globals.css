@@ -2,10 +2,21 @@
 
 @layer base {
   :root {
+    --background: #ffffff;
+    --foreground: #0b1220;
+    --accent: #00b274;
+    --accent-glow: rgba(0, 178, 116, 0.4);
+    --border: rgba(0, 0, 0, 0.1);
+    --card: #f8fafc;
+  }
+
+  .dark {
     --background: #0b1220;
     --foreground: #ffffff;
     --accent: #00b274;
     --accent-glow: rgba(0, 178, 116, 0.4);
+    --border: rgba(255, 255, 255, 0.05);
+    --card: #0d1627;
   }
 
   html {

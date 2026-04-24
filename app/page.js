@@ -21,7 +21,7 @@ export const metadata = {
 };
 export default function HomePage() {
   return (
-    <main className="min-h-screen relative bg-[#0b1220]">
+    <main className="min-h-screen relative bg-background">
       <SEOComponent 
         title="Best CRM for Indian Enterprises"
         description="Boost your sales with CRM Solutions. Features WhatsApp automation, GST-ready invoicing, and multi-branch management."

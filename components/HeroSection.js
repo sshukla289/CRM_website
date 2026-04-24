@@ -17,9 +17,9 @@ export default function HeroSection() {
           className="w-full h-full object-cover filter brightness-[1.1] contrast-[1.05]"
         />
         {/* Main Gradient Overlay - Darker on the left for text readability */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0b1220]/95 via-[#0b1220]/60 to-transparent backdrop-blur-[1px]" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/95 via-background/60 to-transparent backdrop-blur-[1px]" />
         {/* Bottom Fade */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#0b1220]/90" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-background/90" />
       </div>
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
