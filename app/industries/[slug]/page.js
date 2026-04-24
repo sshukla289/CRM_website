@@ -199,30 +199,59 @@ export default async function IndustryDetailPage({ params }) {
               </Reveal>
 
               <Reveal delay={200}>
-                <article className="rounded-[1.25rem] border border-[#7ef7c4]/10 bg-gradient-to-br from-[#0d2119] to-[#08101d] p-6 md:p-7 shadow-2xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#7ef7c4]/5 blur-3xl" />
-                  <h3 className="text-lg font-bold text-[#7ef7c4] mb-3">Still Confused?</h3>
-                  <p className="text-slate-400 text-xs mb-6 leading-relaxed">
-                    Get a custom workflow designed by our experts for your business.
-                  </p>
-                  <form className="space-y-3">
-                    <input 
-                      type="email" 
-                      placeholder="Work Email" 
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white outline-none focus:border-[#7ef7c4]/50 transition-colors"
-                    />
-                    <textarea 
-                      placeholder="Your requirements..." 
-                      rows={2}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white outline-none focus:border-[#7ef7c4]/50 transition-colors resize-none"
-                    />
-                    <button 
-                      type="submit"
-                      className="w-full bg-[#7ef7c4] text-[#04111c] font-bold py-3 rounded-lg text-xs transition-all hover:shadow-[0_0_15px_rgba(126,247,196,0.3)] active:scale-[0.98]"
-                    >
-                      Get Custom Solution
-                    </button>
-                  </form>
+                <article className="rounded-[1.25rem] border border-[#7ef7c4]/20 bg-[#0d2119]/40 p-6 md:p-8 shadow-2xl relative overflow-hidden group backdrop-blur-md">
+                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#7ef7c4]/10 blur-3xl rounded-full" />
+                  
+                  <div className="relative z-10">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#7ef7c4] mb-2">Instant Consultation</p>
+                    <h3 className="text-xl font-black text-white mb-2">Schedule a Targeted Demo</h3>
+                    <p className="text-slate-400 text-[11px] mb-6 leading-relaxed">
+                      See how our CRM handles {industry.name.toLowerCase()} workflows in real-time.
+                    </p>
+                    
+                    <form className="space-y-4">
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider ml-1">Work Email</label>
+                        <input 
+                          type="email" 
+                          placeholder="e.g. name@company.com" 
+                          className="w-full bg-[#050a14]/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#7ef7c4]/50 focus:ring-1 focus:ring-[#7ef7c4]/20 transition-all placeholder:text-slate-600"
+                          required
+                        />
+                      </div>
+                      
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider ml-1">Team Size</label>
+                        <select className="w-full bg-[#050a14]/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#7ef7c4]/50 transition-all">
+                          <option value="">Select size...</option>
+                          <option value="1-10">1-10 Users</option>
+                          <option value="11-50">11-50 Users</option>
+                          <option value="50+">50+ Enterprise</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider ml-1">Primary Goal</label>
+                        <textarea 
+                          placeholder="e.g. Automating {industry.tag.toLowerCase()}..." 
+                          rows={3}
+                          className="w-full bg-[#050a14]/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#7ef7c4]/50 transition-all resize-none placeholder:text-slate-600"
+                        />
+                      </div>
+
+                      <button 
+                        type="submit"
+                        className="group/btn relative w-full overflow-hidden rounded-xl bg-[#7ef7c4] px-6 py-4 text-xs font-black uppercase tracking-widest text-[#04111c] transition-all hover:shadow-[0_0_25px_rgba(126,247,196,0.4)] active:scale-[0.97]"
+                      >
+                        <span className="relative z-10">Get Expert Callback</span>
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover/btn:translate-x-full" />
+                      </button>
+                    </form>
+                    
+                    <p className="mt-4 text-center text-[10px] text-slate-500">
+                      No credit card required. 15-min discovery call.
+                    </p>
+                  </div>
                 </article>
               </Reveal>
             </div>
