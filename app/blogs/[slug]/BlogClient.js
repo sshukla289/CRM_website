@@ -3,59 +3,13 @@
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { slugify } from "@/lib/utils";
 import SEOComponent from "@/components/SEOComponent";
 
-export default function BlogClient({ slug }) {
+export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
   const router = useRouter();
-  const [post, setPost] = useState(null);
-  const [recentPosts, setRecentPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBlogData = async () => {
-      try {
-        const response = await fetch("https://api.blog-manager.triostack.in/api/blogs", {
-          headers: {
-            "Authorization": `Bearer ${process.env.BLOG_API_TOKEN || "9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"}`
-          }
-        });
-
-        if (!response.ok) {
-           console.error(`API Error: ${response.status}`);
-           setIsLoading(false);
-           return;
-        }
-
-        const data = await response.json();
-        
-        const currentPost = data.find(p => slugify(p.title) === slug);
-        setPost(currentPost);
-        
-        // Set recent posts (excluding current)
-        setRecentPosts(data.filter(p => slugify(p.title) !== slug).slice(0, 3));
-        
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching blog post:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchBlogData();
-  }, [slug]);
-
-  if (isLoading) {
-    return (
-      <main className="min-h-screen bg-[#0b1220]">
-        <Navbar />
-        <div className="flex h-screen items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#00b274] border-t-transparent"></div>
-        </div>
-      </main>
-    );
-  }
+  const post = initialPost;
+  const recentPosts = initialRecentPosts || [];
 
   if (!post) {
     return (

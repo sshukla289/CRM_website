@@ -1,196 +1,195 @@
-# TrioRecord
+# CRM Website
 
-TrioRecord is a modern SaaS-style single-page landing website built with Next.js App Router, JavaScript, and Tailwind CSS. It presents a premium document recording and management product with a polished hero, feature sections, a real downloadable PDF, and a validated contact form.
+This project is a Next.js 16 marketing website for Triostack CRM. It includes a landing page, pricing page, industries page, features page, blog listing with detail pages, legal pages, and a brochure download route.
 
-## Tech Stack
-
-- Next.js 16 (App Router)
-- React 19
-- JavaScript (ES6+)
-- Tailwind CSS 4
-
-## Features
-
-- Sticky responsive navbar with mobile menu
-- Premium hero section with product-style preview UI
-- Feature cards with hover effects
-- About section with SaaS-style enterprise messaging
-- Real document download from `public/sample.pdf`
-- Contact form with required validation, email validation, loading state, success message, and reset behavior
-- Smooth scrolling and scroll reveal animation
-- Fully responsive layout
-
-## Project Structure
+The project is configured to run on one public application port only:
 
 ```text
-triocard/
-  app/
-    globals.css
-    layout.js
-    page.js
-  components/
-    About.js
-    Contact.js
-    Document.js
-    Features.js
-    Footer.js
-    Hero.js
-    Navbar.js
-    Reveal.js
-  public/
-    sample.pdf
-  jsconfig.json
-  package.json
-  postcss.config.mjs
+http://localhost:3000
 ```
 
-## Getting Started
+## Stack
 
-### 1. Install dependencies
+- Next.js 16 with App Router
+- React 19
+- JavaScript
+- Tailwind CSS 4
+- Docker Compose
+
+## Active Routes
+
+- `/`
+- `/features`
+- `/pricing`
+- `/industries`
+- `/blogs`
+- `/blogs/[slug]`
+- `/privacy-policy`
+- `/terms-and-conditions`
+- `/crm-brochure`
+- `/api/lead`
+- `/api/blogs`
+
+## Main Structure
+
+```text
+app/
+  api/
+    blogs/
+    lead/
+  blogs/
+    [slug]/
+  crm-brochure/
+  features/
+  industries/
+  pricing/
+  privacy-policy/
+  terms-and-conditions/
+  globals.css
+  layout.js
+  page.js
+
+components/
+  BookCallModal.js
+  BrandSection.js
+  Chatbot.js
+  ConsultationSection.js
+  ContactLink.js
+  ContactSection.js
+  FAQSection.js
+  FeaturesSection.js
+  GooglePlaySection.js
+  HeroForm.js
+  HeroSection.js
+  Navbar.js
+  PricingSection.js
+  ProductShowcase.js
+  Reveal.js
+  SEOComponent.js
+  SocialStickyBar.js
+  TestimonialSection.js
+  TrustSection.js
+  WhatsAppButton.js
+```
+
+## Run With Docker
+
+Production (no hot reload):
+
+Build and start:
 
 ```bash
-npm install
+docker compose up --build -d
 ```
 
-### 2. Run the development server
+Or:
+
+```bash
+npm run docker:build
+```
+
+Start again without rebuilding:
+
+```bash
+docker compose up -d
+```
+
+Or:
+
+```bash
+npm run docker:up
+```
+
+Stop:
+
+```bash
+docker compose down
+```
+
+Or:
+
+```bash
+npm run docker:down
+```
+
+View logs:
+
+```bash
+npm run docker:logs
+```
+
+## Hot Reload (Dev Mode)
+
+If you want changes to appear immediately while you edit (Fast Refresh / hot reload), run the app in development mode:
 
 ```bash
 npm run dev
 ```
 
-By default, the app runs at:
-
-```text
-http://localhost:3000
-```
-
-In the current local environment, the dev server was verified at:
-
-```text
-http://localhost:3000
-```
-
-## Docker (Production)
-
-### Build and run with Docker Compose
+If you prefer Docker with hot reload, use:
 
 ```bash
-docker compose up --build
+npm run docker:dev
 ```
 
-Then open:
+Notes (Windows / OneDrive):
+
+- `docker compose up` (production) will **not** hot reload — use `npm run docker:dev`.
+- Dev Docker uses polling (WATCHPACK/CHOKIDAR). It also forces webpack mode when Next supports `--no-turbo`, because Turbopack file watching can be flaky on bind mounts.
+- If polling still misses changes, move the repo out of OneDrive-synced folders (e.g. `C:\dev\CRM_website`) and try again.
+
+## Port Configuration
+
+Docker and the app are aligned to one runtime port:
 
 ```text
-http://localhost:5015
+3000:3000
 ```
 
-### Faster start (don’t rebuild every time)
+## Environment Variables
 
-The long delay you see is because `--build` rebuilds the image (runs `npm ci` + `next build`) on every start.
+Create a local `.env` file for server-side values. This file is ignored by Git.
 
-Do this once:
+Current server features can use:
+
+```text
+BLOG_API_TOKEN=
+BLOGS_API_URL=https://api.blog-manager.triostack.in/api/blogs
+TRIO_CRM_WEBSITE_WEBHOOK_URL=
+TRIO_CRM_WEBSITE_WEBHOOK_SECRET=
+```
+
+## Local Development
+
+You do not need a local `node_modules` folder to keep this project running when using Docker.
+
+If you want to run it directly with Node later:
 
 ```bash
-docker compose build
+npm install
+npm run dev
 ```
 
-Then start quickly:
+## Windows Docker Troubleshooting
 
-```bash
-docker compose up
-```
+If Docker cannot connect to the engine, make sure Docker Desktop is running and reopen the terminal.
 
-### Troubleshooting (Windows)
-
-If you see errors like `permission denied while trying to connect to the docker API`:
-
-- Ensure Docker Desktop is running and your user has access to the Docker engine (often via the `docker-users` group), then reopen your terminal.
-
-If you see `Access is denied` for `C:\\Users\\<you>\\.docker\\...`:
-
-- Use a project-local Docker CLI config folder for the session:
+If you hit Docker config permission issues under `C:\Users\<you>\.docker`, use a project-local Docker config for the current terminal session:
 
 ```powershell
 $env:DOCKER_CONFIG = (Join-Path $PWD ".docker")
 New-Item -ItemType Directory -Force -Path $env:DOCKER_CONFIG | Out-Null
-docker compose up --build
+docker compose up --build -d
 ```
 
-### Build and run with Docker (no Compose)
+## Cleanup Status
 
-```bash
-docker build -t crm_website .
-docker run --rm -p 5015:5015 crm_website
-```
+The repo has already been cleaned to avoid committing generated or local-only files such as:
 
-## Docker (Development / Hot Reload)
+- `node_modules`
+- `.next`
+- Next.js log files
+- local Docker config
+- local environment files
 
-Runs `next dev` in a container with your source mounted, so edits auto-reload.
-
-```bash
-docker compose -f docker-compose.dev.yml up --build
-```
-
-Then open:
-
-```text
-http://localhost:3000
-```
-
-If you change `package-lock.json` / dependencies, rebuild:
-
-```bash
-docker compose -f docker-compose.dev.yml up --build
-```
-
-### 3. Create a production build
-
-```bash
-npm run build
-```
-
-### 4. Start the production server
-
-```bash
-npm run start
-```
-
-## Download Functionality
-
-The document section includes a real working download button that points to:
-
-```text
-/sample.pdf
-```
-
-This file is stored in:
-
-```text
-public/sample.pdf
-```
-
-## Main Sections
-
-- `Home`: Hero section and primary product message
-- `Features`: Secure storage, easy access, fast download, and real-time management
-- `About`: Product positioning and enterprise-style overview
-- `Document`: Downloadable TrioRecord guide
-- `Contact`: Frontend-only validated contact form
-
-## Accessibility and UI Notes
-
-- Semantic section structure
-- Form labels and validation messaging
-- Keyboard-friendly navigation and buttons
-- Mobile-first responsive behavior
-- Soft shadows, rounded surfaces, gradients, and clean spacing for a premium SaaS look
-
-## Verification
-
-The project was verified with:
-
-```bash
-npm run build
-```
-
-The build completed successfully on Next.js `16.2.4`.
+Those are covered by `.gitignore`.

@@ -2,63 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
-
-const industries = [
-  {
-    name: "Manufacturing",
-    tag: "Operations and dealer flow",
-    description:
-      "Connect procurement, stock movement, dealer requests, service schedules, and dispatch visibility in one operating layer.",
-    outcomes: ["Live inventory visibility", "Faster dispatch decisions", "Dealer request tracking"],
-    metric: "28%",
-    metricLabel: "less order delay",
-  },
-  {
-    name: "Healthcare",
-    tag: "Patient and care coordination",
-    description:
-      "Bring appointments, patient communication, field outreach, billing workflows, and follow-up tasks into a secure customer system.",
-    outcomes: ["Appointment automation", "Care-team coordination", "Fewer missed follow-ups"],
-    metric: "2.4x",
-    metricLabel: "more response speed",
-  },
-  {
-    name: "Real Estate",
-    tag: "Lead conversion and site visits",
-    description:
-      "Manage inquiries, broker relationships, visit scheduling, document exchange, and sales progression from one CRM dashboard.",
-    outcomes: ["Lead source clarity", "Site visit scheduling", "Broker collaboration"],
-    metric: "31%",
-    metricLabel: "higher conversion lift",
-  },
-  {
-    name: "Retail",
-    tag: "Customer lifecycle and loyalty",
-    description:
-      "Track customer behavior across stores, campaigns, support channels, and repeat-purchase workflows with cleaner reporting.",
-    outcomes: ["Campaign segmentation", "Store-wise reporting", "Retention automation"],
-    metric: "18%",
-    metricLabel: "better repeat sales",
-  },
-  {
-    name: "Hospitality",
-    tag: "Guest journey management",
-    description:
-      "Organize reservations, guest communication, upsell opportunities, issue logging, and post-stay nurture across properties.",
-    outcomes: ["Central reservation visibility", "Guest communication logs", "Service recovery workflows"],
-    metric: "42%",
-    metricLabel: "faster guest resolution",
-  },
-  {
-    name: "Education",
-    tag: "Admissions and engagement",
-    description:
-      "Unify student inquiries, admission counseling, fee communication, and outreach journeys for institutes and training teams.",
-    outcomes: ["Inquiry funnel tracking", "Counselor assignment", "Enrollment communication"],
-    metric: "3x",
-    metricLabel: "clearer pipeline visibility",
-  },
-];
+import { getIndustrySlug, industries } from "@/lib/industries";
 
 const deliveryModel = [
   {
@@ -133,7 +77,7 @@ export default function IndustriesPage() {
           <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {industries.map((industry, index) => (
               <Reveal key={industry.name} delay={index * 90}>
-                <article className="h-full rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.18)] transition duration-300 hover:border-[#7ef7c4]/25 hover:bg-white/[0.06]">
+                <article className="flex h-full flex-col rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.18)] transition duration-300 hover:border-[#7ef7c4]/25 hover:bg-white/[0.06]">
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#8be9ff]">{industry.tag}</p>
@@ -157,6 +101,17 @@ export default function IndustriesPage() {
                       </div>
                     ))}
                   </div>
+
+                  <Link
+                    href={`/industries/${getIndustrySlug(industry)}`}
+                    className="group mt-auto inline-flex w-fit items-center gap-2 pt-7 text-xs font-bold uppercase tracking-[0.18em] text-[#7ef7c4] transition hover:text-[#8be9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ef7c4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220]"
+                    aria-label={`View details for ${industry.name}`}
+                  >
+                    View Details
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                      -&gt;
+                    </span>
+                  </Link>
                 </article>
               </Reveal>
             ))}

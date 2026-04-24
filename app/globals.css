@@ -119,16 +119,35 @@
 
   /* Marquee Animation */
   .animate-marquee-right {
-    animation: marqueeRight 24s linear infinite;
+    will-change: transform;
+    animation: marqueeRight 18s linear infinite;
+  }
+
+  .animate-marquee-left {
+    will-change: transform;
+    animation: marqueeLeft 18s linear infinite;
   }
 
   @media (max-width: 768px) {
     .animate-marquee-right {
-      animation-duration: 16s;
+      animation-duration: 14s;
+    }
+
+    .animate-marquee-left {
+      animation-duration: 14s;
     }
   }
 
-  .pause-on-hover:hover .animate-marquee-right {
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee-right,
+    .animate-marquee-left {
+      animation: none;
+      transform: translateX(0);
+    }
+  }
+
+  .pause-on-hover:hover .animate-marquee-right,
+  .pause-on-hover:hover .animate-marquee-left {
     animation-play-state: paused;
   }
 
@@ -138,6 +157,15 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes marqueeLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
     }
   }
 

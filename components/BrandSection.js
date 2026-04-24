@@ -18,17 +18,41 @@ export default function BrandSection() {
         </p>
       </div>
       
-      <div className="relative flex overflow-hidden">
-        <div className="flex animate-marquee-right gap-20 items-center whitespace-nowrap px-10">
-          {[...brands, ...brands].map((brand, i) => (
-            <div key={i} className="flex items-center justify-center opacity-100 hover:opacity-60 hover:brightness-50 transition-all duration-300 cursor-pointer">
-              <img 
-                src={brand.logo} 
-                alt={brand.name} 
-                className="h-8 md:h-10 w-auto object-contain"
-              />
-            </div>
-          ))}
+      <div className="pause-on-hover relative space-y-5 md:space-y-6">
+        <div className="relative overflow-hidden mask-gradient">
+          <div className="flex w-max animate-marquee-left items-center gap-20 whitespace-nowrap px-10">
+            {[...brands, ...brands].map((brand, i) => (
+              <div
+                key={`top-${i}`}
+                className="flex items-center justify-center opacity-90 grayscale-[25%] transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+              >
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="h-8 w-auto object-contain md:h-10"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden mask-gradient">
+          <div className="flex w-max animate-marquee-right items-center gap-20 whitespace-nowrap px-10">
+            {[...brands, ...brands].map((brand, i) => (
+              <div
+                key={`bottom-${i}`}
+                className="flex items-center justify-center opacity-80 grayscale-[35%] transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+              >
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="h-8 w-auto object-contain md:h-10"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

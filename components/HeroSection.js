@@ -32,8 +32,7 @@ export default function HeroSection() {
                 CRM SOLUTIONS
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-xl">
-                Custom-built CRM solutions for Indian enterprises focusing on GST compliance,
-                multi-branch operations, and automation-driven ROI.
+                Transform the way your business manages leads, sales, communication, support, and customer relationships with Trio CRM — an intelligent, scalable, all-in-one business growth platform.
               </p>
             </div>
 

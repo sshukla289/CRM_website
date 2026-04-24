@@ -1,5 +1,18 @@
 const socials = [
   {
+    name: "Twitter",
+    href: "https://twitter.com/",
+    brand: "#1DA1F2",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
+        <path
+          fill="currentColor"
+          d="M22.46 6c-.77.35-1.6.58-2.46.69a4.24 4.24 0 0 0 1.88-2.35 8.36 8.36 0 0 1-2.67 1.02 4.2 4.2 0 0 0-7.28 2.87c0 .33.04.65.1.95A11.92 11.92 0 0 1 3.15 4.6a4.2 4.2 0 0 0 1.3 5.6 4.15 4.15 0 0 1-1.9-.52v.05c0 2.03 1.44 3.73 3.36 4.11-.35.1-.73.15-1.12.15-.27 0-.54-.02-.8-.07a4.21 4.21 0 0 0 3.92 2.92A8.45 8.45 0 0 1 2 18.48a11.9 11.9 0 0 0 6.45 1.89c7.74 0 11.98-6.41 11.98-11.97 0-.18 0-.36-.01-.54A8.55 8.55 0 0 0 22.46 6z"
+        />
+      </svg>
+    ),
+  },
+  {
     name: "LinkedIn",
     href: "https://www.linkedin.com/company/triostack-technologies-private-limited/",
     brand: "#0A66C2",
@@ -56,7 +69,7 @@ const socials = [
 export default function SocialStickyBar() {
   return (
     <div className="fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
-      <div className="rounded-l-2xl rounded-r-none bg-[#0b1220]/80 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
+      <div className="rounded-l-2xl rounded-r-none bg-[#050a14]/85 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
         <div className="flex flex-col gap-1.5">
           {socials.map((item) => (
             <a
@@ -66,10 +79,10 @@ export default function SocialStickyBar() {
               rel="noreferrer"
               aria-label={item.name}
               style={{ ["--brand"]: item.brand }}
-              className="group grid h-10 w-10 place-items-center rounded-full bg-white shadow-md ring-1 ring-black/10 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
+              className="group grid h-10 w-10 place-items-center rounded-full bg-[#0f172a]/65 shadow-md ring-1 ring-white/10 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#020617]/85 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] active:scale-95"
               title={item.name}
             >
-              <span className="text-[var(--brand)] opacity-55 saturate-75 transition-all group-hover:scale-110 group-hover:opacity-100 group-hover:saturate-150">
+              <span className="text-slate-200/70 transition-all duration-200 group-hover:scale-110 group-hover:text-[color:var(--brand)] group-hover:drop-shadow-[0_0_8px_var(--brand)]">
                 {item.icon}
               </span>
             </a>
