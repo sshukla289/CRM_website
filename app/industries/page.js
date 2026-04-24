@@ -33,7 +33,7 @@ export default function IndustriesPage() {
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-4 pt-24">
+      <section className="relative overflow-hidden px-6 pb-4 pt-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.1),transparent_24%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl">
           <div className="flex flex-col gap-1.5">

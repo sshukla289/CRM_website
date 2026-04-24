@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
-
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BookCallModal from "./BookCallModal";
@@ -68,12 +66,12 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-auto transition-all duration-300 will-change-transform ${
+        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-auto transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         } ${
           isScrolled
-            ? "bg-[#07111d]/90 backdrop-blur-xl py-4 border-b border-[#8fb7ff]/12 shadow-[0_20px_45px_rgba(3,8,20,0.5)]"
-            : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
+            ? "bg-[#07111d]/95 backdrop-blur-xl py-3.5 border-b border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+            : "bg-transparent py-6 border-b border-white/[0.03]"
         }`}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">

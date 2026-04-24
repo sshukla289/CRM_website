@@ -4,7 +4,7 @@ import HeroForm from "./HeroForm";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
       {/* Background Image with Overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img

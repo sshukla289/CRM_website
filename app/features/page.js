@@ -25,7 +25,7 @@ export default function FeaturesPage() {
     <main className="min-h-screen bg-[#0B1220]">
       <Navbar />
 
-      <div className="relative overflow-hidden pt-24 pb-6">
+      <div className="relative overflow-hidden pt-32 pb-6">
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col gap-1.5">
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter">

@@ -87,7 +87,7 @@ export default function PricingPage() {
       <Navbar />
 
       {/* Page Hero Section - Transparent */}
-      <div className="relative overflow-hidden pt-24 pb-4">
+      <section className="relative pt-32 pb-4 overflow-hidden">
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col gap-1.5">
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter">
@@ -102,7 +102,7 @@ export default function PricingPage() {
             </nav>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Main Content Area */}
       <div className="pt-4 pb-16 px-6 relative">
