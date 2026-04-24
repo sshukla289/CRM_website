@@ -46,9 +46,11 @@ export default function HeroSection() {
             {/* Feature List */}
             <ul className="space-y-4 mb-10">
               {[
-                "GST-ready workflows with e-invoice integration",
-                "End-to-end Lead-to-Cash with configurable stages",
-                "Multi-branch inventory & centralized control"
+                "Lead capture, assignment & pipeline tracking",
+                "360-degree customer profiles with interaction history",
+                "Automated follow-ups, reminders & task management",
+                "Omnichannel communication: calls, email, WhatsApp & tickets",
+                "Reports & dashboards for sales and team performance"
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3 group">
                   <div className="mt-1.5 w-2 h-2 rounded-full bg-[#00b274] shadow-[0_0_8px_#00b274] transition-all group-hover:scale-125" />
