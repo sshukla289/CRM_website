@@ -254,6 +254,12 @@ export default function FeatureDetailPage() {
   return (
     <main className="min-h-screen bg-[#0B1220] text-white">
       <Navbar />
+      <BookCallModal 
+        isOpen={isModalOpen} 
+        onClose={handleModalClose} 
+        title="Book a Demo"
+        subtitle="Get a personalized tour of our CRM solutions and see how we can help your business grow."
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-48 pb-32 md:pb-40 overflow-hidden">
@@ -297,18 +303,15 @@ export default function FeatureDetailPage() {
                   {(feature.details?.shortDescription || feature.description).split('.')[0]}.
                 </p>
               </Reveal>
-              <Reveal delay={400}>
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(true)}
-                    className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
-                  >
-                    Book a Demo
-                  </button>
-
-                </div>
-              </Reveal>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
+                >
+                  Book a Demo
+                </button>
+              </div>
             </div>
 
             <Reveal delay={500}>
@@ -459,27 +462,20 @@ export default function FeatureDetailPage() {
       {feature.details?.ctaSection && (
         <section className="py-32 relative">
           <div className="container max-w-4xl mx-auto px-6 text-center">
-            <Reveal>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">{feature.details.ctaSection.heading}</h2>
               <p className="text-xl text-slate-400 mb-12">{feature.details.ctaSection.description}</p>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)] cursor-pointer"
+                className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)] cursor-pointer"
               >
                 {feature.details.ctaSection.buttonText}
               </button>
-            </Reveal>
           </div>
         </section>
       )}
 
-      <BookCallModal 
-        isOpen={isModalOpen} 
-        onClose={handleModalClose} 
-        title="Book a Demo"
-        subtitle="Get a personalized tour of our CRM solutions and see how we can help your business grow."
-      />
+
     </main>
   );
 }
