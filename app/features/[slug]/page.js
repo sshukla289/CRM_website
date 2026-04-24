@@ -282,17 +282,7 @@ export default function FeatureDetailPage() {
         )}
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <Reveal>
-            <nav className="flex text-sm text-[#00b274] font-medium mb-10 md:mb-12">
-              <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
-                <li><span>&gt;</span></li>
-                <li><Link href="/features" className="hover:underline">Features</Link></li>
-                <li><span>&gt;</span></li>
-                <li className="text-white/50">{feature.title}</li>
-              </ol>
-            </nav>
-          </Reveal>
+
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
             <div className="space-y-8">
