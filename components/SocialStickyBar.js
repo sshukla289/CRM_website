@@ -51,19 +51,6 @@ const socials = [
       </svg>
     ),
   },
-  {
-    name: "YouTube",
-    href: "https://www.youtube.com/@triostacktechnologies",
-    brand: "#FF0000",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
-        <path
-          fill="currentColor"
-          d="M23.498 6.186a3.03 3.03 0 0 0-2.132-2.144C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.366.497A3.03 3.03 0 0 0 .502 6.186 31.128 31.128 0 0 0 0 12a31.128 31.128 0 0 0 .502 5.814 3.03 3.03 0 0 0 2.132 2.144c1.861.497 9.366.497 9.366.497s7.505 0 9.366-.497a3.03 3.03 0 0 0 2.132-2.144A31.128 31.128 0 0 0 24 12a31.128 31.128 0 0 0-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"
-        />
-      </svg>
-    ),
-  },
 ];
 
 export default function SocialStickyBar() {
