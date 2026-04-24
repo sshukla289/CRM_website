@@ -138,6 +138,12 @@ Notes (Windows / OneDrive):
 - Dev Docker uses polling (WATCHPACK/CHOKIDAR). It also forces webpack mode when Next supports `--no-turbo`, because Turbopack file watching can be flaky on bind mounts.
 - If polling still misses changes, move the repo out of OneDrive-synced folders (e.g. `C:\dev\CRM_website`) and try again.
 
+If you changed UI code but still see the old page, you are likely running the **production** container. Reset the dev container (removes volumes + rebuilds):
+
+```bash
+npm run docker:dev:reset
+```
+
 ## Port Configuration
 
 Docker and the app are aligned to one runtime port:
