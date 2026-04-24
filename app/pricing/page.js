@@ -105,7 +105,7 @@ export default function PricingPage() {
       </section>
 
       {/* Main Content Area */}
-      <div className="pt-4 pb-16 px-6 relative">
+      <div className="pt-4 pb-10 px-6 relative">
         <div className="container max-w-7xl mx-auto relative z-10">
           
           {/* Billing Toggle */}
@@ -179,7 +179,7 @@ export default function PricingPage() {
           </div>
 
           {/* Bottom FAQ CTA */}
-          <div className="mt-16 p-10 rounded-3xl bg-gradient-to-br from-[#00b274]/5 to-blue-500/5 border border-white/10 text-center">
+          <div className="mt-10 p-10 rounded-3xl bg-gradient-to-br from-[#00b274]/5 to-blue-500/5 border border-white/10 text-center">
             <h3 className="text-xl font-bold text-white mb-3">Need a custom plan?</h3>
             <p className="text-slate-400 mb-6 max-w-xl mx-auto text-sm">
               We offer tailored solutions for large-scale enterprises with specific security and integration requirements.

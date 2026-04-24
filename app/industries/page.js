@@ -57,7 +57,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="relative px-6 py-12 pb-32 lg:pr-20">
+      <section className="relative px-6 py-12 pb-10 lg:pr-20">
         <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#00b274]/6 blur-[120px]" />
         <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-sky-500/6 blur-[120px]" />
 
@@ -120,7 +120,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-16">
+      <section className="px-6 py-8">
         <div className="mx-auto grid max-w-7xl gap-6 rounded-[1.5rem] border border-white/10 bg-[#08101d] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">Deployment Strategy</p>

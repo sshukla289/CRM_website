@@ -44,7 +44,7 @@ export default function FeaturesPage() {
         </div>
       </div>
 
-      <div className="pt-4 pb-20 px-6 relative">
+      <div className="pt-4 pb-10 px-6 relative">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(0,178,116,0.05),transparent_40%)] pointer-events-none" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -89,7 +89,7 @@ export default function FeaturesPage() {
             ))}
           </div>
 
-          <div className="mt-20 p-12 rounded-3xl bg-gradient-to-br from-[#00b274]/10 to-blue-500/10 border border-white/10 text-center relative overflow-hidden">
+          <div className="mt-12 p-12 rounded-3xl bg-gradient-to-br from-[#00b274]/10 to-blue-500/10 border border-white/10 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[#00b274]/5 blur-3xl rounded-full" />
             <div className="relative z-10">
               <h3 className="text-3xl font-bold text-white mb-6">Ready to see these features in action?</h3>
