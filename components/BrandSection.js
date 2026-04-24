@@ -27,7 +27,7 @@ export default function BrandSection() {
   const bottomTrack = makeMarqueeTrack(bottomBrands);
 
   return (
-    <section className="relative py-14 md:py-20 bg-gradient-to-r from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden border-y border-white/5">
+    <section className="relative py-8 md:py-10 bg-gradient-to-r from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden border-y border-white/5">
       <div className="absolute top-1/4 -left-24 h-80 w-80 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-24 h-80 w-80 rounded-full bg-blue-500/10 blur-[110px] pointer-events-none" />
 

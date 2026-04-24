@@ -9,7 +9,7 @@ export default function ConsultationSection() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <section className="py-16 md:py-20 px-6 bg-[#0B1220] relative overflow-hidden">
+    <section className="py-8 md:py-10 px-6 bg-[#0B1220] relative overflow-hidden">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
 

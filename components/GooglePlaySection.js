@@ -46,7 +46,7 @@ export default function GooglePlaySection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#0B1220] px-6 py-20 md:py-28">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#0B1220] px-6 py-8 md:py-10">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_30%,rgba(20,195,142,0.16),transparent_22%),radial-gradient(circle_at_86%_24%,rgba(56,189,248,0.12),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_45%)]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] bg-[size:56px_56px]" />
 

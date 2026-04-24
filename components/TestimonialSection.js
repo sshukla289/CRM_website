@@ -319,7 +319,7 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden relative">
+    <section className="py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden relative">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
       

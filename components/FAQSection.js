@@ -96,7 +96,7 @@ const FAQSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-20 px-6 overflow-hidden bg-[#0B1220]">
+    <section ref={sectionRef} className="relative py-8 md:py-10 px-6 overflow-hidden bg-[#0B1220]">
       {/* Decorative Glows */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00b274]/5 blur-[120px] rounded-full pointer-events-none" />
       
