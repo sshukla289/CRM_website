@@ -19,9 +19,12 @@
 .env
 .env.local
 .env.*
+.env.*.local
 
 # local tooling
 /.docker/
+/public/crm screen shot/
+/public/screenshots/
 
 # logs
 *.log
@@ -42,9 +45,3 @@ next-env.d.ts
 # misc
 .DS_Store
 *.pem
-
-.env.*.local
-.env
-.env.local
-.env.*.local
-.env.*.prod

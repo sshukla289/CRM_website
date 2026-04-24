@@ -3,12 +3,16 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
+import IndustryBackButton from "./IndustryBackButton";
 import {
   getIndustryBySlug,
+  getIndustrySeoTitle,
   getIndustrySlug,
   getRelatedIndustries,
   industries,
 } from "@/lib/industries";
+
+const HERO_IMAGE = "/img.png";
 
 export function generateStaticParams() {
   return industries.map((industry) => ({
@@ -27,14 +31,27 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const industrySeoTitle = getIndustrySeoTitle(industry);
+
   return {
-    title: `${industry.name} CRM Solutions | Trio-CRM`,
+    title: `${industrySeoTitle} | Trio-CRM`,
     description: industry.detail.overview,
+    alternates: {
+      canonical: `https://triostack.in/industries/${getIndustrySlug(industry)}`,
+    },
     openGraph: {
-      title: `${industry.name} CRM Solutions | Trio-CRM`,
+      title: `${industrySeoTitle} | Trio-CRM`,
       description: industry.detail.overview,
-      url: `https://triostack.in/industries/${slug}`,
+      url: `https://triostack.in/industries/${getIndustrySlug(industry)}`,
       type: "website",
+      images: [
+        {
+          url: HERO_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: industrySeoTitle,
+        },
+      ],
     },
   };
 }
@@ -47,115 +64,206 @@ export default async function IndustryDetailPage({ params }) {
     notFound();
   }
 
-  const relatedIndustries = getRelatedIndustries(slug);
+
+  const industrySeoTitle = getIndustrySeoTitle(industry);
 
   return (
-    <main className="min-h-screen bg-[#0b1220]">
+    <main className="min-h-screen overflow-hidden bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-14 pt-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.11),transparent_25%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.12),transparent_30%)]" />
-        <div className="absolute bottom-0 left-1/2 h-px w-full max-w-7xl -translate-x-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <section className="relative px-4 pb-6 pt-20 sm:px-6 md:pt-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(20,195,142,0.06),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.04),transparent_40%)] pointer-events-none" />
+        <div className="mx-auto max-w-[1500px]">
+          <div className="relative z-[250] mb-5 flex pointer-events-auto">
+            <IndustryBackButton />
+          </div>
 
-        <div className="relative mx-auto max-w-7xl">
-          <nav className="mb-8 flex text-[11px] font-medium uppercase tracking-widest text-white/70">
-            <ol className="flex flex-wrap items-center gap-2">
-              <li>
-                <Link href="/" className="transition-colors hover:text-white">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <span>/</span>
-              </li>
-              <li>
-                <Link href="/industries" className="transition-colors hover:text-white">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <span>/</span>
-              </li>
-              <li className="text-white">{industry.name}</li>
-            </ol>
-          </nav>
+          <article className="relative isolate flex min-h-[260px] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#07111d] shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:min-h-[280px]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(126,247,196,0.06),transparent_70%)]" />
+            
+            <div className="relative z-10 w-full p-6 sm:p-8 md:p-10">
+              <div className="mb-4 flex flex-wrap items-center gap-4">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#7ef7c4]/30 bg-[#7ef7c4]/10 text-[9px] font-black uppercase tracking-[0.16em] text-[#9ffbdd] shadow-[0_0_15px_rgba(126,247,196,0.1)]">
+                  CRM
+                </span>
+                <span className="inline-flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.34em] text-white/70">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#7ef7c4] shadow-[0_0_10px_rgba(126,247,196,0.5)]" />
+                  Industry Solutions
+                </span>
+              </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:items-end">
-            <div>
-              <Link
-                href="/industries"
-                className="mb-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400 transition hover:text-[#7ef7c4]"
-              >
-                <span aria-hidden="true">&lt;-</span>
-                Back to industries
-              </Link>
-
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#8be9ff]">
-                {industry.tag}
-              </p>
-              <h1 className="mt-3 max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-                {industry.name} CRM Solutions
+              <h1 className="max-w-5xl text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl leading-[1.2]">
+                {industrySeoTitle}
               </h1>
-              <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-300 md:text-base">
+              <p className="mt-4 max-w-4xl text-base leading-7 text-slate-300 md:text-xl font-medium">
                 {industry.detail.headline}
               </p>
             </div>
+          </article>
+        </div>
+      </section>
 
-            <div className="rounded-[1.5rem] border border-[#7ef7c4]/20 bg-white/[0.04] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                Operating impact
-              </p>
-              <p className="mt-4 text-5xl font-bold text-white">{industry.metric}</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[#7ef7c4]">
-                {industry.metricLabel}
-              </p>
-              <p className="mt-5 text-[13px] leading-6 text-slate-400">{industry.description}</p>
+      <section className="relative px-4 pb-12 sm:px-6">
+        <div className="mx-auto max-w-[1500px]">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <Reveal>
+              <article className="h-full rounded-[1.25rem] border border-white/10 bg-[#081423]/92 p-6 md:p-8 shadow-[0_24px_70px_rgba(0,0,0,0.2)]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-px w-8 bg-[#7ef7c4]/50" />
+                  <span className="text-[#7ef7c4] text-[9px] font-bold uppercase tracking-[0.3em]">Operational Flow</span>
+                </div>
+                <h2 className="text-2xl font-black tracking-tight text-white md:text-3xl mb-6">
+                  {industry.name} Business Logic
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="text-slate-300 text-base leading-relaxed border-l-2 border-[#7ef7c4]/20 pl-4">
+                    <p>{industry.detail.overview}</p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-xl border border-white/5 bg-white/[0.02] p-5">
+                      <h4 className="text-[#8be9ff] text-[10px] font-bold uppercase tracking-[0.15em] mb-3">Strategic CRM Impact</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3 text-sm text-slate-300">
+                          <span className="mt-1 h-1 w-1 rounded-full bg-[#7ef7c4] shrink-0" />
+                          <span><strong>Operational Accuracy:</strong> Reduces manual handoff errors by 40% through unified dashboards.</span>
+                        </li>
+                        <li className="flex items-start gap-3 text-sm text-slate-300">
+                          <span className="mt-1 h-1 w-1 rounded-full bg-[#7ef7c4] shrink-0" />
+                          <span><strong>Decision Visibility:</strong> Live tracking of {industry.name.toLowerCase()} metrics for immediate leadership action.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="rounded-xl border border-white/5 bg-white/[0.02] p-5">
+                      <h4 className="text-[#8be9ff] text-[10px] font-bold uppercase tracking-[0.15em] mb-3">Automation Benefits</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3 text-sm text-slate-300">
+                          <span className="mt-1 h-1 w-1 rounded-full bg-[#7ef7c4] shrink-0" />
+                          <span><strong>Response Speed:</strong> Automated routing ensures {industry.tag.toLowerCase()} leads are touched in minutes.</span>
+                        </li>
+                        <li className="flex items-start gap-3 text-sm text-slate-300">
+                          <span className="mt-1 h-1 w-1 rounded-full bg-[#7ef7c4] shrink-0" />
+                          <span><strong>Scalability:</strong> Systems designed to handle 5x growth in {industry.name.toLowerCase()} operations.</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-xl border border-[#7ef7c4]/20 bg-[#7ef7c4]/5 p-5 group hover:bg-[#7ef7c4]/8 transition-colors">
+                      <p className="text-4xl font-black tracking-tight text-white mb-1">{industry.metric}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#7ef7c4]">
+                        {industry.metricLabel}
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 flex flex-col justify-center">
+                      <p className="text-white text-base font-semibold leading-snug">Purpose-built for {industry.tag.toLowerCase()}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 border-t border-white/5 pt-8">
+                  <h3 className="text-lg font-bold text-white mb-6">Critical Modules</h3>
+                  <div className="grid gap-2.5 sm:grid-cols-2">
+                    {industry.detail.modules.map((module) => (
+                      <div key={module} className="rounded-lg border border-white/5 bg-white/[0.02] px-4 py-3 text-sm font-semibold text-slate-300 flex items-center gap-3">
+                        <div className="h-1.5 w-1.5 rounded-full bg-[#7ef7c4]" />
+                        {module}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+
+            <div className="space-y-6">
+              <Reveal delay={100}>
+                <article className="rounded-[1.25rem] border border-white/10 bg-[#081423]/92 p-6 md:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+                  <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+                    <span className="h-6 w-1 bg-[#7ef7c4] rounded-full" />
+                    Key Outcomes
+                  </h3>
+                  <div className="space-y-4">
+                    {industry.outcomes.map((outcome) => (
+                      <div key={outcome} className="flex gap-4 group">
+                        <div className="mt-1 h-5 w-5 shrink-0 rounded-full border border-[#7ef7c4]/30 bg-[#7ef7c4]/10 flex items-center justify-center group-hover:bg-[#7ef7c4]/20 transition-colors">
+                          <div className="h-1 w-1 rounded-full bg-[#7ef7c4]" />
+                        </div>
+                        <p className="text-sm leading-6 text-slate-200 font-medium">{outcome}</p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <article className="rounded-[1.25rem] border border-[#7ef7c4]/10 bg-gradient-to-br from-[#0d2119] to-[#08101d] p-6 md:p-7 shadow-2xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#7ef7c4]/5 blur-3xl" />
+                  <h3 className="text-lg font-bold text-[#7ef7c4] mb-3">Still Confused?</h3>
+                  <p className="text-slate-400 text-xs mb-6 leading-relaxed">
+                    Get a custom workflow designed by our experts for your business.
+                  </p>
+                  <form className="space-y-3">
+                    <input 
+                      type="email" 
+                      placeholder="Work Email" 
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white outline-none focus:border-[#7ef7c4]/50 transition-colors"
+                    />
+                    <textarea 
+                      placeholder="Your requirements..." 
+                      rows={2}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white outline-none focus:border-[#7ef7c4]/50 transition-colors resize-none"
+                    />
+                    <button 
+                      type="submit"
+                      className="w-full bg-[#7ef7c4] text-[#04111c] font-bold py-3 rounded-lg text-xs transition-all hover:shadow-[0_0_15px_rgba(126,247,196,0.3)] active:scale-[0.98]"
+                    >
+                      Get Custom Solution
+                    </button>
+                  </form>
+                </article>
+              </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative px-6 py-14">
-        <div className="absolute left-0 top-12 h-72 w-72 rounded-full bg-[#00b274]/6 blur-[120px]" />
-        <div className="absolute right-0 bottom-8 h-72 w-72 rounded-full bg-sky-500/6 blur-[120px]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+      <section className="bg-[#0b1220] px-4 py-10 sm:px-6">
+        <div className="mx-auto max-w-[1500px]">
           <Reveal>
-            <article className="h-full rounded-[1.5rem] border border-white/10 bg-[#08101d] p-7 md:p-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">
-                Industry view
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                Built around the way {industry.name.toLowerCase()} teams actually work.
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-slate-400">{industry.detail.overview}</p>
-
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {industry.outcomes.map((outcome) => (
-                  <div key={outcome} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#7ef7c4]/20 bg-[#7ef7c4]/10 text-[#7ef7c4]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-current" />
-                    </span>
-                    <p className="mt-3 text-sm font-semibold text-white">{outcome}</p>
-                  </div>
-                ))}
+            <article className="rounded-[1.25rem] border border-white/10 bg-[#08101d] p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <div>
+                  <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#8be9ff] mb-2">OPERATIONAL PATH</p>
+                  <h2 className="text-xl font-bold tracking-tight text-white">
+                    Standard Workflow
+                  </h2>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {industry.detail.workflow.map((step, index) => (
+                    <div key={step} className="flex items-center">
+                      <div className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-[10px] font-bold text-white flex items-center gap-2">
+                        <span className="text-[#7ef7c4]">{index + 1}</span>
+                        {step}
+                      </div>
+                      {index < industry.detail.workflow.length - 1 && (
+                        <div className="mx-1 h-px w-3 bg-white/10" />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </article>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <article className="h-full rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-7 md:p-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">
-                CRM focus
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                What your system should handle
-              </h2>
-
-              <div className="mt-6 space-y-3">
+              
+              <div className="grid gap-3 md:grid-cols-2">
                 {industry.detail.focusAreas.map((item) => (
-                  <div key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-[#0d1b26] p-4">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[#7ef7c4]" />
+                  <div key={item} className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.01] p-4 hover:bg-white/[0.02] transition-colors">
+                    <div className="mt-1 h-4 w-4 shrink-0 rounded-md border border-[#7ef7c4]/20 bg-[#7ef7c4]/10 flex items-center justify-center">
+                      <svg className="w-2.5 h-2.5 text-[#7ef7c4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
                     <p className="text-sm leading-6 text-slate-300">{item}</p>
                   </div>
                 ))}
@@ -165,87 +273,9 @@ export default async function IndustryDetailPage({ params }) {
         </div>
       </section>
 
-      <section className="px-6 py-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">
-              Delivery shape
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-              Modules and workflow path
-            </h2>
-          </div>
 
-          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-7">
-              <h3 className="text-lg font-semibold text-white">Useful modules</h3>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {industry.detail.modules.map((module) => (
-                  <div key={module} className="rounded-2xl border border-[#7ef7c4]/15 bg-[#7ef7c4]/5 px-4 py-3 text-sm font-medium text-slate-200">
-                    {module}
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            <div className="rounded-[1.5rem] border border-white/10 bg-[#08101d] p-7">
-              <h3 className="text-lg font-semibold text-white">Workflow path</h3>
-              <div className="mt-6 grid gap-3 md:grid-cols-5">
-                {industry.detail.workflow.map((step, index) => (
-                  <div key={step} className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#7ef7c4]">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <p className="mt-3 text-sm font-semibold leading-5 text-white">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="px-6 py-14">
-        <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/10 bg-[#08101d] p-7 md:p-9">
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">
-                Explore more
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                Related industries
-              </h2>
-            </div>
-            <Link
-              href="/industries"
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#7ef7c4] transition hover:border-[#7ef7c4]/30 hover:bg-[#7ef7c4]/10"
-            >
-              View All
-              <span aria-hidden="true">-&gt;</span>
-            </Link>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {relatedIndustries.map((relatedIndustry) => (
-              <Link
-                key={relatedIndustry.name}
-                href={`/industries/${getIndustrySlug(relatedIndustry)}`}
-                className="group rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 transition hover:border-[#7ef7c4]/25 hover:bg-white/[0.06]"
-              >
-                <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#8be9ff]">
-                  {relatedIndustry.tag}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-white transition group-hover:text-[#7ef7c4]">
-                  {relatedIndustry.name}
-                </h3>
-                <p className="mt-3 line-clamp-2 text-[13px] leading-6 text-slate-400">
-                  {relatedIndustry.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <ContactSection />
     </main>

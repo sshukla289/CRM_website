@@ -105,7 +105,7 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <Reveal key={index} delay={index * 100}>
-              <div className="group relative p-8 rounded-3xl glass-dark glass-glow transition-all duration-500 hover:scale-105 hover:bg-white/[0.08]">
+              <div className="group relative p-6 rounded-2xl glass-dark glass-glow transition-all duration-500 hover:scale-105 hover:bg-white/[0.08]">
                 {/* Icon Container */}
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.25rem] border border-[#8be9ff]/15 bg-gradient-to-br from-[#112033] via-[#0b1728] to-[#0b1220] shadow-[0_18px_45px_rgba(0,0,0,0.25)] group-hover:scale-110 group-hover:border-[#7ef7c4]/25 transition-transform duration-500">
                   <div className="text-[#8be9ff] group-hover:text-[#7ef7c4] transition-colors duration-500">
@@ -114,10 +114,10 @@ export default function FeaturesSection() {
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00b274] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00b274] transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-slate-400 leading-relaxed text-sm group-hover:text-slate-300 transition-colors duration-300">
+                <p className="text-slate-400 leading-relaxed text-base group-hover:text-slate-300 transition-colors duration-300">
                   {feature.description}
                 </p>
 

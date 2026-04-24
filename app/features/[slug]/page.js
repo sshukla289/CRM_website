@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,10 +10,105 @@ import FeatureIcon from "@/components/FeatureIcon";
 import BookCallModal from "@/components/BookCallModal";
 import { allFeatures } from "@/lib/features-data";
 
+const FEATURE_HERO_BG_VIDEOS = [
+  {
+    src: "https://cdn.pixabay.com/video/2025/01/08/251543_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/07/27/293827_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2016/08/22/4723-179738625_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/04/07/270442_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/07/30/294428_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/03/26/267585_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/04/07/270415_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/04/07/270432_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/10/30/312873_small.mp4",
+    objectPosition: "center center",
+  },
+  {
+    src: "https://cdn.pixabay.com/video/2025/04/07/270416_small.mp4",
+    objectPosition: "center center",
+  },
+];
+
+const FEATURE_HERO_OVERLAYS = [
+  "bg-[radial-gradient(circle_at_18%_22%,rgba(0,178,116,0.18),transparent_28%),radial-gradient(circle_at_82%_34%,rgba(56,189,248,0.14),transparent_30%),linear-gradient(180deg,rgba(11,18,32,0.84),rgba(11,18,32,0.58)_42%,rgba(11,18,32,0.9))]",
+  "bg-[radial-gradient(circle_at_22%_18%,rgba(56,189,248,0.16),transparent_26%),radial-gradient(circle_at_78%_32%,rgba(0,178,116,0.15),transparent_32%),linear-gradient(180deg,rgba(11,18,32,0.86),rgba(11,18,32,0.52)_45%,rgba(11,18,32,0.9))]",
+  "bg-[radial-gradient(circle_at_14%_28%,rgba(0,178,116,0.14),transparent_24%),radial-gradient(circle_at_74%_26%,rgba(125,211,252,0.14),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.84),rgba(11,18,32,0.56)_40%,rgba(11,18,32,0.92))]",
+  "bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.16),transparent_28%),radial-gradient(circle_at_84%_22%,rgba(59,130,246,0.16),transparent_30%),linear-gradient(180deg,rgba(11,18,32,0.86),rgba(11,18,32,0.54)_43%,rgba(11,18,32,0.92))]",
+];
+
+const FEATURE_PAGE_SLUGS = allFeatures.flatMap((group) =>
+  group.items.map((item) => item.slug)
+);
+
+function getFeatureHeroVideoConfig(slug) {
+  const featureIndex = Math.max(FEATURE_PAGE_SLUGS.indexOf(slug), 0);
+  const totalVideos = FEATURE_HERO_BG_VIDEOS.length;
+  const sourceIndices = [];
+
+  [
+    featureIndex % totalVideos,
+    (featureIndex * 3 + 1) % totalVideos,
+    (featureIndex * 7 + 2) % totalVideos,
+  ].forEach((index) => {
+    if (!sourceIndices.includes(index)) {
+      sourceIndices.push(index);
+    }
+  });
+
+  while (sourceIndices.length < 3) {
+    const nextIndex =
+      (sourceIndices[sourceIndices.length - 1] + 1) % totalVideos;
+
+    if (!sourceIndices.includes(nextIndex)) {
+      sourceIndices.push(nextIndex);
+    }
+  }
+
+  return {
+    sources: sourceIndices.map((index) => FEATURE_HERO_BG_VIDEOS[index]),
+    seekRatio: 0.08 + (((featureIndex * 17) % 68) / 100),
+    playbackRate: 0.84 + (featureIndex % 4) * 0.05,
+    overlayClass:
+      FEATURE_HERO_OVERLAYS[featureIndex % FEATURE_HERO_OVERLAYS.length],
+    zoomClass: ["scale-[1.03]", "scale-[1.08]", "scale-[1.12]"][
+      featureIndex % 3
+    ],
+  };
+}
+
 export default function FeatureDetailPage() {
   const params = useParams();
   const slug = params.slug;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [heroVideoIndex, setHeroVideoIndex] = useState(0);
+
+  useEffect(() => {
+    setHeroVideoIndex(0);
+  }, [slug]);
 
   // Find the feature by slug
   let feature = null;
@@ -31,32 +126,66 @@ export default function FeatureDetailPage() {
 
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
+  const heroVideoConfig = getFeatureHeroVideoConfig(slug);
+  const activeHeroVideo = heroVideoConfig.sources[heroVideoIndex];
+
+  const handleHeroVideoError = () => {
+    setHeroVideoIndex((currentIndex) => {
+      if (currentIndex >= heroVideoConfig.sources.length - 1) {
+        return heroVideoConfig.sources.length;
+      }
+
+      return currentIndex + 1;
+    });
+  };
+
+  const handleHeroVideoLoadedMetadata = (event) => {
+    const videoElement = event.currentTarget;
+    const duration = videoElement.duration;
+
+    if (Number.isFinite(duration) && duration > 1) {
+      videoElement.currentTime = Math.min(
+        duration - 0.6,
+        Math.max(0, duration * heroVideoConfig.seekRatio)
+      );
+    }
+
+    videoElement.playbackRate = heroVideoConfig.playbackRate;
+  };
 
   return (
     <main className="min-h-screen bg-[#0B1220] text-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-24 overflow-hidden">
-        {/* Background Image with Overlay */}
-        {feature.bgImage ? (
-          <div className="absolute inset-0 z-0">
-            <Image 
-              src={feature.bgImage} 
-              alt="Background" 
-              fill 
-              className="object-cover opacity-20"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220] via-transparent to-[#0B1220]" />
+      <section className="relative pt-28 md:pt-32 pb-24 overflow-hidden">
+        {/* Background Video with Overlay */}
+        {activeHeroVideo ? (
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <video
+              key={`${slug}-${activeHeroVideo.src}`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              onError={handleHeroVideoError}
+              onLoadedMetadata={handleHeroVideoLoadedMetadata}
+              className={`h-full w-full object-cover brightness-[0.45] saturate-[0.82] ${heroVideoConfig.zoomClass}`}
+              style={{ objectPosition: activeHeroVideo.objectPosition }}
+            >
+              <source src={activeHeroVideo.src} type="video/mp4" />
+            </video>
+            <div className={`absolute inset-0 ${heroVideoConfig.overlayClass}`} />
           </div>
         ) : (
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00b274]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_18%_22%,rgba(0,178,116,0.18),transparent_28%),radial-gradient(circle_at_82%_34%,rgba(56,189,248,0.14),transparent_30%),linear-gradient(180deg,rgba(11,18,32,0.84),rgba(11,18,32,0.58)_42%,rgba(11,18,32,0.9))] pointer-events-none" />
         )}
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <Reveal>
-            <nav className="flex text-sm text-[#00b274] font-medium mb-12">
+            <nav className="flex text-sm text-[#00b274] font-medium mb-10 md:mb-12">
               <ol className="flex items-center gap-2">
                 <li><Link href="/" className="hover:underline">Home</Link></li>
                 <li><span>&gt;</span></li>
@@ -67,7 +196,7 @@ export default function FeatureDetailPage() {
             </nav>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
             <div className="space-y-8">
               <Reveal delay={100}>
                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#00b274]/10 border border-[#00b274]/20 text-[#00b274] text-sm font-bold uppercase tracking-wider">

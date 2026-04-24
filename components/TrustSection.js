@@ -41,7 +41,7 @@ export default function TrustSection() {
           
           {/* Left Side: Brand Card */}
           <div className={`${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-all duration-700`}>
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-10 shadow-2xl relative overflow-hidden group hover:bg-white/10 transition-colors">
+            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-8 shadow-2xl relative overflow-hidden group hover:bg-white/10 transition-colors">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#00b274]/10 blur-3xl pointer-events-none" />
               
               <div className="flex flex-col items-center text-center space-y-8">

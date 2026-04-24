@@ -1,7 +1,7 @@
 const socials = [
   {
     name: "Twitter",
-    href: "https://twitter.com/",
+    href: "https://x.com/triostack",
     brand: "#1DA1F2",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -55,8 +55,8 @@ const socials = [
 
 export default function SocialStickyBar() {
   return (
-    <div className="fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
-      <div className="rounded-l-2xl rounded-r-none bg-[#050a14]/85 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
+    <div className="pointer-events-none fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
+      <div className="rounded-l-2xl rounded-r-none bg-[#0b1220]/85 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
         <div className="flex flex-col gap-1.5">
           {socials.map((item) => (
             <a
@@ -66,7 +66,7 @@ export default function SocialStickyBar() {
               rel="noreferrer"
               aria-label={item.name}
               style={{ ["--brand"]: item.brand }}
-              className="group grid h-10 w-10 place-items-center rounded-full bg-[#0f172a]/65 shadow-md ring-1 ring-white/10 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#020617]/85 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] active:scale-95"
+              className="group pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-[#0f172a]/65 shadow-md ring-1 ring-white/10 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#020617]/85 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
               title={item.name}
             >
               <span className="text-slate-200/70 transition-all duration-200 group-hover:scale-110 group-hover:text-[color:var(--brand)] group-hover:drop-shadow-[0_0_8px_var(--brand)]">

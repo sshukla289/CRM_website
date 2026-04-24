@@ -1,13 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import GoBackButton from "@/components/GoBackButton";
 import Link from "next/link";
 import { slugify } from "@/lib/utils";
 import SEOComponent from "@/components/SEOComponent";
 
 export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
-  const router = useRouter();
   const post = initialPost;
   const recentPosts = initialRecentPosts || [];
 
@@ -39,22 +38,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
         
         <div className="max-w-7xl mx-auto relative z-10">
           
-          {/* Back Button */}
-          <button 
-            onClick={() => {
-              if (window.history.length > 1) {
-                router.back();
-              } else {
-                router.push('/blogs');
-              }
-            }}
-            className="group mb-8 flex items-center gap-2 text-slate-400 hover:text-[#00b274] transition-all text-xs font-bold uppercase tracking-widest animate-fade-in"
-          >
-            <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Go Back
-          </button>
+          <GoBackButton fallbackHref="/blogs" className="mb-8 animate-fade-in" />
 
           <div className="mb-8 animate-fade-in [animation-delay:100ms]">
             <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
