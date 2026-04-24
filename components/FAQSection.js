@@ -32,22 +32,26 @@ const faqData = [
 const FAQItem = ({ item, isOpen, onClick }) => {
   return (
     <div 
-      className={`group transition-all duration-500 mb-4 rounded-xl border backdrop-blur-md cursor-pointer overflow-hidden
+      className={`group transition-all duration-500 mb-4 rounded-xl border backdrop-blur-md overflow-hidden
         ${isOpen 
           ? 'bg-white/10 border-white/20' 
           : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}`}
-      onClick={onClick}
     >
       <div className="px-6 py-5 flex items-center justify-between gap-4">
         <h3 className={`text-base md:text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
           {item.question}
         </h3>
-        <div className={`flex-shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500
+        <button
+          type="button"
+          onClick={onClick}
+          aria-label={isOpen ? "Collapse answer" : "Expand answer"}
+          aria-expanded={isOpen}
+          className={`flex-shrink-0 w-8 h-8 cursor-pointer rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70
           ${isOpen ? 'bg-[#00b274] border-[#00b274] rotate-45' : 'bg-transparent'}`}>
           <svg className={`w-4 h-4 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/40 group-hover:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
-        </div>
+        </button>
       </div>
       
       <div 
@@ -65,7 +69,7 @@ const FAQItem = ({ item, isOpen, onClick }) => {
 };
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
