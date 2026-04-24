@@ -14,7 +14,7 @@ const socials = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/company/triostack-technologies-private-limited/",
     brand: "#0A66C2",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -27,7 +27,7 @@ const socials = [
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/triostack/",
     brand: "#E1306C",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -40,13 +40,26 @@ const socials = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/triostack",
     brand: "#1877F2",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
         <path
           fill="currentColor"
           d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.03 1.792-4.708 4.533-4.708 1.312 0 2.686.236 2.686.236v2.976h-1.513c-1.49 0-1.953.931-1.953 1.887v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@triostacktechnologies",
+    brand: "#FF0000",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
+        <path
+          fill="currentColor"
+          d="M23.498 6.186a3.03 3.03 0 0 0-2.132-2.144C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.366.497A3.03 3.03 0 0 0 .502 6.186 31.128 31.128 0 0 0 0 12a31.128 31.128 0 0 0 .502 5.814 3.03 3.03 0 0 0 2.132 2.144c1.861.497 9.366.497 9.366.497s7.505 0 9.366-.497a3.03 3.03 0 0 0 2.132-2.144A31.128 31.128 0 0 0 24 12a31.128 31.128 0 0 0-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z"
         />
       </svg>
     ),
