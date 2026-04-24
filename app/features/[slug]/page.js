@@ -293,8 +293,8 @@ export default function FeatureDetailPage() {
                 </h1>
               </Reveal>
               <Reveal delay={300}>
-                <p className="text-xl text-slate-400 leading-relaxed max-w-xl">
-                  {feature.details?.shortDescription || feature.description}
+                <p className="text-base text-slate-400 leading-relaxed max-w-lg">
+                  {(feature.details?.shortDescription || feature.description).split('.')[0]}.
                 </p>
               </Reveal>
               <Reveal delay={400}>
