@@ -305,12 +305,7 @@ export default function FeatureDetailPage() {
                   >
                     Book a Demo
                   </button>
-                  <button
-                    onClick={() => document.getElementById('overview').scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-white/5 hover:bg-white/10 text-white px-10 py-4 rounded-full font-bold transition-all duration-300 border border-white/10"
-                  >
-                    Explore Features
-                  </button>
+
                 </div>
               </Reveal>
             </div>
@@ -477,7 +472,12 @@ export default function FeatureDetailPage() {
         </section>
       )}
 
-      <BookCallModal isOpen={isModalOpen} onClose={handleModalClose} />
+      <BookCallModal 
+        isOpen={isModalOpen} 
+        onClose={handleModalClose} 
+        title="Book a Demo"
+        subtitle="Get a personalized tour of our CRM solutions and see how we can help your business grow."
+      />
     </main>
   );
 }
