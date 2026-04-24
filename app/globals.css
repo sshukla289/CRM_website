@@ -12,6 +12,19 @@
     scroll-behavior: smooth;
   }
 
+  /* Global Clickable Handlers */
+  a, 
+  button, 
+  [role="button"], 
+  input[type="button"], 
+  input[type="submit"], 
+  input[type="reset"],
+  label[for],
+  select,
+  summary {
+    cursor: pointer;
+  }
+
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[#00b274]/30;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -172,6 +185,15 @@
   .mask-gradient {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .clickable-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .clickable-card:active {
+    transform: scale(0.98);
   }
 
 }
