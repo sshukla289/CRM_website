@@ -146,7 +146,7 @@ const PlayIcon = ({ className = "h-6 w-6" }) => (
   </svg>
 );
 
-const VideoTestimonialCard = ({ name, role, company, thumbnail, onOpen, href }) => (
+const VideoTestimonialCard = ({ name, role, company, thumbnail, onOpen }) => (
   <div
     role="button"
     tabIndex={0}
@@ -174,19 +174,6 @@ const VideoTestimonialCard = ({ name, role, company, thumbnail, onOpen, href }) 
           Watch
         </span>
       </div>
-
-      {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${name} LinkedIn`}
-          onClick={(event) => event.stopPropagation()}
-          className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#0b1220]/55 text-slate-200/80 transition hover:text-[#0A66C2] hover:ring-1 hover:ring-[#0A66C2]/40"
-        >
-          <LinkedinIcon className="h-4 w-4" />
-        </a>
-      ) : null}
 
       <div className="absolute inset-x-0 bottom-0 p-4">
         <p className="truncate text-sm font-semibold text-white">{name}</p>
@@ -262,17 +249,6 @@ function VideoModal({ video, onClose }) {
                 {video.role} @ {video.company}
               </p>
             </div>
-            {video.href ? (
-              <a
-                href={video.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0b1220]/60 px-3 py-2 text-xs font-semibold text-white/80 transition hover:text-[#0A66C2] hover:ring-1 hover:ring-[#0A66C2]/35"
-              >
-                <LinkedinIcon className="h-4 w-4" />
-                LinkedIn
-              </a>
-            ) : null}
           </div>
         </div>
       </div>
@@ -310,7 +286,6 @@ const TestimonialSection = () => {
               role={item.role}
               company={item.company}
               thumbnail={item.thumbnail}
-              href={item.href}
               onOpen={() => setActiveVideo(item)}
             />
           ),
