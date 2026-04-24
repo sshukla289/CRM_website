@@ -21,7 +21,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
+ENV PORT=5015
 
 RUN useradd -m --system --uid 1001 nextjs && \
     mkdir -p /app && \
@@ -36,6 +36,6 @@ COPY --from=builder --chown=nextjs:root /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:root /app/next.config.mjs ./next.config.mjs
 
 USER nextjs
-EXPOSE 3000
+EXPOSE 5015
 
-CMD ["npm","run","start","--","-H","0.0.0.0","-p","3000"]
+CMD ["npm","run","start","--","-H","0.0.0.0","-p","5015"]
