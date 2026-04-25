@@ -45,7 +45,6 @@ export default function HeroSection() {
                   "Never lose a lead with 24/7 automated capture",
                   "Gain real-time visibility into your entire sales team",
                   "Automate lead assignment to the right sales rep instantly",
-                  "Track call logs, WhatsApp chats, and pipeline updates in one place",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-4 group">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#00b274]/20 flex items-center justify-center">
