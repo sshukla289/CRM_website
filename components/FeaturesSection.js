@@ -7,40 +7,40 @@ import { allFeatures } from "@/lib/features-data";
 
 const FEATURE_CATEGORY_CARDS = [
   {
-    category: "Automate Every Lead",
+    category: "Lead & Pre-Sales",
     description:
-      "Stop losing enquiries. Automatically capture leads from all sources and assign them to your best sales reps instantly.",
+      "Capture enquiries, assign leads, track activity, and automate follow-ups from first contact to conversion.",
     iconType: "lead",
   },
   {
-    category: "Accelerate Your Pipeline",
+    category: "Real Estate CRM",
     description:
-      "Move deals faster with visual workflows. Track every stage of your sales process and identify bottlenecks before they happen.",
-    iconType: "automation",
+      "Manage projects, inventory, site visits, bookings, pricing, partners, and collections inside one real-estate workflow.",
+    iconType: "documents",
   },
   {
-    category: "Connect on WhatsApp",
+    category: "Admin, Analytics & Platform",
     description:
-      "Reach customers where they are. Send automated alerts, campaigns, and reminders directly through the world's most popular chat app.",
-    iconType: "whatsapp",
-  },
-  {
-    category: "Delight Your Customers",
-    description:
-      "Provide world-class support with structured ticketing and faster response times that turn customers into brand advocates.",
-    iconType: "ticket",
-  },
-  {
-    category: "Data-Driven Decisions",
-    description:
-      "Gain total visibility into your team's performance with real-time analytics and executive-level growth reports.",
+      "Control users, security, audit logs, integrations, tenant setup, and executive-level analytics from one admin layer.",
     iconType: "dashboard",
   },
   {
-    category: "Simplify Sales Workflows",
+    category: "Support & Service",
     description:
-      "Generate professional quotations and invoices in seconds. Keep all your documentation in one secure, accessible location.",
-    iconType: "documents",
+      "Run support tickets, SLA rules, routing, knowledge base, feedback loops, and service analytics with better visibility.",
+    iconType: "ticket",
+  },
+  {
+    category: "Sales Workflow",
+    description:
+      "Handle proposals, quotations, invoices, agreements, scheduling, and complete deal movement through structured workflows.",
+    iconType: "automation",
+  },
+  {
+    category: "WhatsApp CRM",
+    description:
+      "Operate shared inboxes, campaigns, templates, automations, and WhatsApp analytics without leaving your CRM.",
+    iconType: "whatsapp",
   },
 ];
 
@@ -75,17 +75,18 @@ export default function FeaturesSection() {
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <Reveal>
             <span className="text-[#00b274] text-sm font-bold tracking-[0.4em] uppercase block mb-4">
-              Built for Growth
+              Features
             </span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 leading-tight">
-              Scale Your Business Faster
+              Best In class Features
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Powerful tools designed to help your team work smarter, close more deals, and provide exceptional customer experiences.
+            <p className="text-lg text-slate-500 leading-relaxed">
+              Jump straight into the CRM modules that matter most to your sales,
+              operations, support, finance, and platform teams.
             </p>
           </Reveal>
         </div>

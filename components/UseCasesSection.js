@@ -43,7 +43,7 @@ const useCases = [
 
 export default function UseCasesSection() {
   return (
-    <section className="py-20 bg-[#0b1220] relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <Reveal>
@@ -52,12 +52,12 @@ export default function UseCasesSection() {
             </span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-950 mb-6">
               Tailored for Your Industry
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-slate-400 max-w-2xl mx-auto">
+            <p className="text-slate-600 max-w-2xl mx-auto">
               Whatever your business model, CRM Solutions provides the flexibility and power to manage your unique workflows.
             </p>
           </Reveal>
@@ -66,12 +66,12 @@ export default function UseCasesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {useCases.map((useCase, index) => (
             <Reveal key={index} delay={index * 100}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 group">
+              <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-[0_22px_60px_rgba(15,23,42,0.09)] hover:border-[#00b274]/30 hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] transition-all duration-300 group">
                 <div className="w-12 h-12 rounded-xl bg-[#00b274]/10 flex items-center justify-center text-[#00b274] mb-6 group-hover:scale-110 transition-transform">
                   {useCase.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{useCase.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <h3 className="text-xl font-bold text-slate-950 mb-4">{useCase.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {useCase.description}
                 </p>
               </div>
