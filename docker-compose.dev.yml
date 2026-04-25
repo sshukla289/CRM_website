@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "5015:5015"
+      - "3000:3000"
     env_file:
       - .env
     environment:
@@ -15,7 +15,7 @@ services:
       CHOKIDAR_INTERVAL: "800"
       NEXT_TELEMETRY_DISABLED: "1"
       HOSTNAME: "0.0.0.0"
-      PORT: "5015"
+      PORT: "3000"
     volumes:
       - .:/app
       - /app/node_modules

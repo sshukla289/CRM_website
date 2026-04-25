@@ -11,6 +11,6 @@ RUN npm ci
 
 COPY . .
 
-EXPOSE 5015
+EXPOSE 3000
 
 CMD ["sh","./scripts/dev-docker.sh"]
