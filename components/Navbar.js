@@ -13,6 +13,7 @@ export default function Navbar() {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isFeatureIndexPage = pathname === "/features";
 
   const handleLoginClick = () => {
     window.location.assign(CRM_LOGIN_URL);
@@ -83,22 +84,24 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-none transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          } ${isScrolled
-            ? "bg-background/95 backdrop-blur-xl py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-            : "bg-transparent py-6"
+          } ${isFeatureIndexPage
+            ? "bg-white/95 backdrop-blur-xl py-3.5 shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
+            : isScrolled
+              ? "bg-background/95 backdrop-blur-xl py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+              : "bg-transparent py-6"
           }`}
       >
         <div className="pointer-events-auto relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="relative z-10 inline-flex items-center gap-3 cursor-pointer" aria-label="Go to home page">
-              <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-[#14c38e]/10">
+              <div className={`relative w-10 h-10 overflow-hidden rounded-xl shadow-lg shadow-[#14c38e]/10 ${isFeatureIndexPage ? "border border-slate-200" : "border border-white/10"}`}>
                 <img
                   src="/triostack-logo.jpeg"
                   alt="CRM Solutions Logo"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xl font-bold text-[#f3fffb] tracking-tight">CRM Solutions</span>
+              <span className={`text-xl font-bold tracking-tight ${isFeatureIndexPage ? "text-slate-950" : "text-[#f3fffb]"}`}>CRM Solutions</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-2">
@@ -109,7 +112,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer text-slate-200/90 hover:text-[#7ef7c4]"
+                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${isFeatureIndexPage ? "text-slate-600 hover:text-[#00b274]" : "text-slate-200/90 hover:text-[#7ef7c4]"}`}
                   >
                     {link.name}
                   </a>
@@ -119,8 +122,8 @@ export default function Navbar() {
                     href={link.href}
                     aria-current={pathname === link.href ? "page" : undefined}
                     className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${pathname === link.href
-                        ? "text-[#7ef7c4]"
-                        : "text-slate-200/90 hover:text-[#7ef7c4]"
+                      ? "text-[#00b274]"
+                        : isFeatureIndexPage ? "text-slate-600 hover:text-[#00b274]" : "text-slate-200/90 hover:text-[#7ef7c4]"
                       }`}
                   >
                     {link.name}
@@ -134,7 +137,7 @@ export default function Navbar() {
             <a
               href={CRM_LOGIN_URL}
               onClick={handleLoginClick}
-              className="hidden lg:block text-sm font-medium text-slate-100 hover:text-[#7ef7c4] transition-colors cursor-pointer"
+              className={`hidden lg:block text-sm font-medium transition-colors cursor-pointer ${isFeatureIndexPage ? "text-slate-700 hover:text-[#00b274]" : "text-slate-100 hover:text-[#7ef7c4]"}`}
             >
               Login
             </a>
@@ -150,7 +153,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+              className={`lg:hidden p-2 transition-colors ${isFeatureIndexPage ? "text-slate-700 hover:text-slate-950" : "text-white/80 hover:text-white"}`}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav-menu"
