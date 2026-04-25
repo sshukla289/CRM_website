@@ -10,21 +10,6 @@ export default function HeroSection() {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
   
   const handleBookDemoClick = () => {
-    if (typeof window !== "undefined") {
-      const formContainer = document.getElementById("hero-form-container");
-      const firstInput = formContainer?.querySelector("input, select, textarea");
-
-      if (formContainer) {
-        formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
-        window.setTimeout(() => {
-          if (firstInput && "focus" in firstInput) {
-            firstInput.focus();
-          }
-        }, 350);
-        return;
-      }
-    }
-
     setIsBookDemoOpen(true);
   };
 
