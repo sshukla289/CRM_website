@@ -70,11 +70,11 @@ export default function HeroSection() {
             </ul>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 relative z-[50]">
               <button
                 type="button"
                 onClick={openBookDemoModal}
-                className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center"
+                className="relative z-30 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer pointer-events-auto"
               >
                 Book Free Demo
               </button>
@@ -82,7 +82,7 @@ export default function HeroSection() {
               <button
                 type="button"
                 onClick={() => router.push('/pricing')}
-                className="border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40"
+                className="relative z-30 border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40 cursor-pointer pointer-events-auto"
               >
                 Get Pricing
               </button>

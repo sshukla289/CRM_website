@@ -128,7 +128,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={handleBookCallOpen}
-              className="hidden lg:block bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:brightness-105 hover:shadow-[0_0_24px_rgba(55,223,170,0.28)] cursor-pointer"
+              className="hidden lg:block bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:brightness-105 hover:shadow-[0_0_24px_rgba(55,223,170,0.28)] cursor-pointer pointer-events-auto relative z-[210]"
             >
               Book Free Demo
             </button>
