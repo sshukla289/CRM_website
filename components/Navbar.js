@@ -92,7 +92,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Trio-CRM</span>
+              <span className="text-2xl lg:text-[1.75rem] font-extrabold text-[#f3fffb] tracking-[-0.02em] uppercase">Trio-CRM</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-2">
