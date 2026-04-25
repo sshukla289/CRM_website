@@ -2,10 +2,10 @@
 
 This project is a Next.js 16 marketing website for CRM Solutions. It includes a landing page, pricing page, industries page, features page, blog listing with detail pages, legal pages, and a brochure download route.
 
-The project is configured to run on one public application port only:
+The project is configured to run on one public application port:
 
 ```text
-http://localhost:3000
+http://localhost:5015
 ```
 
 ## Stack
@@ -79,43 +79,19 @@ Hot reload (default):
 Build and start:
 
 ```bash
-docker compose up --build -d
-```
-
-Or:
-
-```bash
-npm run docker:build
-```
-
-Start again without rebuilding:
-
-```bash
-docker compose up -d
-```
-
-Or:
-
-```bash
-npm run docker:up
+npm run docker:dev
 ```
 
 Stop:
 
 ```bash
-docker compose down
-```
-
-Or:
-
-```bash
-npm run docker:down
+npm run docker:dev:down
 ```
 
 View logs:
 
 ```bash
-npm run docker:logs
+docker compose -f docker-compose.dev.yml logs -f web
 ```
 
 ## Hot Reload (Dev Mode)
@@ -154,9 +130,7 @@ npm run docker:prod:build
 
 Docker and the app are aligned to one runtime port:
 
-```text
-3000:3000
-```
+`docker-compose.dev.yml` uses `5015:5015` and `docker-compose.prod.yml` uses `5015:5015`.
 
 ## Environment Variables
 
