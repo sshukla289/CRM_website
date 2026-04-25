@@ -7,13 +7,16 @@
 
 # testing
 /coverage/
+/.nyc_output/
 
 # next.js
 /.next/
 /out/
+/.turbo/
 
 # production
 /build/
+/dist/
 
 # environment
 .env
@@ -22,18 +25,26 @@
 .env.*.local
 
 # local tooling
+/.cache/
 /.docker/
+/.vscode/
 /public/crm screen shot/
 /public/screenshots/
 
 # logs
+logs/
 *.log
+*.err
+*.pid
 next-dev*.log
 next-start*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
+# cache
+.eslintcache
 
 # vercel
 .vercel/
