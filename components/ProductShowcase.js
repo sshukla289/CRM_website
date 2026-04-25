@@ -40,57 +40,57 @@ export default function ProductShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="bg-white py-20 md:py-32 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-1/2 -right-40 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_32%),linear-gradient(180deg,#ffffff_0%,#f8fbff_52%,#eef6f4_100%)] py-8 md:py-10">
+      {/* Premium white section glow */}
+      <div className="absolute top-1/2 -right-40 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container max-w-7xl mx-auto px-6">
+      <div className="container relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left Side: Video/Visual */}
+          {/* Left Side: Video */}
           <div className="relative group animate-fade-in opacity-0">
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#00b274]/10 to-blue-500/10 rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition duration-1000"></div>
-            <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.1)] border border-slate-100 bg-white p-2">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#00b274]/20 to-blue-500/20 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.12)] border border-white bg-white">
               <video 
                 autoPlay 
                 loop 
                 muted 
                 playsInline
-                className="w-full h-full rounded-[1.75rem] object-cover transform group-hover:scale-[1.02] transition-transform duration-1000"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               >
                 <source src="https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute inset-0 bg-slate-900/5 pointer-events-none rounded-[1.75rem]" />
+              <div className="absolute inset-0 bg-white/10 pointer-events-none" />
             </div>
           </div>
 
           {/* Right Side: Content */}
           <div className="animate-slide-up opacity-0 [animation-delay:200ms]">
-            <div className="mb-10 text-center lg:text-left">
-              <span className="text-[#00b274] text-xs font-black uppercase tracking-[0.4em] block mb-4">
-                Experience Intelligence
+            <div className="mb-8 text-center lg:text-left">
+              <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
+                Our Product
               </span>
-              <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
-                Smart CRM Platform <br className="hidden lg:block" /> for <span className="text-[#00b274]">Modern Teams</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-950 mb-6 leading-tight">
+                Smart CRM Platform for <br className="hidden lg:block" /> Modern Businesses
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Streamline your sales, automate workflows, and manage multi-branch operations 
                 with our powerful CRM platform designed for Indian enterprises.
               </p>
             </div>
 
             {/* Feature Highlights */}
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 mb-10">
               {productHighlights.map((feature, index) => (
-                <div key={index} className="flex items-start gap-5 group">
-                  <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-[#00b274] shadow-sm border border-slate-100 transition-all duration-300 group-hover:bg-[#00b274] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[#00b274]/20">
+                <div key={index} className="flex items-start gap-4 group">
+                  <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#00b274]/15 bg-white text-[#0b8f66] shadow-[0_16px_35px_rgba(15,23,42,0.08)] transition-all duration-300 group-hover:border-[#00b274]/25 group-hover:bg-[#00b274] group-hover:text-white">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-slate-900 font-bold text-lg mb-1.5 group-hover:text-[#00b274] transition-colors">{feature.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed max-w-md">{feature.desc}</p>
+                    <h3 className="text-slate-950 font-semibold text-base mb-1 group-hover:text-[#00b274] transition-colors">{feature.title}</h3>
+                    <p className="text-slate-500 text-sm">{feature.desc}</p>
                   </div>
                 </div>
               ))}
@@ -100,15 +100,10 @@ export default function ProductShowcase() {
             <div className="text-center lg:text-left">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="relative group bg-slate-900 text-white px-12 py-5 rounded-full font-black text-sm uppercase tracking-widest transition-all duration-500 hover:bg-[#00b274] hover:scale-105 hover:shadow-2xl hover:shadow-[#00b274]/30 overflow-hidden"
+                className="relative group bg-gradient-to-r from-[#00b274] to-[#00d48a] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 overflow-hidden"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Request Live Demo
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <span className="relative z-10">Book a Demo</span>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>
             </div>
           </div>
