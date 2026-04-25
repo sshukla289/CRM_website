@@ -17,27 +17,31 @@ export default function ConsultationSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side: Image */}
-          <div className="relative group overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-auto lg:h-[500px] shadow-2xl">
+          <div className="relative group overflow-hidden rounded-[1.75rem] aspect-[4/3] lg:aspect-auto lg:h-[520px] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
             <img 
-              src="/img.png" 
-              alt="Expert Consultation" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="/consultation-team-humanized.png" 
+              alt="CRM consultation with a business team" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             />
             {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220]/60 to-transparent" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.08),rgba(11,18,32,0.12)_50%,rgba(11,18,32,0.4))]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0b1220]/45 to-transparent" />
           </div>
 
           {/* Right Side: Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <div className="space-y-8 lg:space-y-10">
+            <div className="space-y-5">
               <span className="text-[#00b274] text-xs font-bold uppercase tracking-[0.4em] block">
                 NEED EXPERT HELP?
               </span>
               <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Still Confused? Let Our <br className="hidden md:block" /> Experts Guide You
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-                Get personalized consultation to understand how our CRM can fit your business needs and improve operations.
+              <p className="max-w-2xl text-[1.1rem] leading-8 text-slate-300 md:text-[1.22rem]">
+                Get personalized consultation to understand how our CRM can fit your business needs, improve day-to-day operations, and give your team a clearer sales workflow.
+              </p>
+              <p className="max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
+                We walk you through real use cases, practical automations, and rollout steps so you can choose the right setup with confidence.
               </p>
             </div>
 
