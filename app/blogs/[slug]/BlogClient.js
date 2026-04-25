@@ -34,12 +34,13 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
       <Navbar />
 
       <section className="pt-32 pb-16 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.05),transparent_40%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.05),transparent_40%)]" />
+        
+        <div className="max-w-7xl mx-auto relative z-[250] mb-8 flex pointer-events-auto">
+          <GoBackButton fallbackHref="/blogs" className="animate-fade-in" />
+        </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          
-          <GoBackButton fallbackHref="/blogs" className="mb-8 animate-fade-in" />
-
           <div className="mb-8 animate-fade-in [animation-delay:100ms]">
             <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
               BLOG POST

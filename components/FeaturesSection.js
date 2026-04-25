@@ -7,52 +7,40 @@ import { allFeatures } from "@/lib/features-data";
 
 const FEATURE_CATEGORY_CARDS = [
   {
-    category: "Lead & Pre-Sales",
+    category: "Automate Every Lead",
     description:
-      "Capture enquiries, assign leads, track activity, and automate follow-ups from first contact to conversion.",
+      "Stop losing enquiries. Automatically capture leads from all sources and assign them to your best sales reps instantly.",
     iconType: "lead",
   },
   {
-    category: "Real Estate CRM",
+    category: "Accelerate Your Pipeline",
     description:
-      "Manage projects, inventory, site visits, bookings, pricing, partners, and collections inside one real-estate workflow.",
-    iconType: "documents",
-  },
-  {
-    category: "Admin, Analytics & Platform",
-    description:
-      "Control users, security, audit logs, integrations, tenant setup, and executive-level analytics from one admin layer.",
-    iconType: "dashboard",
-  },
-  {
-    category: "Support & Service",
-    description:
-      "Run support tickets, SLA rules, routing, knowledge base, feedback loops, and service analytics with better visibility.",
-    iconType: "ticket",
-  },
-  {
-    category: "Sales Workflow",
-    description:
-      "Handle proposals, quotations, invoices, agreements, scheduling, and complete deal movement through structured workflows.",
+      "Move deals faster with visual workflows. Track every stage of your sales process and identify bottlenecks before they happen.",
     iconType: "automation",
   },
   {
-    category: "WhatsApp CRM",
+    category: "Connect on WhatsApp",
     description:
-      "Operate shared inboxes, campaigns, templates, automations, and WhatsApp analytics without leaving your CRM.",
+      "Reach customers where they are. Send automated alerts, campaigns, and reminders directly through the world's most popular chat app.",
     iconType: "whatsapp",
   },
   {
-    category: "Calling & Communication",
+    category: "Delight Your Customers",
     description:
-      "Give sales teams faster calling, retries, recordings, PBX integration, and missed-call recovery in one place.",
-    iconType: "phone",
+      "Provide world-class support with structured ticketing and faster response times that turn customers into brand advocates.",
+    iconType: "ticket",
   },
   {
-    category: "Payment",
+    category: "Data-Driven Decisions",
     description:
-      "Track collections, reminders, receipts, part-payments, and due balances with clear payment visibility.",
-    iconType: "payment",
+      "Gain total visibility into your team's performance with real-time analytics and executive-level growth reports.",
+    iconType: "dashboard",
+  },
+  {
+    category: "Simplify Sales Workflows",
+    description:
+      "Generate professional quotations and invoices in seconds. Keep all your documentation in one secure, accessible location.",
+    iconType: "documents",
   },
 ];
 
@@ -77,7 +65,7 @@ const categoryCards = FEATURE_CATEGORY_CARDS.map((card) => {
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section id="features" className="relative py-16 md:py-24 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
@@ -87,18 +75,17 @@ export default function FeaturesSection() {
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <Reveal>
             <span className="text-[#00b274] text-sm font-bold tracking-[0.4em] uppercase block mb-4">
-              Features
+              Built for Growth
             </span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Best In class Features
+              Scale Your Business Faster
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-lg text-slate-400 leading-relaxed">
-              Jump straight into the CRM modules that matter most to your sales,
-              operations, support, finance, and platform teams.
+              Powerful tools designed to help your team work smarter, close more deals, and provide exceptional customer experiences.
             </p>
           </Reveal>
         </div>
