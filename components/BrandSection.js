@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 
 const topBrands = [
   { name: "Codemap", logo: "/logo/img1.png" },
@@ -46,13 +45,11 @@ export default function BrandSection() {
                     key={`top-${i}`}
                     className="shrink-0 flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-7 py-4 opacity-90 transition-all duration-300 hover:bg-white/10 hover:opacity-100"
                   >
-                    <Image
+                    <img
                       src={brand.logo}
                       alt={brand.name}
-                      width={180}
-                      height={56}
                       className="h-9 w-auto object-contain md:h-10"
-                      priority={i < 2}
+                      loading="lazy"
                     />
                   </div>
                 ))}
@@ -68,13 +65,11 @@ export default function BrandSection() {
                     key={`bottom-${i}`}
                     className="shrink-0 flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-7 py-4 opacity-85 transition-all duration-300 hover:bg-white/10 hover:opacity-100"
                   >
-                    <Image
+                    <img
                       src={brand.logo}
                       alt={brand.name}
-                      width={180}
-                      height={56}
                       className="h-9 w-auto object-contain md:h-10"
-                      priority={i < 2}
+                      loading="lazy"
                     />
                   </div>
                 ))}

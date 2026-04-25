@@ -9,7 +9,7 @@ const items = [
     role: "Founder",
     company: "TechFlow India",
     thumbnail: "https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=900&q=60",
-    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
+    videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     href: "https://www.linkedin.com/",
   },
   {
@@ -41,7 +41,7 @@ const items = [
     role: "CEO",
     company: "Patel Enterprises",
     thumbnail: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=60",
-    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
+    videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     href: "https://www.linkedin.com/",
   },
   {

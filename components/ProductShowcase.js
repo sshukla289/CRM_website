@@ -59,7 +59,7 @@ export default function ProductShowcase() {
                 playsInline
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               >
-                <source src="https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4" type="video/mp4" />
+                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-white/10 pointer-events-none" />
