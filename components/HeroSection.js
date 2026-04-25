@@ -31,7 +31,7 @@ export default function HeroSection() {
               <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                 Sales & Growth Automation
               </span>
-              <h1 className="text-[3.2rem] sm:text-[4.4rem] lg:text-[5.8rem] font-extrabold text-white mb-4 leading-[0.98] tracking-[-0.035em] uppercase">
+              <h1 className="text-[2.4rem] sm:text-[3.4rem] lg:text-[4.4rem] font-semibold text-white mb-4 leading-[1.03] tracking-[-0.02em] uppercase">
                 Trio-CRM
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
