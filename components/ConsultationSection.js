@@ -42,7 +42,6 @@ export default function ConsultationSection() {
               </p>
               <p className="max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
                 We walk you through real use cases, practical automations, and rollout steps so you can choose the right setup with confidence.
-              </p>
               <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
                 Join hundreds of growing businesses across India that use CRM Solutions to automate their sales, delight their customers, and scale their revenue.
               </p>
