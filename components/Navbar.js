@@ -69,6 +69,7 @@ export default function Navbar() {
     { name: "Pricing", href: "/pricing" },
     { name: "Industries", href: "/industries" },
     { name: "Blogs", href: "/blogs" },
+    { name: "Triostack", href: "https://www.triostack.in/", external: true },
   ];
 
   return (
@@ -97,18 +98,30 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center gap-2">
               {links.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${
-                    pathname === link.href
-                      ? "text-[#7ef7c4]"
-                      : "text-slate-200/90 hover:text-[#7ef7c4]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer text-slate-200/90 hover:text-[#7ef7c4]"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    aria-current={pathname === link.href ? "page" : undefined}
+                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${
+                      pathname === link.href
+                        ? "text-[#7ef7c4]"
+                        : "text-slate-200/90 hover:text-[#7ef7c4]"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -175,15 +188,27 @@ export default function Navbar() {
             <div className="flex flex-col gap-4">
               <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-2">Navigation</p>
               {links.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`text-2xl font-bold transition-colors ${
-                    pathname === link.href ? 'text-[#7ef7c4]' : 'text-white hover:text-[#7ef7c4]'
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl font-bold transition-colors text-white hover:text-[#7ef7c4]"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-2xl font-bold transition-colors ${
+                      pathname === link.href ? 'text-[#7ef7c4]' : 'text-white hover:text-[#7ef7c4]'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
 

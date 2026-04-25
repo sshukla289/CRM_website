@@ -137,7 +137,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Email</p>
-                  <p className="text-white text-sm font-medium">contact@yourcompany.com</p>
+                  <p className="text-white text-sm font-medium">Info@triostack.in</p>
                 </div>
               </div>
 

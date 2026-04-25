@@ -39,12 +39,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Pricing Highlight */}
-            <div className="inline-flex items-center gap-3 bg-[#00b274]/10 border border-[#00b274]/30 px-4 py-1.5 rounded-full mb-8 shadow-[0_0_20px_rgba(0,178,116,0.1)]">
-              <span className="text-slate-300 text-[11px] uppercase tracking-wider font-bold">Starting at</span>
-              <span className="text-[#00e19d] font-black text-lg">INR 29,500</span>
-              <span className="text-slate-500 text-[10px] uppercase font-bold">(Incl. GST)</span>
-            </div>
+
 
             {/* Feature List */}
             <ul className="space-y-3 mb-8">

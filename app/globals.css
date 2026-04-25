@@ -29,7 +29,14 @@
 
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[#00b274]/30;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-kerning: auto;
+    font-variant: normal;
+    font-optical-sizing: auto;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
     scrollbar-width: thin;
     scrollbar-color: #00b274 transparent;
   }

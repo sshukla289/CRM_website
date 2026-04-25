@@ -112,9 +112,9 @@ export default function TrustSection() {
             {/* Business Details Cards */}
             <div className="flex flex-wrap gap-4 mb-10">
               {[
-                { label: "CIN", value: "U72900WB2022PTC250000" },
-                { label: "GSTIN", value: "19AABCT1234F1Z1" },
-                { label: "I/E CODE", value: "0212345678" }
+                { label: "CIN", value: "U62012UP2025PTC226106" },
+                { label: "GSTIN", value: "09AALCT9902A1Z9" },
+                { label: "I/E CODE", value: "AARQT9902A" }
               ].map((item) => (
                 <div key={item.label} className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 flex flex-col gap-1 hover:bg-white/10 transition-all cursor-default">
                   <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">{item.label}</span>
