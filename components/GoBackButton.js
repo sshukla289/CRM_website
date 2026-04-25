@@ -46,7 +46,7 @@ export default function GoBackButton({
     <button
       type="button"
       onClick={handleClick}
-      className={`group inline-flex items-center gap-1.5 p-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 transition-all hover:text-[#7ef7c4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ef7c4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] ${className}`}
+      className={`group inline-flex items-center gap-1.5 p-2 text-[10px] font-extrabold uppercase tracking-widest text-slate-600 transition-all hover:text-[#00b274] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${className}`}
       aria-label={label}
     >
       <span aria-hidden="true" className="text-base transition-transform group-hover:-translate-x-1">
