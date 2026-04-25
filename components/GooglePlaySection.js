@@ -61,7 +61,7 @@ export default function GooglePlaySection() {
               }`}
             >
               <div className="max-w-2xl">
-                <span className="inline-flex rounded-full border border-[#00b274]/20 bg-[#00b274]/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.34em] text-[#7ef7c4]">
+                <span className="inline-flex rounded-full border border-[#00b274]/30 bg-[#00b274]/14 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.34em] text-[#007a50]">
                   Mobile App
                 </span>
 
@@ -83,7 +83,7 @@ export default function GooglePlaySection() {
                       key={feature.title}
                       className="rounded-[1.4rem] border border-slate-200 bg-white p-4 shadow-[0_16px_40px_rgba(15,23,42,0.06)] transition-colors hover:border-[#00b274]/20 hover:bg-[#f8fffc]"
                     >
-                      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#00b274]/12 text-[#7ef7c4]">
+                      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-2xl bg-[#00b274]/20 text-[#007a50]">
                         <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
