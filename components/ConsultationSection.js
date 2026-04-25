@@ -9,7 +9,7 @@ export default function ConsultationSection() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <section className="relative overflow-hidden bg-[#0B1220] px-6 py-16 md:py-24">
+    <section className="relative overflow-hidden bg-white px-6 py-16 md:py-24">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/5 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
@@ -24,21 +24,21 @@ export default function ConsultationSection() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0b1220]/45 to-transparent" />
           </div>
 
-          <div className="space-y-8 lg:space-y-10">
+          <div className="space-y-8 rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] lg:space-y-10 lg:p-10">
             <div className="space-y-5">
               <span className="block text-xs font-bold uppercase tracking-[0.4em] text-[#00b274]">
                 READY TO GROW?
               </span>
-              <h2 className="text-4xl font-bold leading-tight text-white lg:text-5xl">
+              <h2 className="text-4xl font-bold leading-tight text-slate-950 lg:text-5xl">
                 Ready to Transform <br className="hidden md:block" /> Your Sales Pipeline?
               </h2>
-              <p className="max-w-2xl text-[1.1rem] leading-8 text-slate-300 md:text-[1.22rem]">
+              <p className="max-w-2xl text-[1.1rem] leading-8 text-slate-700 md:text-[1.22rem]">
                 Get personalized consultation to understand how our CRM can fit your business needs, improve day-to-day operations, and give your team a clearer sales workflow.
               </p>
-              <p className="max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
+              <p className="max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
                 We walk you through real use cases, practical automations, and rollout steps so you can choose the right setup with confidence.
               </p>
-              <p className="max-w-xl text-lg leading-relaxed text-slate-400">
+              <p className="max-w-xl text-lg leading-relaxed text-slate-600">
                 Join hundreds of growing businesses across India that use CRM Solutions to automate their sales, delight their customers, and scale their revenue.
               </p>
             </div>
