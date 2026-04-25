@@ -10,6 +10,21 @@ export default function HeroSection() {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
   
   const handleBookDemoClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      const formContainer = document.getElementById("hero-form-container");
+      const firstField = formContainer?.querySelector("input, select, textarea");
+
+      if (formContainer) {
+        formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+        window.requestAnimationFrame(() => {
+          if (firstField && "focus" in firstField) {
+            firstField.focus();
+          }
+        });
+        return;
+      }
+    }
+
     setIsBookDemoOpen(true);
   };
 
@@ -78,7 +93,7 @@ export default function HeroSection() {
               </ul>
 
               {/* CTA Buttons */}
-              <div className="relative z-10 flex flex-col flex-wrap gap-4 sm:flex-row">
+              <div className="relative z-10 flex flex-col flex-wrap gap-4 sm:flex-row pointer-events-auto">
                 <button
                   type="button"
                   onClick={handleBookDemoClick}
