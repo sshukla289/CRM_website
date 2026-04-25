@@ -26,7 +26,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
 
           {/* Left Content */}
-          <div className="hidden lg:block animate-fade-in [animation-delay:200ms] opacity-0">
+          <div className="relative z-10">
             <div className="mb-4">
               <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                 Sales & Growth Automation

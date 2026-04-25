@@ -116,7 +116,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${isLightHeaderPage ? "text-slate-600 hover:text-[#00b274]" : "text-slate-200/90 hover:text-[#7ef7c4]"}`}
+                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-300 hover:text-[#7ef7c4]"}`}
                   >
                     {link.name}
                   </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
                     aria-current={pathname === link.href ? "page" : undefined}
                     className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${pathname === link.href
                       ? "text-[#00b274]"
-                        : isLightHeaderPage ? "text-slate-600 hover:text-[#00b274]" : "text-slate-200/90 hover:text-[#7ef7c4]"
+                      : isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-300 hover:text-[#7ef7c4]"
                       }`}
                   >
                     {link.name}
@@ -136,12 +136,12 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-
+ 
           <div className="relative z-10 flex items-center gap-4">
             <a
               href={CRM_LOGIN_URL}
               onClick={handleLoginClick}
-              className={`hidden lg:block text-sm font-medium transition-colors cursor-pointer ${isLightHeaderPage ? "text-slate-700 hover:text-[#00b274]" : "text-slate-100 hover:text-[#7ef7c4]"}`}
+              className={`hidden lg:block text-sm font-medium transition-colors cursor-pointer ${isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-100 hover:text-[#7ef7c4]"}`}
             >
               Login
             </a>
