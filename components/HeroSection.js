@@ -1,11 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import HeroForm from "./HeroForm";
 
 export default function HeroSection() {
-  const router = useRouter();
-
   return (
     <>
       <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
@@ -47,6 +44,8 @@ export default function HeroSection() {
                   "Close deals 30% faster with automated follow-ups",
                   "Never lose a lead with 24/7 automated capture",
                   "Gain real-time visibility into your entire sales team",
+                  "Automate lead assignment to the right sales rep instantly",
+                  "Track call logs, WhatsApp chats, and pipeline updates in one place",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-4 group">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#00b274]/20 flex items-center justify-center">
@@ -58,18 +57,6 @@ export default function HeroSection() {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Buttons */}
-              <div className="relative z-10 flex flex-col flex-wrap gap-4 sm:flex-row pointer-events-auto">
-                <button
-                  type="button"
-                  onClick={() => router.push('/pricing')}
-                  className="relative z-20 border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40 cursor-pointer"
-                >
-                  Get Pricing
-                </button>
-
-              </div>
 
             </div> {/* End Left Content */}
 
