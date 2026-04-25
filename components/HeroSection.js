@@ -41,10 +41,10 @@ export default function HeroSection() {
         </div>
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
+          <div className="flex flex-wrap-reverse items-center gap-6 lg:grid lg:grid-cols-[1.1fr_0.9fr]">
 
             {/* Left Content */}
-            <div className="relative z-[120] pointer-events-auto">
+            <div className="relative z-[120] w-full pointer-events-auto">
               <div className="mb-4">
                 <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                   Sales & Growth Automation
@@ -101,7 +101,7 @@ export default function HeroSection() {
             </div> {/* End Left Content */}
 
             {/* Right Form */}
-            <div id="hero-form-container" className="relative z-20 flex justify-center lg:justify-end">
+            <div id="hero-form-container" className="relative z-20 flex w-full justify-center lg:justify-end">
               <HeroForm />
             </div>
 
