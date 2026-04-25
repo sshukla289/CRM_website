@@ -1,13 +1,13 @@
 const socials = [
   {
-    name: "Twitter",
+    name: "X",
     href: "https://x.com/triostack",
-    brand: "#1DA1F2",
+    brand: "#000000",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
         <path
           fill="currentColor"
-          d="M22.46 6c-.77.35-1.6.58-2.46.69a4.24 4.24 0 0 0 1.88-2.35 8.36 8.36 0 0 1-2.67 1.02 4.2 4.2 0 0 0-7.28 2.87c0 .33.04.65.1.95A11.92 11.92 0 0 1 3.15 4.6a4.2 4.2 0 0 0 1.3 5.6 4.15 4.15 0 0 1-1.9-.52v.05c0 2.03 1.44 3.73 3.36 4.11-.35.1-.73.15-1.12.15-.27 0-.54-.02-.8-.07a4.21 4.21 0 0 0 3.92 2.92A8.45 8.45 0 0 1 2 18.48a11.9 11.9 0 0 0 6.45 1.89c7.74 0 11.98-6.41 11.98-11.97 0-.18 0-.36-.01-.54A8.55 8.55 0 0 0 22.46 6z"
+          d="M18.244 2H21l-6.02 6.88L22 22h-5.57l-4.364-6.91L6.02 22H3.26l6.44-7.36L2 2h5.71l3.944 6.28L18.244 2zm-1.942 18h1.53L6.88 3.9H5.24L16.302 20z"
         />
       </svg>
     ),
@@ -56,7 +56,7 @@ const socials = [
 export default function SocialStickyBar() {
   return (
     <div className="pointer-events-none fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
-      <div className="rounded-l-2xl rounded-r-none bg-[#0b1220]/85 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
+      <div className="rounded-l-2xl rounded-r-none bg-[linear-gradient(180deg,rgba(6,22,33,0.96)_0%,rgba(9,40,38,0.96)_55%,rgba(6,22,33,0.96)_100%)] px-1.5 py-1.5 shadow-[0_18px_40px_rgba(2,8,23,0.42)] ring-1 ring-[#34d399]/45 backdrop-blur-md">
         <div className="flex flex-col gap-1.5">
           {socials.map((item) => (
             <a
@@ -66,7 +66,7 @@ export default function SocialStickyBar() {
               rel="noreferrer"
               aria-label={item.name}
               style={{ ["--brand"]: item.brand }}
-              className="group pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-[#0f172a]/65 shadow-md ring-1 ring-white/10 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#020617]/85 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
+              className="group pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-[#0b1b2b]/70 shadow-md ring-1 ring-white/12 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#07121f]/90 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34d399] focus-visible:ring-offset-2 focus-visible:ring-offset-[#081b28] active:scale-95"
               title={item.name}
             >
               <span className="text-slate-200/70 transition-all duration-200 group-hover:scale-110 group-hover:text-[color:var(--brand)] group-hover:drop-shadow-[0_0_8px_var(--brand)]">
