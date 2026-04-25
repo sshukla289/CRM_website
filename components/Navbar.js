@@ -98,11 +98,11 @@ export default function Navbar() {
         <div className="pointer-events-auto relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="relative z-10 inline-flex items-center gap-3 cursor-pointer" aria-label="Go to home page">
-              <div className={`relative w-10 h-10 overflow-hidden rounded-xl shadow-lg shadow-[#14c38e]/10 ${isLightHeaderPage ? "border border-slate-200" : "border border-white/10"}`}>
+              <div className="relative h-10 w-10 overflow-visible">
                 <img
                   src="/trio-logo.png"
                   alt="CRM Solutions Logo"
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <span className={`text-xl font-bold tracking-tight ${isLightHeaderPage ? "text-slate-950" : "text-[#f3fffb]"}`}>CRM Solutions</span>
