@@ -341,14 +341,16 @@ export default function FeatureDetailPage() {
 
       {/* Overview Section */}
       {feature.details?.overview && (
-        <section id="overview" className="py-24 relative">
+        <section id="overview" className="py-24 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)]">
+          <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[120px] pointer-events-none" />
+          <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px] pointer-events-none" />
           <div className="container max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
               <Reveal>
                 <div className="space-y-6">
-                  <h2 className="text-3xl md:text-4xl font-bold">{feature.details.overview.heading}</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-950">{feature.details.overview.heading}</h2>
                   <div className="h-1.5 w-20 bg-[#00b274] rounded-full" />
-                  <div className="text-slate-400 text-lg leading-relaxed whitespace-pre-line">
+                  <div className="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
                     {feature.details.overview.content}
                   </div>
                 </div>
@@ -367,7 +369,7 @@ export default function FeatureDetailPage() {
                             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
                           </svg>
                         </div>
-                        <span className="text-slate-300 group-hover:text-white transition-colors">{item}</span>
+                        <span className="text-slate-700 group-hover:text-slate-950 transition-colors">{item}</span>
                       </div>
                     </Reveal>
                   ))}
@@ -380,24 +382,24 @@ export default function FeatureDetailPage() {
 
       {/* How It Helps Section */}
       {feature.details?.howItHelps && (
-        <section className="py-24 bg-white/[0.02]">
+        <section className="py-24 bg-white">
           <div className="container max-w-7xl mx-auto px-6">
             <Reveal>
               <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Helps</h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">Discover the tangible benefits our {feature.title} brings to your sales organization.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-950">How It Helps</h2>
+                <p className="text-slate-600 max-w-2xl mx-auto">Discover the tangible benefits our {feature.title} brings to your sales organization.</p>
               </div>
             </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {feature.details.howItHelps.map((item, idx) => (
                 <Reveal key={idx} delay={idx * 100} className="group h-full">
-                  <div className="relative h-full p-8 rounded-3xl bg-[#0F172A] border border-white/5 hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-[#0F172A]/80 group-hover:-translate-y-1">
+                  <div className="relative h-full p-8 rounded-3xl bg-white/95 border border-slate-200 shadow-[0_22px_60px_rgba(15,23,42,0.09)] hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-white group-hover:-translate-y-1 group-hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)]">
                     <div className="w-12 h-12 rounded-2xl bg-[#00b274]/10 flex items-center justify-center mb-8 text-[#00b274] group-hover:bg-[#00b274] group-hover:text-white transition-all duration-500">
                       <span className="text-xl font-bold">{idx + 1}</span>
                     </div>
-                    <h4 className="text-xl font-bold mb-4 group-hover:text-[#00b274] transition-colors">{item.title}</h4>
-                    <p className="text-slate-400 leading-relaxed text-sm">{item.description}</p>
+                    <h4 className="text-xl font-bold mb-4 text-slate-950 group-hover:text-[#00b274] transition-colors">{item.title}</h4>
+                    <p className="text-slate-600 leading-relaxed text-sm">{item.description}</p>
                   </div>
                 </Reveal>
               ))}
@@ -408,10 +410,10 @@ export default function FeatureDetailPage() {
 
       {/* Use Case Section */}
       {feature.details?.useCase && (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
           <div className="container max-w-7xl mx-auto px-6">
             <Reveal>
-              <div className="max-w-4xl mx-auto p-12 rounded-[2.5rem] bg-gradient-to-br from-[#00b274]/20 to-transparent border border-[#00b274]/20">
+              <div className="max-w-4xl mx-auto p-12 rounded-[2.5rem] bg-white/95 border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
                 <div className="flex flex-col md:flex-row gap-10 items-center">
                   <div className="w-20 h-20 rounded-full bg-[#00b274] flex items-center justify-center flex-shrink-0 shadow-[0_0_30px_rgba(0,178,116,0.5)]">
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -420,7 +422,7 @@ export default function FeatureDetailPage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-4 text-[#00b274]">{feature.details.useCase.title}</h3>
-                    <p className="text-slate-300 text-lg leading-relaxed italic">
+                    <p className="text-slate-600 text-lg leading-relaxed italic">
                       "{feature.details.useCase.description}"
                     </p>
                   </div>
@@ -433,20 +435,20 @@ export default function FeatureDetailPage() {
 
       {/* Best For Section */}
       {feature.details?.bestFor && (
-        <section className="py-24">
+        <section className="py-24 bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.1),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)]">
           <div className="container max-w-7xl mx-auto px-6">
-            <div className="p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-[#00b274]/10 via-transparent to-blue-500/10 border border-white/5 relative overflow-hidden">
+            <div className="p-12 md:p-20 rounded-[3rem] bg-white/95 border border-slate-200 relative overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00b274]/10 blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[100px]" />
               
               <div className="relative z-10 text-center">
                 <Reveal>
-                  <h2 className="text-3xl font-bold mb-12">Who is this best for?</h2>
+                  <h2 className="text-3xl font-bold mb-12 text-slate-950">Who is this best for?</h2>
                 </Reveal>
                 <div className="flex flex-wrap justify-center gap-4">
                   {feature.details.bestFor.map((item, idx) => (
                     <Reveal key={idx} delay={idx * 50}>
-                      <div className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium">
+                      <div className="px-6 py-3 rounded-full bg-slate-50 border border-slate-200 text-slate-700 font-medium">
                         {item}
                       </div>
                     </Reveal>
@@ -460,10 +462,10 @@ export default function FeatureDetailPage() {
 
       {/* Final CTA Section */}
       {feature.details?.ctaSection && (
-        <section className="py-32 relative">
+        <section className="py-32 relative bg-white">
           <div className="container max-w-4xl mx-auto px-6 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">{feature.details.ctaSection.heading}</h2>
-              <p className="text-xl text-slate-400 mb-12">{feature.details.ctaSection.description}</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-950">{feature.details.ctaSection.heading}</h2>
+              <p className="text-xl text-slate-600 mb-12">{feature.details.ctaSection.description}</p>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}

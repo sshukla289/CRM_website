@@ -14,7 +14,10 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isLightHeaderPage =
-    pathname === "/features" || pathname === "/pricing" || pathname.startsWith("/industries");
+    pathname === "/features" ||
+    pathname === "/pricing" ||
+    pathname.startsWith("/industries") ||
+    pathname.startsWith("/blogs");
 
   const handleLoginClick = () => {
     window.location.assign(CRM_LOGIN_URL);
