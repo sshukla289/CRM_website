@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { submitLead } from "@/lib/submitLead";
 
 export default function BookCallModal({
@@ -11,6 +12,11 @@ export default function BookCallModal({
 }) {
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -76,11 +82,11 @@ export default function BookCallModal({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) {
+  if (!isOpen || !isMounted) {
     return null;
   }
 
-  return (
+  const modal = (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center px-4 py-8 sm:px-6"
       onClick={handleBackdropClick}
@@ -185,4 +191,6 @@ export default function BookCallModal({
       </div>
     </div>
   );
+
+  return createPortal(modal, document.body);
 }

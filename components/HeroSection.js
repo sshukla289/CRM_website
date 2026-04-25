@@ -6,6 +6,14 @@ import BookCallModal from "./BookCallModal";
 
 export default function HeroSection() {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
+  const openBookDemoModal = (event) => {
+    event.preventDefault();
+    setIsBookDemoOpen(true);
+  };
+
+  const closeBookDemoModal = () => {
+    setIsBookDemoOpen(false);
+  };
 
   return (
     <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
@@ -63,8 +71,8 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <button
                 type="button"
-                onClick={() => setIsBookDemoOpen(true)}
-                className="bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center"
+                onClick={openBookDemoModal}
+                className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center"
               >
                 Book Free Demo
               </button>
@@ -95,7 +103,7 @@ export default function HeroSection() {
 
       <BookCallModal
         isOpen={isBookDemoOpen}
-        onClose={() => setIsBookDemoOpen(false)}
+        onClose={closeBookDemoModal}
         title="Book Your Free Demo"
         subtitle="Fill your details and our team will schedule your personalized walkthrough."
       />

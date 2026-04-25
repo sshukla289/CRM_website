@@ -6,7 +6,12 @@ import BookCallModal from "./BookCallModal";
 export default function ConsultationSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const openModal = (event) => {
+    event.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <section className="relative overflow-hidden bg-white px-6 py-16 md:py-24">
@@ -44,7 +49,8 @@ export default function ConsultationSection() {
             </div>
 
             <button
-              onClick={toggleModal}
+              type="button"
+              onClick={openModal}
               className="group relative cursor-pointer overflow-hidden rounded-full bg-gradient-to-r from-[#00b274] to-[#008a5a] px-10 py-5 font-bold text-white shadow-[0_10px_30px_rgba(0,178,116,0.3)] transition-all hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,178,116,0.5)] active:scale-95"
             >
               <span className="relative z-10">Book Free Demo</span>
@@ -54,7 +60,7 @@ export default function ConsultationSection() {
         </div>
       </div>
 
-      <BookCallModal isOpen={isModalOpen} onClose={toggleModal} />
+      <BookCallModal isOpen={isModalOpen} onClose={closeModal} />
     </section>
   );
 }
