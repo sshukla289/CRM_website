@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
-import IndustryBackButton from "./IndustryBackButton";
+import GoBackButton from "@/components/GoBackButton";
 import {
   getIndustryBySlug,
   getIndustrySeoTitle,
@@ -75,7 +75,7 @@ export default async function IndustryDetailPage({ params }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(20,195,142,0.06),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.04),transparent_40%)] pointer-events-none" />
         <div className="mx-auto max-w-[1500px]">
           <div className="relative z-[250] mb-4 flex pointer-events-auto">
-            <IndustryBackButton />
+            <GoBackButton fallbackHref="/industries" />
           </div>
 
           <article className="relative isolate overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#07111d] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">

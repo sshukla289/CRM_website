@@ -34,11 +34,11 @@ const FAQItem = ({ item, isOpen, onClick }) => {
     <div 
       className={`group transition-all duration-500 mb-4 rounded-xl border backdrop-blur-md overflow-hidden
         ${isOpen 
-          ? 'bg-white/10 border-white/20' 
-          : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}`}
+          ? 'bg-[#f8fffc] border-[#00b274]/25' 
+          : 'bg-white border-slate-200 hover:bg-[#f8fffc] hover:border-[#00b274]/20'}`}
     >
       <div className="px-6 py-5 flex items-center justify-between gap-4">
-        <h3 className={`text-base md:text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/70 group-hover:text-white'}`}>
+        <h3 className={`text-base md:text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-slate-950' : 'text-slate-600 group-hover:text-slate-950'}`}>
           {item.question}
         </h3>
         <button
@@ -46,9 +46,9 @@ const FAQItem = ({ item, isOpen, onClick }) => {
           onClick={onClick}
           aria-label={isOpen ? "Collapse answer" : "Expand answer"}
           aria-expanded={isOpen}
-          className={`flex-shrink-0 w-8 h-8 cursor-pointer rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70
+          className={`flex-shrink-0 w-8 h-8 cursor-pointer rounded-full border border-slate-200 flex items-center justify-center transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70
           ${isOpen ? 'bg-[#00b274] border-[#00b274] rotate-45' : 'bg-transparent'}`}>
-          <svg className={`w-4 h-4 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/40 group-hover:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`w-4 h-4 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-slate-400 group-hover:text-slate-950'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
         </button>
@@ -59,7 +59,7 @@ const FAQItem = ({ item, isOpen, onClick }) => {
           ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
       >
         <div className="min-h-0 overflow-hidden">
-          <div className="px-6 pb-6 text-white/50 text-base leading-relaxed max-w-[95%]">
+          <div className="px-6 pb-6 text-slate-600 text-base leading-relaxed max-w-[95%]">
             {item.answer}
           </div>
         </div>
@@ -96,9 +96,9 @@ const FAQSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-8 md:py-10 px-6 overflow-hidden bg-[#0B1220]">
+    <section ref={sectionRef} className="relative py-8 md:py-10 px-6 overflow-hidden bg-white">
       {/* Decorative Glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00b274]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-white blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -107,10 +107,10 @@ const FAQSection = () => {
             <span className="text-[#00b274] text-[10px] font-bold uppercase tracking-[0.5em] block">
               FAQS
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.2]">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-950 tracking-tight leading-[1.2]">
               Answers to Common Questions
             </h2>
-            <p className="text-base md:text-lg text-white/40 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-slate-600 font-light leading-relaxed">
               Explore quick answers about implementation, integrations, timelines, and support.
             </p>
           </div>

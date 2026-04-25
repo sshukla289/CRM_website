@@ -4,25 +4,23 @@ import { useEffect, useMemo, useState } from "react";
 const items = [
   {
     id: 1,
-    type: "text",
+    type: "video",
     name: "Rajesh Kumar",
     role: "Founder",
     company: "TechFlow India",
-    content:
-      "This CRM transformed how we manage leads and billing. The automation features are a game-changer for our sales team.",
-    rating: 5,
-    image: "https://i.pravatar.cc/150?u=rajesh",
+    thumbnail: "https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=900&q=60",
+    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
     href: "https://www.linkedin.com/",
   },
   {
     id: 2,
-    type: "video",
+    type: "text",
     name: "Anjali Rao",
-    role: "HR Manager",
+    role: "Sales Director",
     company: "SoftSolutions",
-    thumbnail:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=60",
-    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
+    content: "We reduced our lead response time from 4 hours to just 5 minutes using CRM Solutions' automation. It's been a game-changer for our conversion rates.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=anjali",
     href: "https://www.linkedin.com/",
   },
   {
@@ -31,33 +29,30 @@ const items = [
     name: "Priya Sharma",
     role: "Operations Head",
     company: "Global Logistics",
-    content:
-      "Highly scalable and perfect for multi-branch operations. We've seen a 30% increase in productivity since switching.",
+    content: "Highly scalable. We managed to increase our team's productivity by 40% and finally have real-time visibility into our multi-branch operations.",
     rating: 5,
     image: "https://i.pravatar.cc/150?u=priya",
     href: "https://www.linkedin.com/",
   },
   {
     id: 4,
-    type: "text",
+    type: "video",
     name: "Amit Patel",
     role: "CEO",
     company: "Patel Enterprises",
-    content:
-      "The glassmorphism UI is beautiful, but the functionality is even better. Customer support is top-notch!",
-    rating: 4,
-    image: "https://i.pravatar.cc/150?u=amit",
+    thumbnail: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=60",
+    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
     href: "https://www.linkedin.com/",
   },
   {
     id: 5,
-    type: "video",
+    type: "text",
     name: "Vikram Singh",
-    role: "Sales Director",
+    role: "Managing Director",
     company: "BuildFast Corp",
-    thumbnail:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=900&q=60",
-    videoSrc: "https://cdn.pixabay.com/video/2021/04/12/70851-537446545_large.mp4",
+    content: "The WhatsApp integration alone paid for the CRM in the first month. Our customer engagement doubled overnight.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=vikram",
     href: "https://www.linkedin.com/",
   },
   {
@@ -66,8 +61,7 @@ const items = [
     name: "Sneha Gupta",
     role: "Marketing Manager",
     company: "Creative Agency",
-    content:
-      "Best CRM for Indian businesses. The integration with local payment gateways is seamless and reliable.",
+    content: "Finally, a CRM that doesn't feel like a chore to use. My team actually enjoys logging their activity now, and the reports are incredible.",
     rating: 5,
     image: "https://i.pravatar.cc/150?u=sneha",
     href: "https://www.linkedin.com/",
@@ -98,7 +92,7 @@ const Stars = ({ rating }) => (
 );
 
 const TextTestimonialCard = ({ name, role, company, content, rating, image, href }) => (
-  <div className="w-[280px] shrink-0 sm:w-[320px] rounded-2xl border border-white/10 bg-white/5 p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10">
+  <div className="w-[280px] shrink-0 sm:w-[320px] rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_18px_48px_rgba(15,23,42,0.08)] transition-all duration-300 hover:border-[#00b274]/30 hover:shadow-[0_22px_60px_rgba(15,23,42,0.12)]">
     <div className="mb-4 flex items-start justify-between gap-4">
       <div className="flex items-center gap-3">
         <img
@@ -107,8 +101,8 @@ const TextTestimonialCard = ({ name, role, company, content, rating, image, href
           className="h-10 w-10 rounded-full border-2 border-[#00b274]/30 transition-colors"
         />
         <div className="min-w-0">
-          <h4 className="truncate text-base font-bold leading-tight text-white">{name}</h4>
-          <p className="truncate text-xs text-slate-400">
+          <h4 className="truncate text-base font-bold leading-tight text-slate-950">{name}</h4>
+          <p className="truncate text-xs text-slate-500">
             {role} @ {company}
           </p>
         </div>
@@ -120,7 +114,7 @@ const TextTestimonialCard = ({ name, role, company, content, rating, image, href
           target="_blank"
           rel="noreferrer"
           aria-label={`${name} LinkedIn`}
-          className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-[#0f172a]/60 text-slate-200/70 transition hover:text-[#0A66C2] hover:ring-1 hover:ring-[#0A66C2]/40"
+          className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition hover:text-[#0A66C2] hover:ring-1 hover:ring-[#0A66C2]/30"
         >
           <LinkedinIcon className="h-4 w-4" />
         </a>
@@ -131,7 +125,7 @@ const TextTestimonialCard = ({ name, role, company, content, rating, image, href
       <Stars rating={rating} />
     </div>
 
-    <p className="line-clamp-4 text-sm italic leading-relaxed text-slate-300">
+    <p className="line-clamp-4 text-sm italic leading-relaxed text-slate-600">
       "{content}"
     </p>
   </div>
@@ -154,7 +148,7 @@ const VideoTestimonialCard = ({ name, role, company, thumbnail, onOpen }) => (
     onKeyDown={(event) => {
       if (event.key === "Enter" || event.key === " ") onOpen();
     }}
-    className="group relative w-[280px] shrink-0 sm:w-[320px] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70"
+    className="group relative w-[280px] shrink-0 sm:w-[320px] cursor-pointer overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_18px_48px_rgba(15,23,42,0.08)] transition-all duration-300 hover:scale-[1.02] hover:border-[#00b274]/30 hover:shadow-[0_22px_60px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70"
     aria-label={`Play video testimonial from ${name}`}
   >
     <div className="relative aspect-[16/10] w-full">
@@ -257,16 +251,23 @@ function VideoModal({ video, onClose }) {
 }
 
 function MarqueeRow({ items, directionClass }) {
-  const duplicated = useMemo(() => [...items, ...items], [items]);
-
   return (
     <div className="relative w-full overflow-hidden mask-gradient pause-on-hover">
-      <div className={`flex w-max transform-gpu items-stretch gap-5 ${directionClass} py-3`}>
-        {duplicated.map((item, index) => (
-          <div key={`${item.id}-${index}`} className="flex">
-            <item.Render />
-          </div>
-        ))}
+      <div className={`flex w-max transform-gpu items-stretch ${directionClass} py-3`}>
+        <div className="flex shrink-0 items-stretch gap-5 pr-5">
+          {items.map((item) => (
+            <div key={`${item.id}-primary`} className="flex">
+              <item.Render />
+            </div>
+          ))}
+        </div>
+        <div className="flex shrink-0 items-stretch gap-5 pr-5" aria-hidden="true">
+          {items.map((item) => (
+            <div key={`${item.id}-duplicate`} className="flex">
+              <item.Render />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -319,9 +320,10 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section className="py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden relative">
+    <section className="py-8 md:py-10 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#ffffff_100%)] overflow-hidden relative">
       {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 h-[420px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/[0.05] blur-[130px] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
@@ -329,10 +331,10 @@ const TestimonialSection = () => {
           <span className="text-[12px] font-bold text-[#00b274] uppercase tracking-[0.3em]">
             TESTIMONIALS
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-950">
             What Our Clients Say
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Trusted by growing businesses across India to streamline operations and drive growth.
           </p>
         </div>

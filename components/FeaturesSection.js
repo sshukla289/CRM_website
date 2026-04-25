@@ -42,18 +42,6 @@ const FEATURE_CATEGORY_CARDS = [
       "Operate shared inboxes, campaigns, templates, automations, and WhatsApp analytics without leaving your CRM.",
     iconType: "whatsapp",
   },
-  {
-    category: "Calling & Communication",
-    description:
-      "Give sales teams faster calling, retries, recordings, PBX integration, and missed-call recovery in one place.",
-    iconType: "phone",
-  },
-  {
-    category: "Payment",
-    description:
-      "Track collections, reminders, receipts, part-payments, and due balances with clear payment visibility.",
-    iconType: "payment",
-  },
 ];
 
 function getCategoryAnchor(category) {
@@ -77,11 +65,11 @@ const categoryCards = FEATURE_CATEGORY_CARDS.map((card) => {
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
-      {/* Decorative Blobs */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
+    <section id="features" className="relative py-8 md:py-10 bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden">
+      {/* Premium white decorative blobs */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(180deg,rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:54px_54px] opacity-40 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -91,12 +79,12 @@ export default function FeaturesSection() {
             </span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-950 mb-6 leading-tight">
               Best In class Features
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-lg text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-500 leading-relaxed">
               Jump straight into the CRM modules that matter most to your sales,
               operations, support, finance, and platform teams.
             </p>
@@ -107,13 +95,13 @@ export default function FeaturesSection() {
           {categoryCards.slice(0, 6).map((card, index) => (
             <Reveal key={card.category} delay={index * 70}>
               <Link href={card.href} className="group block h-full">
-                <div className="relative h-full rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 xl:p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white/[0.07] hover:shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-[#8be9ff]/15 bg-gradient-to-br from-[#112033] via-[#0b1728] to-[#0b1220] text-[#8be9ff] shadow-[0_18px_45px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110 group-hover:border-[#7ef7c4]/25 group-hover:text-[#7ef7c4]">
+                <div className="relative h-full rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 xl:p-5 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)]">
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-[#00b274]/15 bg-white text-[#0b8f66] shadow-[0_16px_35px_rgba(15,23,42,0.08)] transition-transform duration-500 group-hover:scale-110 group-hover:border-[#00b274]/30 group-hover:bg-[#00b274] group-hover:text-white">
                     <FeatureIcon type={card.iconType} />
                   </div>
 
                   <div className="mb-3 flex items-center justify-between gap-3">
-                    <span className="inline-flex rounded-full border border-[#00b274]/20 bg-[#00b274]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[#7ef7c4]">
+                    <span className="inline-flex rounded-full border border-[#00b274]/20 bg-[#00b274]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[#008a5a]">
                       Category
                     </span>
                     <span className="text-xs font-semibold text-slate-500">
@@ -121,10 +109,10 @@ export default function FeaturesSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-[1.7rem] xl:text-[1.5rem] font-bold text-white mb-2.5 leading-[1.08] group-hover:text-[#00b274] transition-colors duration-300">
+                  <h3 className="text-[1.7rem] xl:text-[1.5rem] font-bold text-slate-950 mb-2.5 leading-[1.08] group-hover:text-[#00b274] transition-colors duration-300">
                     {card.category}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed text-[14px] xl:text-[13px] group-hover:text-slate-300 transition-colors duration-300">
+                  <p className="text-slate-600 leading-relaxed text-[14px] xl:text-[13px] group-hover:text-slate-700 transition-colors duration-300">
                     {card.description}
                   </p>
 

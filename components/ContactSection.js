@@ -93,11 +93,11 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative scroll-mt-28 py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden"
+      className="relative scroll-mt-28 py-16 md:py-24 bg-white overflow-hidden"
     >
       {/* Background Decorative Blobs */}
-      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/6 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/6 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -107,17 +107,17 @@ export default function ContactSection() {
             <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-3">
               CONTACT US
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-950 mb-5 leading-tight">
               Let’s Build Something <br />
-              <span className="text-white/90">Amazing Together</span>
+              <span className="text-slate-900">Amazing Together</span>
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed mb-10 max-w-lg">
+            <p className="text-slate-600 text-sm leading-relaxed mb-10 max-w-lg">
               Have questions about our CRM solutions? Our team is here to help you streamline operations and grow your business.
             </p>
 
             {/* Contact Info Cards */}
             <div className="space-y-3.5">
-              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all group">
+              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-slate-200 shadow-[0_16px_40px_rgba(15,23,42,0.06)] hover:border-[#00b274]/25 hover:bg-[#f8fffc] transition-all group">
                 <div className="w-10 h-10 rounded-lg bg-[#00b274]/10 flex items-center justify-center border border-[#00b274]/20 group-hover:bg-[#00b274]/20 transition-colors">
                   <svg className="w-5 h-5 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -125,11 +125,11 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Phone</p>
-                  <p className="text-white text-sm font-medium">+91 9211941924</p>
+                  <p className="text-slate-950 text-sm font-medium">+91 9211941924</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all group">
+              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-slate-200 shadow-[0_16px_40px_rgba(15,23,42,0.06)] hover:border-[#00b274]/25 hover:bg-[#f8fffc] transition-all group">
                 <div className="w-10 h-10 rounded-lg bg-[#00b274]/10 flex items-center justify-center border border-[#00b274]/20 group-hover:bg-[#00b274]/20 transition-colors">
                   <svg className="w-5 h-5 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -137,11 +137,11 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Email</p>
-                  <p className="text-white text-sm font-medium">Info@triostack.in</p>
+                  <p className="text-slate-950 text-sm font-medium">Info@triostack.in</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all group">
+              <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-slate-200 shadow-[0_16px_40px_rgba(15,23,42,0.06)] hover:border-[#00b274]/25 hover:bg-[#f8fffc] transition-all group">
                 <div className="w-10 h-10 rounded-lg bg-[#00b274]/10 flex items-center justify-center border border-[#00b274]/20 group-hover:bg-[#00b274]/20 transition-colors">
                   <svg className="w-5 h-5 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -150,7 +150,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Location</p>
-                  <p className="text-white text-sm font-medium">India</p>
+                  <p className="text-slate-950 text-sm font-medium">India</p>
                 </div>
               </div>
             </div>
@@ -158,60 +158,60 @@ export default function ContactSection() {
 
           {/* Right Side: Contact Form Card */}
           <div className={`${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0'} [animation-delay:200ms] transition-all duration-500`}>
-            <div className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl p-7 shadow-2xl relative overflow-hidden">
+            <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-[0_28px_80px_rgba(15,23,42,0.12)] relative overflow-hidden">
               {/* Subtle inner glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00b274]/10 blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00b274]/8 blur-3xl pointer-events-none" />
               
               <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-medium text-slate-300 ml-1 uppercase tracking-wider">Full Name *</label>
+                    <label className="text-[11px] font-medium text-slate-600 ml-1 uppercase tracking-wider">Full Name *</label>
                     <input 
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
                       required
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-medium text-slate-300 ml-1 uppercase tracking-wider">Email *</label>
+                    <label className="text-[11px] font-medium text-slate-600 ml-1 uppercase tracking-wider">Email *</label>
                     <input 
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-medium text-slate-300 ml-1 uppercase tracking-wider">Phone Number *</label>
+                  <label className="text-[11px] font-medium text-slate-600 ml-1 uppercase tracking-wider">Phone Number *</label>
                   <input 
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 00000 00000"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400 focus:outline-none focus:border-green-400 focus:ring-0 transition-all"
                     required
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-medium text-slate-300 ml-1 uppercase tracking-wider">Message</label>
+                  <label className="text-[11px] font-medium text-slate-600 ml-1 uppercase tracking-wider">Message</label>
                   <textarea 
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}
                     placeholder="How can we help you?"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-green-400 focus:ring-0 transition-all resize-none"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-950 placeholder:text-slate-400 focus:outline-none focus:border-green-400 focus:ring-0 transition-all resize-none"
                   />
                 </div>
 
@@ -229,11 +229,11 @@ export default function ContactSection() {
                 </button>
 
                 {submitError ? (
-                  <p className="text-sm text-red-400">{submitError}</p>
+                  <p className="text-sm text-red-500">{submitError}</p>
                 ) : null}
 
                 {submitState === "success" ? (
-                  <p className="text-sm text-[#7ef7c4]">Your message was sent successfully.</p>
+                  <p className="text-sm text-[#00b274]">Your message was sent successfully.</p>
                 ) : null}
               </form>
             </div>

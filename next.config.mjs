@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   // Next.js 16 uses Turbopack by default. If a `webpack` config is present,
   // Next expects an explicit `turbopack` config too.
   turbopack: {},
