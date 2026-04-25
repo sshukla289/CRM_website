@@ -47,9 +47,9 @@ export default function PricingSection() {
         semiannual: 849,
         annual: 799
       },
-      description: "Perfect for small teams getting started",
-      features: ["Lead management", "Contact tracking", "Basic reports"],
-      buttonText: "Start Free Trial",
+      description: "Automate your first sales pipeline and stop losing leads",
+      features: ["Lead capture & tracking", "Basic sales automation", "Core activity reports"],
+      buttonText: "Book Demo",
       highlighted: false,
       outline: true
     },
@@ -60,16 +60,16 @@ export default function PricingSection() {
         semiannual: 1599,
         annual: 1499
       },
-      description: "Advanced tools for growing businesses",
+      description: "Scale your revenue with advanced workflow automation",
       features: [
         "Everything in Starter",
-        "Workflow automation",
-        "Sales pipeline tracking",
-        "Analytics dashboard"
+        "Multi-channel automation",
+        "Advanced sales analytics",
+        "WhatsApp integration"
       ],
-      buttonText: "Start Free Trial",
+      buttonText: "Book Demo",
       highlighted: true,
-      badge: "Most Popular"
+      badge: "Best ROI"
     },
     {
       name: "Enterprise",
@@ -78,14 +78,14 @@ export default function PricingSection() {
         semiannual: 2649,
         annual: 2499
       },
-      description: "Full customization and enterprise support",
+      description: "Maximum visibility and control for large-scale operations",
       features: [
         "Everything in Professional",
-        "Custom integrations",
-        "Dedicated support",
-        "Advanced security"
+        "Custom CRM modules",
+        "White-label options",
+        "Dedicated account manager"
       ],
-      buttonText: "Contact Sales",
+      buttonText: "Book Demo",
       highlighted: false
     }
   ];
@@ -100,13 +100,13 @@ export default function PricingSection() {
         {/* Header */}
         <div className={`text-center mb-10 md:mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
           <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
-            PRICING
+            Invest in Growth
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Simple, Transparent Pricing
+            ROI-Focused Pricing
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Choose a plan that fits your business needs
+            CRM Solutions pays for itself by helping you close more deals and eliminating manual tasks.
           </p>
         </div>
 
