@@ -187,7 +187,7 @@ export default function GooglePlaySection() {
                 </div>
 
                 <div className="float-slow-delayed absolute -right-3 bottom-12 hidden rounded-2xl border border-[#00b274]/15 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-md md:block">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#8ef9d0]">Update</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#007a50]">Update</p>
                   <p className="mt-1 text-sm font-semibold text-slate-950">Field notes in 1 tap</p>
                 </div>
               </div>
