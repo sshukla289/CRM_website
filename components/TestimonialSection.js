@@ -251,16 +251,23 @@ function VideoModal({ video, onClose }) {
 }
 
 function MarqueeRow({ items, directionClass }) {
-  const duplicated = useMemo(() => [...items, ...items], [items]);
-
   return (
     <div className="relative w-full overflow-hidden mask-gradient pause-on-hover">
-      <div className={`flex w-max transform-gpu items-stretch gap-5 ${directionClass} py-3`}>
-        {duplicated.map((item, index) => (
-          <div key={`${item.id}-${index}`} className="flex">
-            <item.Render />
-          </div>
-        ))}
+      <div className={`flex w-max transform-gpu items-stretch ${directionClass} py-3`}>
+        <div className="flex shrink-0 items-stretch gap-5 pr-5">
+          {items.map((item) => (
+            <div key={`${item.id}-primary`} className="flex">
+              <item.Render />
+            </div>
+          ))}
+        </div>
+        <div className="flex shrink-0 items-stretch gap-5 pr-5" aria-hidden="true">
+          {items.map((item) => (
+            <div key={`${item.id}-duplicate`} className="flex">
+              <item.Render />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
