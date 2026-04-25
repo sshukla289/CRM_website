@@ -96,14 +96,6 @@ export default function HeroForm() {
           </div>
         </div>
         
-        <button 
-          type="submit" 
-          disabled={status === "submitting"}
-          className="w-full bg-[#00b274] text-white font-bold py-4 rounded-xl hover:bg-[#009661] transition-all duration-300 shadow-lg shadow-[#00b274]/30 active:scale-[0.98] mt-2"
-        >
-          {status === "submitting" ? "Scheduling..." : "Get Free Demo"}
-        </button>
-
         {errorMessage ? (
           <p className="text-sm text-red-600">{errorMessage}</p>
         ) : null}
