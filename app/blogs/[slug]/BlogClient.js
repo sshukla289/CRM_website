@@ -6,9 +6,56 @@ import Link from "next/link";
 import { slugify } from "@/lib/utils";
 import SEOComponent from "@/components/SEOComponent";
 
+function getDisplayContent(rawContent) {
+  if (typeof rawContent !== "string") {
+    return "";
+  }
+
+  let parsed = rawContent.trim();
+
+  // Some blog entries arrive as JSON strings like:
+  // {"content":"..."} or "\"{\\\"content\\\":\\\"...\\\"}\""
+  for (let i = 0; i < 2; i += 1) {
+    if (typeof parsed !== "string") {
+      break;
+    }
+
+    const candidate = parsed.trim();
+    if (!candidate) {
+      return "";
+    }
+
+    try {
+      parsed = JSON.parse(candidate);
+    } catch {
+      break;
+    }
+  }
+
+  if (parsed && typeof parsed === "object" && typeof parsed.content === "string") {
+    parsed = parsed.content;
+  }
+
+  let text = typeof parsed === "string" ? parsed : "";
+
+  if (/^\s*\{[\s\S]*"content"\s*:/i.test(text)) {
+    text = text
+      .replace(/^\s*\{\s*"content"\s*:\s*/i, "")
+      .replace(/\}\s*$/, "")
+      .replace(/^"+|"+$/g, "");
+  }
+
+  return text
+    .replace(/\\"/g, '"')
+    .replace(/\\n/g, "\n")
+    .replace(/\r\n/g, "\n")
+    .trim();
+}
+
 export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
   const post = initialPost;
   const recentPosts = initialRecentPosts || [];
+  const displayContent = getDisplayContent(post?.content || "");
 
   if (!post) {
     return (
@@ -79,7 +126,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
               )}
 
               <div className="max-w-none text-slate-700 animate-fade-in [animation-delay:300ms]">
-                {post.content?.split('\n\n').map((paragraph, i) => (
+                {displayContent.split('\n\n').filter(Boolean).map((paragraph, i) => (
                   <p key={i} className="mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed text-slate-700">
                     {paragraph}
                   </p>
