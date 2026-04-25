@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import BookCallModal from "./BookCallModal";
 
 const CRM_LOGIN_URL = "https://crm.triostack.in/login";
@@ -12,7 +12,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
   const pathname = usePathname();
   const isLightHeaderPage = pathname === "/features" || pathname === "/pricing";
 
@@ -30,26 +29,34 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setIsVisible(true);
+      return undefined;
+    }
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
-      const scrollDelta = currentScrollY - lastScrollY.current;
 
-      if (currentScrollY <= 20) {
-        setIsVisible(true);
-      } else if (scrollDelta > 8) {
-        setIsVisible(false);
-        setIsMobileMenuOpen(false);
-      } else if (scrollDelta < -8) {
-        setIsVisible(true);
+      const heroSection = document.querySelector('section[data-hero="true"]');
+      if (!heroSection) {
+        setIsVisible(currentScrollY <= 20);
+        return;
       }
-      lastScrollY.current = currentScrollY;
+
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const shouldShowNavbar = heroBottom > 120;
+
+      setIsVisible(shouldShowNavbar);
+      if (!shouldShowNavbar) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   // Close mobile menu on path change
   useEffect(() => {

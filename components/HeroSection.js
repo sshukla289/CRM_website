@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
+    <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
       {/* Background Image with Overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
