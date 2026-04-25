@@ -13,7 +13,8 @@ export default function Navbar() {
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLightHeaderPage = pathname === "/features" || pathname === "/pricing";
+  const isLightHeaderPage =
+    pathname === "/features" || pathname === "/pricing" || pathname.startsWith("/industries");
 
   const handleLoginClick = () => {
     window.location.assign(CRM_LOGIN_URL);
