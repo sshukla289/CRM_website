@@ -108,7 +108,7 @@ export default function Chatbot() {
               <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#0b1220] rounded-full"></span>
             </div>
             <div>
-              <h3 className="text-white font-bold text-sm">Triostack AI</h3>
+              <h3 className="text-white font-bold text-sm">CRM Solutions AI</h3>
               <p className="text-white/70 text-[10px] uppercase tracking-widest font-semibold">Active Now</p>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function Chatbot() {
                   </button>
                 </form>
               )}
-              <p className="text-[10px] text-slate-500 text-center mt-3">Powered by Triostack CRM</p>
+              <p className="text-[10px] text-slate-500 text-center mt-3">Powered by CRM Solutions</p>
             </div>
           </>
         )}

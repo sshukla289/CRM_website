@@ -91,7 +91,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-20 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section ref={sectionRef} className="relative py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
       {/* Decorative Glows */}
       <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />

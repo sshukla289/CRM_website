@@ -90,7 +90,7 @@ export default function HeroForm() {
             name="crm_solution"
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all appearance-none cursor-pointer"
           >
-            <option value="">CRM Solutions</option>
+            <option value="">Trio CRM</option>
             <option value="enterprise">Enterprise CRM</option>
             <option value="sales">Sales Automation</option>
             <option value="custom">Custom Implementation</option>

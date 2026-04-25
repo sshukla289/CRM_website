@@ -82,7 +82,7 @@ export default function BookCallModal({
 
   return (
     <div
-      className="fixed inset-0 z-[120] flex items-center justify-center px-4 py-8 sm:px-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center px-4 py-8 sm:px-6"
       onClick={handleBackdropClick}
       role="presentation"
     >

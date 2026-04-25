@@ -93,7 +93,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative scroll-mt-28 py-10 md:py-12 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden"
+      className="relative scroll-mt-28 py-8 md:py-10 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden"
     >
       {/* Background Decorative Blobs */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />

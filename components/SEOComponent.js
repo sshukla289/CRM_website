@@ -8,7 +8,7 @@ export default function SEOComponent({
   url = "https://triostack.in",
   type = "website" 
 }) {
-  const siteName = "Triostack CRM";
+  const siteName = "CRM Solutions";
   const fullTitle = `${title} | ${siteName}`;
 
   return (

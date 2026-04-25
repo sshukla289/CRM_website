@@ -9,8 +9,8 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
   metadataBase: new URL('https://triostack.in'),
   title: {
-    default: "Triostack CRM | Premium Enterprise Software Solution",
-    template: "%s | Triostack CRM"
+    default: "CRM Solutions | Premium Enterprise Software Solution",
+    template: "%s | CRM Solutions"
   },
   description: "Custom-built CRM solutions for Indian enterprises. Specialized in GST compliance, WhatsApp automation, and multi-branch sales operations.",
   keywords: ["CRM India", "GST CRM", "WhatsApp Automation CRM", "Enterprise CRM", "Sales Automation Software", "Triostack", "CRM for MSME"],
@@ -25,21 +25,21 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://triostack.in",
-    siteName: "Triostack CRM",
-    title: "Triostack CRM | Enterprise Software Solution",
+    siteName: "CRM Solutions",
+    title: "CRM Solutions | Enterprise Software Solution",
     description: "Scale your business with India's most compliant and automated CRM solution.",
     images: [
       {
         url: "/img.png",
         width: 1200,
         height: 630,
-        alt: "Triostack CRM Dashboard",
+        alt: "CRM Solutions Dashboard",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Triostack CRM | Enterprise Software Solution",
+    title: "CRM Solutions | Enterprise Software Solution",
     description: "Scale your business with India's most compliant and automated CRM solution.",
     images: ["/img.png"],
   },

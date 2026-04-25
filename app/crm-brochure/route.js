@@ -1,5 +1,5 @@
 const brochureLines = [
-  "Triostack CRM Brochure",
+  "CRM Solutions Brochure",
   "Unified CRM for sales, service, operations, and team collaboration.",
   "",
   "Highlights",

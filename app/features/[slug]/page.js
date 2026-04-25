@@ -254,9 +254,15 @@ export default function FeatureDetailPage() {
   return (
     <main className="min-h-screen bg-[#0B1220] text-white">
       <Navbar />
+      <BookCallModal 
+        isOpen={isModalOpen} 
+        onClose={handleModalClose} 
+        title="Book a Demo"
+        subtitle="Get a personalized tour of our CRM solutions and see how we can help your business grow."
+      />
 
       {/* Hero Section */}
-      <section className="relative pt-28 md:pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-32 md:pt-48 pb-32 md:pb-40 overflow-hidden">
         {/* Background Video with Overlay */}
         {activeHeroVideo ? (
           <div className="absolute inset-0 z-0 overflow-hidden">
@@ -282,52 +288,30 @@ export default function FeatureDetailPage() {
         )}
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <Reveal>
-            <nav className="flex text-sm text-[#00b274] font-medium mb-10 md:mb-12">
-              <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
-                <li><span>&gt;</span></li>
-                <li><Link href="/features" className="hover:underline">Features</Link></li>
-                <li><span>&gt;</span></li>
-                <li className="text-white/50">{feature.title}</li>
-              </ol>
-            </nav>
-          </Reveal>
+
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
             <div className="space-y-8">
-              <Reveal delay={100}>
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#00b274]/10 border border-[#00b274]/20 text-[#00b274] text-sm font-bold uppercase tracking-wider">
-                   <FeatureIcon type={feature.icon} className="h-4 w-4" />
-                   {feature.title}
-                </div>
-              </Reveal>
+
               <Reveal delay={200}>
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                   {feature.details?.subtitle || feature.title}
                 </h1>
               </Reveal>
               <Reveal delay={300}>
-                <p className="text-xl text-slate-400 leading-relaxed max-w-xl">
+                <p className="text-base text-slate-400 leading-relaxed max-w-2xl">
                   {feature.details?.shortDescription || feature.description}
                 </p>
               </Reveal>
-              <Reveal delay={400}>
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    onClick={handleModalOpen}
-                    className="bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105"
-                  >
-                    Book a Demo
-                  </button>
-                  <button
-                    onClick={() => document.getElementById('overview').scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-white/5 hover:bg-white/10 text-white px-10 py-4 rounded-full font-bold transition-all duration-300 border border-white/10"
-                  >
-                    Explore Features
-                  </button>
-                </div>
-              </Reveal>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
+                >
+                  Book a Demo
+                </button>
+              </div>
             </div>
 
             <Reveal delay={500}>
@@ -407,8 +391,8 @@ export default function FeatureDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {feature.details.howItHelps.map((item, idx) => (
-                <Reveal key={idx} delay={idx * 100}>
-                  <div className="p-8 rounded-3xl bg-[#0F172A] border border-white/5 hover:border-[#00b274]/30 transition-all duration-500 group h-full">
+                <Reveal key={idx} delay={idx * 100} className="group h-full">
+                  <div className="relative h-full p-8 rounded-3xl bg-[#0F172A] border border-white/5 hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-[#0F172A]/80 group-hover:-translate-y-1">
                     <div className="w-12 h-12 rounded-2xl bg-[#00b274]/10 flex items-center justify-center mb-8 text-[#00b274] group-hover:bg-[#00b274] group-hover:text-white transition-all duration-500">
                       <span className="text-xl font-bold">{idx + 1}</span>
                     </div>
@@ -478,21 +462,20 @@ export default function FeatureDetailPage() {
       {feature.details?.ctaSection && (
         <section className="py-32 relative">
           <div className="container max-w-4xl mx-auto px-6 text-center">
-            <Reveal>
               <h2 className="text-4xl md:text-5xl font-bold mb-8">{feature.details.ctaSection.heading}</h2>
               <p className="text-xl text-slate-400 mb-12">{feature.details.ctaSection.description}</p>
               <button
-                onClick={handleModalOpen}
-                className="bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)]"
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)] cursor-pointer"
               >
                 {feature.details.ctaSection.buttonText}
               </button>
-            </Reveal>
           </div>
         </section>
       )}
 
-      <BookCallModal isOpen={isModalOpen} onClose={handleModalClose} />
+
     </main>
   );
 }

@@ -6,6 +6,8 @@
     --foreground: #ffffff;
     --accent: #00b274;
     --accent-glow: rgba(0, 178, 116, 0.4);
+    --border: rgba(255, 255, 255, 0.05);
+    --card: #0d1627;
   }
 
   html {

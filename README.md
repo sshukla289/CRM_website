@@ -1,6 +1,6 @@
 # CRM Website
 
-This project is a Next.js 16 marketing website for Triostack CRM. It includes a landing page, pricing page, industries page, features page, blog listing with detail pages, legal pages, and a brochure download route.
+This project is a Next.js 16 marketing website for CRM Solutions. It includes a landing page, pricing page, industries page, features page, blog listing with detail pages, legal pages, and a brochure download route.
 
 The project is configured to run on one public application port only:
 

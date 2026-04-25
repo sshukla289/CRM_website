@@ -78,8 +78,8 @@ export default function Navbar() {
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         } ${
           isScrolled
-            ? "bg-[#07111d]/95 backdrop-blur-xl py-3.5 border-b border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-            : "bg-transparent py-6 border-b border-white/[0.03]"
+            ? "bg-background/95 backdrop-blur-xl py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+            : "bg-transparent py-6"
         }`}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -165,7 +165,7 @@ export default function Navbar() {
 
         <div
           id="mobile-nav-menu"
-          className={`absolute inset-x-0 top-[72px] max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-white/10 bg-[#050b14]/96 backdrop-blur-2xl transition-all duration-500 ${
+          className={`absolute inset-x-0 top-[72px] max-h-[calc(100dvh-72px)] overflow-y-auto bg-background/96 backdrop-blur-2xl transition-all duration-500 ${
             isMobileMenuOpen
               ? "translate-y-0 opacity-100"
               : "-translate-y-4 opacity-0"
