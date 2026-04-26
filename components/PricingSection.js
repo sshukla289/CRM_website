@@ -45,7 +45,7 @@ export default function PricingSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-8 md:py-10 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden"
+      className="relative pt-8 pb-16 md:pt-10 md:pb-24 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden"
     >
       <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -118,15 +118,36 @@ export default function PricingSection() {
                   <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
                 </div>
 
-                <div className="space-y-4 mb-10 flex-grow">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#00b274] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-slate-700 text-sm">{feature}</span>
+                <div className="mb-10 flex-grow space-y-6">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-950 mb-4">
+                      {plan.featureSectionTitle || "Features Included"}
+                    </h4>
+                    <div className="space-y-4">
+                      {plan.fullFeatures.map((feature, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-[#00b274] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-slate-700 text-sm">{feature}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-950 mb-4">Support & SLA</h4>
+                    <div className="space-y-4">
+                      {plan.support.map((item, i) => (
+                        <div key={`support-${i}`} className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-[#00b274] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-slate-700 text-sm">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
                 <button
