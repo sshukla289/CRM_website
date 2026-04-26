@@ -98,7 +98,7 @@ export default function BookCallModal({
   }
 
   const pricePerUserPerMonth = planDetails
-    ? `${"\u20B9"}${planDetails.price?.[billingCycle]?.toLocaleString()} per user / month`
+    ? `${"\u20B9"}${planDetails.price?.[billingCycle]?.toLocaleString()} /user / month`
     : "";
 
   const modal = (

@@ -102,7 +102,7 @@ export default function PricingPage() {
                       <span className="text-5xl font-bold text-slate-950">
                         {plan.price[billingCycle].toLocaleString()}
                       </span>
-                      <span className="text-slate-500 text-sm">per user / month</span>
+                      <span className="text-slate-500 text-sm">/user / month</span>
                     </div>
                     <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                       <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-800">{plan.users}</span>
