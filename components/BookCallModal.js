@@ -144,32 +144,6 @@ export default function BookCallModal({
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{subtitle}</p>
             </div>
-
-            {planDetails ? (
-              <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
-                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
-                  <span className="rounded-full bg-white px-3 py-1 text-slate-800">{planDetails.name}</span>
-                  <span className="text-slate-300">|</span>
-                  <span>{billingLabels[billingCycle]}</span>
-                </div>
-
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Users</p>
-                    <p className="mt-2 text-base font-semibold text-slate-950">{planDetails.users}</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Billing</p>
-                    <p className="mt-2 text-base font-semibold text-slate-950">{billingLabels[billingCycle]}</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Plan</p>
-                    <p className="mt-2 text-base font-semibold text-slate-950">{planDetails.name}</p>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-
             <form className="space-y-4" onSubmit={handleSubmit}>
               <input name="crm_solution" type="hidden" value={planDetails?.name || "CRM Solutions"} />
 
