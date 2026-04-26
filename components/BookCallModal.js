@@ -20,6 +20,13 @@ export default function BookCallModal({
     semiannual: "Semi-Annual",
     annual: "Annual",
   };
+  const userOptions = [
+    "1 User",
+    "2 Users",
+    "3-5 Users",
+    "6-10 Users",
+    "10+ Users",
+  ];
 
   useEffect(() => {
     setIsMounted(true);
@@ -55,6 +62,8 @@ export default function BookCallModal({
           plan_billing_cycle: billingCycle,
           plan_users: planDetails?.users || "",
           plan_total: planDetails?.total?.[billingCycle] || "",
+          user_requirement: formData.get("user_requirement"),
+          selected_price: pricePerUserPerMonth,
         },
       });
 
@@ -110,7 +119,7 @@ export default function BookCallModal({
       <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md" />
 
       <div
-        className="relative z-[10001] w-full max-w-4xl"
+        className="relative z-[10001] w-full max-w-xl"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -146,87 +155,47 @@ export default function BookCallModal({
               <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
                 <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                   <span className="rounded-full bg-white px-3 py-1 text-slate-800">{planDetails.name}</span>
-                  <span>{planDetails.users}</span>
                   <span className="text-slate-300">|</span>
                   <span>{billingLabels[billingCycle]}</span>
-                  <span className="text-slate-300">|</span>
-                  <span>{planDetails.total?.[billingCycle]} total</span>
                 </div>
 
-                <div className="mt-3 text-sm font-semibold text-slate-900">
-                  {pricePerUserPerMonth}
-                </div>
-
-                <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                  <div className="grid grid-cols-3 gap-0 border-b border-slate-200 bg-slate-100/80 text-xs font-bold uppercase tracking-wide text-slate-600">
-                    <div className="px-4 py-3">Billing</div>
-                    <div className="px-4 py-3">Price (Per User / Month)</div>
-                    <div className="px-4 py-3">Total</div>
+                <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Price</p>
+                    <p className="mt-2 text-base font-semibold text-slate-950">{pricePerUserPerMonth}</p>
                   </div>
-                  {["quarterly", "semiannual", "annual"].map((cycle, index) => (
-                    <div
-                      key={cycle}
-                      className={`grid grid-cols-3 gap-0 text-sm ${index !== 2 ? "border-b border-slate-200" : ""}`}
-                    >
-                      <div className="px-4 py-3 font-medium text-slate-700">{billingLabels[cycle]}</div>
-                      <div className="px-4 py-3 text-slate-900">
-                        {`${"\u20B9"}${planDetails.price?.[cycle]?.toLocaleString()}`}
-                      </div>
-                      <div className="px-4 py-3 text-slate-900">{planDetails.total?.[cycle]}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-950">
-                      {planDetails.featureSectionTitle || "Features Included"}
-                    </h3>
-                    <div className="mt-3 space-y-2">
-                      {(planDetails.fullFeatures || []).map((item, index) => (
-                        <div key={`feature-${index}`} className="flex items-start gap-2">
-                          <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-xs leading-relaxed text-slate-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Users</p>
+                    <p className="mt-2 text-base font-semibold text-slate-950">{planDetails.users}</p>
                   </div>
-
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-950">Support & SLA</h3>
-                    <div className="mt-3 space-y-2">
-                      {(planDetails.support || []).map((item, index) => (
-                        <div key={`support-${index}`} className="flex items-start gap-2">
-                          <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-xs leading-relaxed text-slate-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Billing</p>
+                    <p className="mt-2 text-base font-semibold text-slate-950">{billingLabels[billingCycle]}</p>
                   </div>
                 </div>
               </div>
             ) : null}
 
             <form className="space-y-4" onSubmit={handleSubmit}>
+              <input name="crm_solution" type="hidden" value={planDetails?.name || "CRM Solutions"} />
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
+                  <label className="mb-2 block text-sm font-semibold text-slate-900">Full Name</label>
                   <input
                     name="name"
                     type="text"
-                    placeholder="Full Name *"
+                    placeholder="Enter your full name"
                     className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                     required
                   />
                 </div>
                 <div>
+                  <label className="mb-2 block text-sm font-semibold text-slate-900">Phone Number</label>
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="Phone Number *"
+                    placeholder="Enter your phone number"
                     className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                     required
                   />
@@ -234,41 +203,60 @@ export default function BookCallModal({
               </div>
 
               <div>
+                <label className="mb-2 block text-sm font-semibold text-slate-900">Work Email</label>
                 <input
                   name="email"
                   type="email"
-                  placeholder="Work Email *"
+                  placeholder="Enter your work email"
                   className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                   required
                 />
               </div>
-              <div>
-                <input
-                  name="company"
-                  type="text"
-                  placeholder="Company Name (Optional)"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
-                />
-              </div>
-              <div>
-                <select
-                  name="crm_solution"
-                  className="w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
-                >
-                  <option value="">CRM Solutions</option>
-                  <option value="enterprise">Enterprise CRM</option>
-                  <option value="sales">Sales Automation</option>
-                  <option value="custom">Custom Implementation</option>
-                </select>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-sm font-semibold text-slate-900">Company Name</label>
+                  <input
+                    name="company"
+                    type="text"
+                    placeholder="Enter your company name"
+                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-semibold text-slate-900">User Requirement</label>
+                  <select
+                    name="user_requirement"
+                    defaultValue={planDetails?.users || ""}
+                    className="w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition-all focus:border-[#00b274] focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                    required
+                  >
+                    <option value="" disabled>Select user range</option>
+                    {userOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
-              <button
-                type="submit"
-                disabled={status === "submitting"}
-                className="mt-2 w-full rounded-xl bg-gradient-to-r from-[#00b274] to-[#009661] py-4 font-bold text-white shadow-[0_12px_32px_rgba(0,178,116,0.28)] transition-all duration-300 hover:brightness-105 active:scale-[0.98] cursor-pointer"
-              >
-                {status === "submitting" ? "Submitting..." : "Submit Request"}
-              </button>
+              <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="rounded-xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="rounded-xl bg-gradient-to-r from-[#00b274] to-[#009661] px-6 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,178,116,0.28)] transition-all duration-300 hover:brightness-105 active:scale-[0.98] cursor-pointer"
+                >
+                  {status === "submitting" ? "Submitting..." : "Submit"}
+                </button>
+              </div>
 
               {errorMessage ? <p className="text-sm text-red-600">{errorMessage}</p> : null}
             </form>
